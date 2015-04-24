@@ -64,6 +64,8 @@ private:
 	Actor *playerShip;
 	Vector2 playerPosition;
 	Vector2 playerVel;
+	Vector2 playerDirection;
+	//int playerDirection = 0; //8 possible directions numbered 0-7 in clockwise order by 45 degree increments
 	Actor *stage;
 	Vector2 stagePosition;
 	Vector2 stageVel;
