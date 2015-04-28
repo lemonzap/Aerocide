@@ -175,7 +175,9 @@ cd ..\Tools\BuildScripts\
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
       </PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="Asteroid.cpp" />
     <ClCompile Include="GameManager.cpp" />
+    <ClCompile Include="Player.cpp" />
     <ClCompile Include="Shot.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
@@ -187,8 +189,10 @@ cd ..\Tools\BuildScripts\
     <ResourceCompile Include="platforms\win\ClientGame.rc" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Asteroid.h" />
     <ClInclude Include="GameManager.h" />
     <ClInclude Include="platforms\win\resource.h" />
+    <ClInclude Include="Player.h" />
     <ClInclude Include="Shot.h" />
     <ClInclude Include="stdafx.h" />
   </ItemGroup>

@@ -10,13 +10,19 @@ Shot::Shot(float X, float Y, Vector2 shooterVel){
 	shotPosition.Y = Y;
 	//shotVel += shooterVel;
 	//setup shot
+	this->SetPosition(shotPosition);
 	this->SetSize(0.5f);
 	this->SetColor(1, 1, 1, 1); //(white and opaque so the texture comes through fully)
 	this->ClearSpriteInfo();
 	this->SetSprite("Resources/Images/Shot.png", 0, GL_CLAMP, GL_NEAREST, false);
 	this->SetLayer(2); //player shots layer
+	SetDensity(0.05f);
+	InitPhysics();
+	ApplyLinearImpulse(shotVel, Vector2::Zero);
 	theWorld.Add(this);
-	this->SetPosition(shotPosition);
+	Tag("Bullet");
+	SetName("PlayerShot");
+	theSwitchboard.SubscribeTo(this, "CollisionStartWith" + GetName());
 }
 
 void Shot::Update(float dt){
@@ -26,10 +32,19 @@ void Shot::Update(float dt){
 		Destroy();
 	}
 	else{
-		//update shot position according to its velocity
-		shotPosition += shotVel;
-		//move shot
-		this->SetPosition(shotPosition);
+		
 	}
 
+}
+
+void Shot::ReceiveMessage(Message *message)
+{
+	if (message->GetMessageName() == "CollisionStartWith" + GetName())
+	{
+		PhysicsActor* collider = (PhysicsActor*)message->GetSender();
+		if (true)
+		{
+			Destroy();
+		}
+	}
 }

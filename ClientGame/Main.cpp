@@ -14,7 +14,9 @@ int main(int argc, char* argv[])
 	//		bool fullScreen			default: false
 	//		bool resizable			default: false
 	theWorld.Initialize(768,768,"Aerocide",false, false, false);
-	
+
+	theWorld.SetupPhysics(Vector2(0.0f, 0.0f));
+
 	//adds the default grid so you can more easily place Actors
 	theWorld.Add(new GridActor(), -1);
 	
