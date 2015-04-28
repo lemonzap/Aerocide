@@ -11,6 +11,7 @@ Player::Player(){
 	this->ClearSpriteInfo();
 	this->SetSprite("Resources/Images/Ship.png", 0, GL_CLAMP, GL_NEAREST, false);
 	this->SetLayer(3); //player layer
+	this->SetFixedRotation(true);
 	SetDensity(0.05f);
 	InitPhysics();
 	theWorld.Add(this);
@@ -51,7 +52,7 @@ void Player::Update(float dt){
 			direction.Normalize();
 		}
 		//this->ApplyLinearImpulse(-velocity, Vector2::Zero);
-		//multiply normalized vector components by the players maximum speed (variable needed)
+		//multiply normalized vector components by the players maximum speed (variable needed) currently 10
 		velocity.X = direction.X * 10.0f;
 		velocity.Y = direction.Y * 10.0f;
 
@@ -78,6 +79,7 @@ void Player::Update(float dt){
 		else if (GetPosition().Y > 9.5 && this->GetBody()->GetLinearVelocity().y > 0){
 			this->GetBody()->SetLinearVelocity(b2Vec2(this->GetBody()->GetLinearVelocity().x, 0));
 		}
+
 		animateHit();
 	}
 	else{
