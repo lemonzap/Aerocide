@@ -8,7 +8,15 @@ AerocideGameManager::AerocideGameManager()
 	//subscribe to messages
 	theSwitchboard.SubscribeTo(this, "ToggleDebugInfo");
 
-	idealFPS = 60;
+	idealFPS = 120;
+
+	text = new TextActor("Console", "Press Enter to Begin");
+	text->SetPosition(0, 1);
+	text->SetAlignment(TXT_Center);
+	text->SetLayer(4); //text layer
+	text->SetColor(0,1,0,1);
+	theWorld.Add(text);
+
 	//setup stage
 	stage = new Actor();
 	stage->SetSize(20.0f, 426.666f);
@@ -23,7 +31,7 @@ AerocideGameManager::AerocideGameManager()
 	stageVel.X = 0.0f;
 	stageVel.Y = -0.1f;
 
-	new Player();
+	player = new Player();
 
 	//initialize first frame time in the past so that the first frame will run
 	lastFrameTime = glfwGetTime() - 1;
@@ -53,22 +61,42 @@ void AerocideGameManager::ReceiveMessage(Message* message)
 
 void AerocideGameManager::Update(float dt)
 {
-	//calcualte fps
-	realFPS = 1 / (glfwGetTime() - lastFrameTime);
-	while (realFPS > idealFPS){
-		//delay framerate
-		realFPS = 1 / (glfwGetTime() - lastFrameTime);
+	if (!gameStarted){
+		theWorld.PauseSimulation();
+		if (theInput.IsKeyDown(GLFW_KEY_ENTER)){
+			gameStarted = true;
+			theWorld.Remove(text);
+			theWorld.ResumeSimulation();
+		}
 	}
+	else{
+
+		if (player->IsDestroyed()){
+			text = new TextActor("Console", "Game Over");
+			text->SetPosition(0, 1);
+			text->SetAlignment(TXT_Center);
+			text->SetLayer(4); //text layer
+			text->SetColor(0, 1, 0, 1);
+			theWorld.Add(text);
+			theWorld.PauseSimulation();
+		}
+
+		//calcualte fps
+		realFPS = 1 / (glfwGetTime() - lastFrameTime);
+		while (realFPS > idealFPS){
+			//delay framerate
+			realFPS = 1 / (glfwGetTime() - lastFrameTime);
+		}
 		//update displayed fps only once per second
 		/*if (glfwGetTime() - lastFPSUpdateTime >= 1){
 			debugInfoFPS = realFPS;
 			lastFPSUpdateTime = glfwGetTime();
-		}*/
-	if (realFPS <= idealFPS){
-		debugInfoFPS = realFPS;
-	}
+			}*/
+		if (realFPS <= idealFPS){
+			debugInfoFPS = realFPS;
+		}
 		//if end of stage not reached continue scrolling
-		if (stagePosition.Y > (-426.666 / 2.0f) + 11){ //half the stage images height plus half the screens height and 1 as a buffer from overshooting the edge of the image
+		if (stagePosition.Y > (-426.666 / 2.0f) + 11 && !player->IsDestroyed()){ //half the stage images height plus half the screens height and 1 as a buffer from overshooting the edge of the image
 			//update stage position according to its velocity
 			stagePosition.Y += stageVel.Y;
 		}
@@ -77,9 +105,28 @@ void AerocideGameManager::Update(float dt)
 
 
 
-			if (stagePosition.Y <= 185 && !asteroidSpawned){
-				new Asteroid(-3, 25, 0.5, -3);
-				asteroidSpawned = true;
+		if (stagePosition.Y <= 185 && !asteroidSpawned){
+			new Asteroid(-3, 25, 0.5, -3);
+			new Asteroid(4, 24, 1, -2);
+			new Asteroid(-3.5, 23, 0.7, -3.5);
+			new Asteroid(-1, 26, 1.5, -3.2);
+			new Asteroid(-7, 25, 1.3, -3.4);
+			new Asteroid(6, 27, -0.2, -2.4);
+			new Asteroid(9, 25.4, -0.3, -2.5);
+			new Asteroid(5.5, 24.6, -1.2, -2.3);
+			new Asteroid(-3.7, 23.4, 1.7, -2.7);
+			new Asteroid(-8, 26.7, 0.4, -3.3);
+			new Asteroid(-9, 26.3, 0.3, -3.25);
+			new Asteroid(0.3, 24.5, -0.25, -2.8);
+			new Asteroid(-2.5, 23.8, 1.25, -2.9);
+			new Asteroid(4.6, 23, -0.55, -2.5);
+			new Asteroid(2, 25.5, -0.59, -2.5);
+			new Asteroid(6.7, 25.3, -1.1, -2.6);
+			new Asteroid(0.75, 24.7, -1.05, -2.3);
+			new Asteroid(8.8, 24.45, -1.8, -2.2);
+			new Asteroid(-5, 26.4, 2, 2.1);
+			new Asteroid(3.5, 26.8, -0.6, -2.25);
+			asteroidSpawned = true;
 		}
 
 		//move stage
@@ -87,6 +134,7 @@ void AerocideGameManager::Update(float dt)
 
 		//store time completed
 		lastFrameTime = glfwGetTime();
+	}
 }
 
 void AerocideGameManager::Render()

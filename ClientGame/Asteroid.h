@@ -19,4 +19,6 @@ private:
 	int health;
 	int currentHitFrame = 0;
 	bool isHit = false;
+	bool dying = false;
+	int dyingFrame = 0;
 };

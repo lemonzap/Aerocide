@@ -61,7 +61,9 @@ protected:
 	static AerocideGameManager *s_AerocideGameManager;
 
 private:
-	Actor *stage;
+	Player* player;
+	Actor* stage;
+	TextActor* text;
 	Vector2 stagePosition;
 	Vector2 stageVel;
 	float idealFPS;
@@ -71,4 +73,5 @@ private:
 	float lastFPSUpdateTime = 0;
 	bool debugInfo = false;
 	bool asteroidSpawned = false;
+	bool gameStarted = false;
 };

@@ -16,11 +16,13 @@ Shot::Shot(float X, float Y, Vector2 shooterVel){
 	this->ClearSpriteInfo();
 	this->SetSprite("Resources/Images/Shot.png", 0, GL_CLAMP, GL_NEAREST, false);
 	this->SetLayer(2); //player shots layer
+	this->SetIsSensor(true);
 	SetDensity(0.05f);
 	InitPhysics();
 	ApplyLinearImpulse(shotVel, Vector2::Zero);
 	theWorld.Add(this);
 	Tag("Bullet");
+	Tag("Friendly");
 	SetName("PlayerShot");
 	theSwitchboard.SubscribeTo(this, "CollisionStartWith" + GetName());
 }
@@ -28,7 +30,7 @@ Shot::Shot(float X, float Y, Vector2 shooterVel){
 void Shot::Update(float dt){
 	timeAlive += dt;
 	//shots stay alive for 5 seconds
-	if (timeAlive >= 5){
+	if (timeAlive >= 1.6){
 		Destroy();
 	}
 	else{
@@ -42,9 +44,13 @@ void Shot::ReceiveMessage(Message *message)
 	if (message->GetMessageName() == "CollisionStartWith" + GetName())
 	{
 		PhysicsActor* collider = (PhysicsActor*)message->GetSender();
-		if (true)
-		{
-			Destroy();
+		if (!collider->IsDestroyed()){
+			if (collider->GetName() == "PlayerShip" || collider->IsTagged("Bullet")){
+				//do nothing
+			}
+			else{
+				Destroy();
+			}
 		}
 	}
 }
