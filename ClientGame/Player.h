@@ -19,7 +19,7 @@ private:
 	Vector2 velocity;
 	Vector2 direction;
 	int framesSinceLastShot = 0;
-	int shotCooldownFrames = 15;
+	int shotCooldownFrames;
 	int health;
 	int currentHitFrame = 0;
 	bool isHit = false;

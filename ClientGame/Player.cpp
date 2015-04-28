@@ -4,6 +4,7 @@
 
 Player::Player(){
 	health = 10;
+	shotCooldownFrames = 15;
 	//setup player
 
 	this->SetSize(1.0f);
