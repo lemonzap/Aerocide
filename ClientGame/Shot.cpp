@@ -16,6 +16,7 @@ Shot::Shot(float X, float Y, Vector2 shooterVel){
 	this->ClearSpriteInfo();
 	this->SetSprite("Resources/Images/Shot.png", 0, GL_CLAMP, GL_NEAREST, false);
 	this->SetLayer(2); //player shots layer
+	this->SetIsSensor(true);
 	SetDensity(0.05f);
 	InitPhysics();
 	ApplyLinearImpulse(shotVel, Vector2::Zero);
@@ -42,8 +43,9 @@ void Shot::ReceiveMessage(Message *message)
 	if (message->GetMessageName() == "CollisionStartWith" + GetName())
 	{
 		PhysicsActor* collider = (PhysicsActor*)message->GetSender();
-		if (true)
-		{
+		if (collider->GetName() == "PlayerShip" || collider->IsTagged("Bullet")){
+			//do nothing
+		}else{
 			Destroy();
 		}
 	}
