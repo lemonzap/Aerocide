@@ -64,7 +64,7 @@ private:
 	Actor *stage;
 	Vector2 stagePosition;
 	Vector2 stageVel;
-	float idealFPS = 60;
+	float idealFPS;
 	float realFPS = 0;
 	float lastFrameTime = 0;
 	float debugInfoFPS = 0;

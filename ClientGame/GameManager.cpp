@@ -8,6 +8,7 @@ AerocideGameManager::AerocideGameManager()
 	//subscribe to messages
 	theSwitchboard.SubscribeTo(this, "ToggleDebugInfo");
 
+	idealFPS = 120;
 	//setup stage
 	stage = new Actor();
 	stage->SetSize(20.0f, 426.666f);
@@ -54,13 +55,18 @@ void AerocideGameManager::Update(float dt)
 {
 	//calcualte fps
 	realFPS = 1 / (glfwGetTime() - lastFrameTime);
+	while (realFPS > idealFPS){
+		//delay framerate
+		realFPS = 1 / (glfwGetTime() - lastFrameTime);
+	}
 		//update displayed fps only once per second
 		/*if (glfwGetTime() - lastFPSUpdateTime >= 1){
 			debugInfoFPS = realFPS;
 			lastFPSUpdateTime = glfwGetTime();
 		}*/
-		if (realFPS <= idealFPS){
-			debugInfoFPS = realFPS;
+	if (realFPS <= idealFPS){
+		debugInfoFPS = realFPS;
+	}
 		//if end of stage not reached continue scrolling
 		if (stagePosition.Y > (-426.666 / 2.0f) + 11){ //half the stage images height plus half the screens height and 1 as a buffer from overshooting the edge of the image
 			//update stage position according to its velocity
@@ -81,7 +87,6 @@ void AerocideGameManager::Update(float dt)
 
 		//store time completed
 		lastFrameTime = glfwGetTime();
-}
 }
 
 void AerocideGameManager::Render()
