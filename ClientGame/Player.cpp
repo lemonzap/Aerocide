@@ -66,18 +66,18 @@ void Player::Update(float dt){
 			framesSinceLastShot++;
 		}
 		//stop moving if the player reaches any of the edges of the screen
-		/*if (GetPosition().X < -9.5){
-			this->
+		if (GetPosition().X < -9.5 && this->GetBody()->GetLinearVelocity().x < 0){
+			this->GetBody()->SetLinearVelocity(b2Vec2(0, this->GetBody()->GetLinearVelocity().y));
 		}
-		else if (GetPosition().X > 9.5){
-			SetPosition().X = 9.5;
+		else if (GetPosition().X > 9.5 && this->GetBody()->GetLinearVelocity().x > 0){
+			this->GetBody()->SetLinearVelocity(b2Vec2(0, this->GetBody()->GetLinearVelocity().y));
 		}
-		if (GetPosition().Y < -9.5){
-			SetPosition().Y = -9.5;
+		if (GetPosition().Y < -9.5 && this->GetBody()->GetLinearVelocity().y < 0){
+			this->GetBody()->SetLinearVelocity(b2Vec2(this->GetBody()->GetLinearVelocity().x, 0));
 		}
-		else if (GetPosition().Y > 9.5){
-			SetPosition().Y = 9.5;
-		}*/
+		else if (GetPosition().Y > 9.5 && this->GetBody()->GetLinearVelocity().y > 0){
+			this->GetBody()->SetLinearVelocity(b2Vec2(this->GetBody()->GetLinearVelocity().x, 0));
+		}
 		animateHit();
 	}
 	else{
