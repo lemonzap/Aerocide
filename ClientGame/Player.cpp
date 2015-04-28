@@ -4,7 +4,7 @@
 
 Player::Player(){
 	health = 10;
-	shotCooldownFrames = 300;
+	shotCooldownFrames = 15;
 	//setup player
 
 	this->SetSize(1.0f);
@@ -108,23 +108,23 @@ void Player::Shoot(float X, float Y, Vector2 shooterVel){
 
 void Player::animateHit(){
 	if (isHit){
-		if (currentHitFrame <= 80){
+		if (currentHitFrame <= 4){
 			this->SetSprite("Resources/Images/ShipHit.png", 0, GL_CLAMP, GL_NEAREST, false);
 			currentHitFrame++;
 		}
-		else if (currentHitFrame <= 180){
+		else if (currentHitFrame <= 9){
 			this->SetSprite("Resources/Images/Ship.png", 0, GL_CLAMP, GL_NEAREST, false);
 			currentHitFrame++;
 		}
-		else if (currentHitFrame <= 280){
+		else if (currentHitFrame <= 14){
 			this->SetSprite("Resources/Images/ShipHit.png", 0, GL_CLAMP, GL_NEAREST, false);
 			currentHitFrame++;
 		}
-		else if (currentHitFrame <= 380){
+		else if (currentHitFrame <= 19){
 			this->SetSprite("Resources/Images/Ship.png", 0, GL_CLAMP, GL_NEAREST, false);
 			currentHitFrame++;
 		}
-		else if (currentHitFrame <= 480){
+		else if (currentHitFrame <= 24){
 			this->SetSprite("Resources/Images/ShipHit.png", 0, GL_CLAMP, GL_NEAREST, false);
 			currentHitFrame++;
 		}

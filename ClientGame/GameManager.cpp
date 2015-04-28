@@ -8,7 +8,7 @@ AerocideGameManager::AerocideGameManager()
 	//subscribe to messages
 	theSwitchboard.SubscribeTo(this, "ToggleDebugInfo");
 
-	idealFPS = 120;
+	idealFPS = 60;
 	//setup stage
 	stage = new Actor();
 	stage->SetSize(20.0f, 426.666f);
