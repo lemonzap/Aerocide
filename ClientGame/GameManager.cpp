@@ -8,6 +8,7 @@ AerocideGameManager::AerocideGameManager()
 	//subscribe to messages
 	theSwitchboard.SubscribeTo(this, "ToggleDebugInfo");
 
+	idealFPS = 120;
 	//setup stage
 	stage = new Actor();
 	stage->SetSize(20.0f, 426.666f);
@@ -17,7 +18,7 @@ AerocideGameManager::AerocideGameManager()
 	stage->SetLayer(0); //background layer
 	theWorld.Add(stage);
 	stagePosition.X = 0.0f;
-	stagePosition.Y = (426.666f / 2.0f) - 10; //Half the stage images height - half the screens height
+	stagePosition.Y = (426.666f/2.0f) - 10; //Half the stage images height - half the screens height
 	stage->SetPosition(stagePosition);
 	stageVel.X = 0.0f;
 	stageVel.Y = -0.1f;
@@ -54,13 +55,18 @@ void AerocideGameManager::Update(float dt)
 {
 	//calcualte fps
 	realFPS = 1 / (glfwGetTime() - lastFrameTime);
-	//update displayed fps only once per second
-	/*if (glfwGetTime() - lastFPSUpdateTime >= 1){
-		debugInfoFPS = realFPS;
-		lastFPSUpdateTime = glfwGetTime();
+	while (realFPS > idealFPS){
+		//delay framerate
+		realFPS = 1 / (glfwGetTime() - lastFrameTime);
+	}
+		//update displayed fps only once per second
+		/*if (glfwGetTime() - lastFPSUpdateTime >= 1){
+			debugInfoFPS = realFPS;
+			lastFPSUpdateTime = glfwGetTime();
 		}*/
 	if (realFPS <= idealFPS){
 		debugInfoFPS = realFPS;
+	}
 		//if end of stage not reached continue scrolling
 		if (stagePosition.Y > (-426.666 / 2.0f) + 11){ //half the stage images height plus half the screens height and 1 as a buffer from overshooting the edge of the image
 			//update stage position according to its velocity
@@ -71,19 +77,16 @@ void AerocideGameManager::Update(float dt)
 
 
 
-		if (stagePosition.Y <= 185 && !asteroidSpawned){
-			new Asteroid(-3, 25, 0.5, -3);
-			asteroidSpawned = true;
+			if (stagePosition.Y <= 185 && !asteroidSpawned){
+				new Asteroid(-3, 25, 0.5, -3);
+				asteroidSpawned = true;
 		}
-		
-
 
 		//move stage
 		stage->SetPosition(stagePosition);
 
 		//store time completed
 		lastFrameTime = glfwGetTime();
-	}
 }
 
 void AerocideGameManager::Render()
