@@ -60,11 +60,11 @@ void AerocideGameManager::Update(float dt)
 			lastFPSUpdateTime = glfwGetTime();
 		}
 		if (realFPS <= idealFPS){
-			//if end of stage not reached continue scrolling
-			if (stagePosition.Y > (-426.666 / 2.0f) + 11){ //half the stage images height plus half the screens height and 1 as a buffer from overshooting the edge of the image
-				//update stage position according to its velocity
-				stagePosition.Y += stageVel.Y;
-			}
+		//if end of stage not reached continue scrolling
+		if (stagePosition.Y > (-426.666 / 2.0f) + 11){ //half the stage images height plus half the screens height and 1 as a buffer from overshooting the edge of the image
+			//update stage position according to its velocity
+			stagePosition.Y += stageVel.Y;
+		}
 
 
 
@@ -73,14 +73,14 @@ void AerocideGameManager::Update(float dt)
 			if (stagePosition.Y <= 185 && !asteroidSpawned){
 				new Asteroid(-3, 25, 0.5, -3);
 				asteroidSpawned = true;
-			}
-
-			//move stage
-			stage->SetPosition(stagePosition);
-
-			//store time completed
-			lastFrameTime = glfwGetTime();
 		}
+
+		//move stage
+		stage->SetPosition(stagePosition);
+
+		//store time completed
+		lastFrameTime = glfwGetTime();
+}
 }
 
 void AerocideGameManager::Render()
