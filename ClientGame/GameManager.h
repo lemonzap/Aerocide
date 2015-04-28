@@ -64,8 +64,6 @@ private:
 	Actor *stage;
 	Vector2 stagePosition;
 	Vector2 stageVel;
-	int framesSinceLastShot = 0;
-	int shotCooldownFrames = 15;
 	float idealFPS = 60;
 	float realFPS = 0;
 	float lastFrameTime = 0;
