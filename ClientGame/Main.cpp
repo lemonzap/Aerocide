@@ -13,7 +13,7 @@ int main(int argc, char* argv[])
 	//		bool antiAliasing		default: false
 	//		bool fullScreen			default: false
 	//		bool resizable			default: false
-	theWorld.Initialize(768,768,"Aerocide",false, false, false);
+	theWorld.Initialize(750,768,"Aerocide",false, false, false);
 
 	theWorld.SetupPhysics(Vector2(0.0f, 0.0f));
 
