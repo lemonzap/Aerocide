@@ -22,6 +22,7 @@ Shot::Shot(float X, float Y, Vector2 shooterVel){
 	ApplyLinearImpulse(shotVel, Vector2::Zero);
 	theWorld.Add(this);
 	Tag("Bullet");
+	Tag("Friendly");
 	SetName("PlayerShot");
 	theSwitchboard.SubscribeTo(this, "CollisionStartWith" + GetName());
 }
@@ -29,7 +30,7 @@ Shot::Shot(float X, float Y, Vector2 shooterVel){
 void Shot::Update(float dt){
 	timeAlive += dt;
 	//shots stay alive for 5 seconds
-	if (timeAlive >= 5){
+	if (timeAlive >= 1.6){
 		Destroy();
 	}
 	else{
@@ -43,10 +44,13 @@ void Shot::ReceiveMessage(Message *message)
 	if (message->GetMessageName() == "CollisionStartWith" + GetName())
 	{
 		PhysicsActor* collider = (PhysicsActor*)message->GetSender();
-		if (collider->GetName() == "PlayerShip" || collider->IsTagged("Bullet")){
-			//do nothing
-		}else{
-			Destroy();
+		if (!collider->IsDestroyed()){
+			if (collider->GetName() == "PlayerShip" || collider->IsTagged("Bullet")){
+				//do nothing
+			}
+			else{
+				Destroy();
+			}
 		}
 	}
 }
