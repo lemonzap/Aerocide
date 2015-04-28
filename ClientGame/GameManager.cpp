@@ -55,11 +55,12 @@ void AerocideGameManager::Update(float dt)
 	//calcualte fps
 	realFPS = 1 / (glfwGetTime() - lastFrameTime);
 		//update displayed fps only once per second
-		if (glfwGetTime() - lastFPSUpdateTime >= 1){
+		/*if (glfwGetTime() - lastFPSUpdateTime >= 1){
 			debugInfoFPS = realFPS;
 			lastFPSUpdateTime = glfwGetTime();
-		}
+		}*/
 		if (realFPS <= idealFPS){
+			debugInfoFPS = realFPS;
 		//if end of stage not reached continue scrolling
 		if (stagePosition.Y > (-426.666 / 2.0f) + 11){ //half the stage images height plus half the screens height and 1 as a buffer from overshooting the edge of the image
 			//update stage position according to its velocity
