@@ -33,6 +33,8 @@
 #include <vector>
 #include <string>
 #include "Shot.h"
+#include "Asteroid.h"
+#include "Player.h"
 
 //AerocideGameManager is a singleton and inherits from:
 //  GameManager -- so we receive update and render calls, plus collision notifications
@@ -43,8 +45,6 @@ class AerocideGameManager : public GameManager
 public:
 
 	void ToggleDebugInfo();
-
-	void Shoot(float X, float Y, Vector2 shooterVel);
 
 	static AerocideGameManager &GetInstance();
 
@@ -61,20 +61,14 @@ protected:
 	static AerocideGameManager *s_AerocideGameManager;
 
 private:
-	Actor *playerShip;
-	Vector2 playerPosition;
-	Vector2 playerVel;
-	Vector2 playerDirection;
-	//int playerDirection = 0; //8 possible directions numbered 0-7 in clockwise order by 45 degree increments
 	Actor *stage;
 	Vector2 stagePosition;
 	Vector2 stageVel;
-	int framesSinceLastShot = 0;
-	int shotCooldownFrames = 15;
 	float idealFPS = 60;
 	float realFPS = 0;
 	float lastFrameTime = 0;
 	float debugInfoFPS = 0;
 	float lastFPSUpdateTime = 0;
 	bool debugInfo = false;
+	bool asteroidSpawned = false;
 };
