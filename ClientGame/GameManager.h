@@ -35,6 +35,8 @@
 #include "Shot.h"
 #include "Asteroid.h"
 #include "Player.h"
+#include "BigAsteroid.h"
+#include "HugeAsteroid.h"
 
 //AerocideGameManager is a singleton and inherits from:
 //  GameManager -- so we receive update and render calls, plus collision notifications
@@ -74,4 +76,5 @@ private:
 	bool debugInfo = false;
 	bool asteroidSpawned = false;
 	bool gameStarted = false;
+	bool BigAsteroidSpawned = false;
 };

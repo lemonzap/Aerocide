@@ -8,7 +8,7 @@ AerocideGameManager::AerocideGameManager()
 	//subscribe to messages
 	theSwitchboard.SubscribeTo(this, "ToggleDebugInfo");
 
-	idealFPS = 120;
+	idealFPS = 60;
 
 	text = new TextActor("Console", "Press Enter to Begin");
 	text->SetPosition(0, 1);
@@ -72,7 +72,7 @@ void AerocideGameManager::Update(float dt)
 	else{
 
 		if (player->IsDestroyed()){
-			text = new TextActor("Console", "Game Over");
+			text = new TextActor("Console", "Game Over. Press 'Esc' to exit.");
 			text->SetPosition(0, 1);
 			text->SetAlignment(TXT_Center);
 			text->SetLayer(4); //text layer
@@ -105,29 +105,40 @@ void AerocideGameManager::Update(float dt)
 
 
 
-		if (stagePosition.Y <= 185 && !asteroidSpawned){
-			new Asteroid(-3, 25, 0.5, -3);
-			new Asteroid(4, 24, 1, -2);
-			new Asteroid(-3.5, 23, 0.7, -3.5);
-			new Asteroid(-1, 26, 1.5, -3.2);
-			new Asteroid(-7, 25, 1.3, -3.4);
-			new Asteroid(6, 27, -0.2, -2.4);
-			new Asteroid(9, 25.4, -0.3, -2.5);
-			new Asteroid(5.5, 24.6, -1.2, -2.3);
-			new Asteroid(-3.7, 23.4, 1.7, -2.7);
-			new Asteroid(-8, 26.7, 0.4, -3.3);
-			new Asteroid(-9, 26.3, 0.3, -3.25);
-			new Asteroid(0.3, 24.5, -0.25, -2.8);
-			new Asteroid(-2.5, 23.8, 1.25, -2.9);
-			new Asteroid(4.6, 23, -0.55, -2.5);
-			new Asteroid(2, 25.5, -0.59, -2.5);
-			new Asteroid(6.7, 25.3, -1.1, -2.6);
-			new Asteroid(0.75, 24.7, -1.05, -2.3);
-			new Asteroid(8.8, 24.45, -1.8, -2.2);
-			new Asteroid(-5, 26.4, 2, 2.1);
-			new Asteroid(3.5, 26.8, -0.6, -2.25);
+		if (stagePosition.Y <= 185 && !asteroidSpawned){ //Spawning asteroid field
+			new Asteroid(-3, 25, 0.5, -6);
+			new Asteroid(4, 24, 1, -5);
+			new Asteroid(-3.5, 23, 0.7, -6.5);
+			new Asteroid(-1, 26, 1.5, -6.2);
+			new Asteroid(-7, 25, 1.3, -6.4);
+			new Asteroid(6, 27, -0.2, -5.4);
+			new Asteroid(9, 25.4, -0.3, -5.5);
+			new Asteroid(5.5, 24.6, -1.2, -7);
+			new Asteroid(-3.7, 23.4, 1.7, -5.7);
+			new Asteroid(-8, 26.7, 0.4, -6.3);
+			new Asteroid(-9, 26.3, 0.3, -6.25);
+			new Asteroid(0.3, 24.5, -0.25, -5.8);
+			new Asteroid(-2.5, 23.8, 1.25, -5.9);
+			new Asteroid(4.6, 23, -0.55, -5.5);
+			new Asteroid(2, 25.5, -0.59, -5.5);
+			new Asteroid(6.7, 25.3, -1.1, -5.6);
+			new Asteroid(0.75, 24.7, -1.05, -5.3);
+			new Asteroid(8.8, 24.45, -1.8, -5.2);
+			new Asteroid(-5, 26.4, 2, 1.1);
+			new Asteroid(3.5, 26.8, -0.6, -5.25);
+			new BigAsteroid(0, 25, -8.1, -210);
+			new BigAsteroid(-1.2, 26, 9.2, -240);
+			new BigAsteroid(-2.0, 23.5, 12, -190);
+			new BigAsteroid(-3.4, 24.2, -14.1, -220);
+			new BigAsteroid(4, 24.5, -10.1, -215);
+			new HugeAsteroid(0, 27, 4, -1500);
 			asteroidSpawned = true;
 		}
+		/*
+		if (stagePosition.Y <= 185 && !BigAsteroidSpawned){ //Spawning asteroid field
+			new BigAsteroid(-3, 25, 0.5, -6);
+			BigAsteroidSpawned = true;
+		}*/
 
 		//move stage
 		stage->SetPosition(stagePosition);
