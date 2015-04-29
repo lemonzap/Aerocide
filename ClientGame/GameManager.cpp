@@ -10,6 +10,7 @@ AerocideGameManager::AerocideGameManager()
 
 	idealFPS = 60;
 	music = theSound.LoadSample("Resources/Sounds/StarFox.wav", false);
+	victory = theSound.LoadSample("Resources/Sounds/VictoryFanfare.wav", false);
 
 	text = new TextActor("Console", "Press Enter to Begin");
 	text->SetPosition(0, 1);
@@ -293,6 +294,8 @@ void AerocideGameManager::Update(float dt)
 		if (final1->IsDestroyed() && final2->IsDestroyed() && final3->IsDestroyed())
 		{
 			text = new TextActor("Console", "YOU WON!!!!!! Press 'Esc' to exit.");
+			theSound.StopSound(music);
+			theSound.PlaySound(victory, 1.0f, false, 0);
 			text->SetPosition(0, 1);
 			text->SetAlignment(TXT_Center);
 			text->SetLayer(4); //text layer
