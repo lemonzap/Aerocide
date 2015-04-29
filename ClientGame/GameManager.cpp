@@ -251,7 +251,7 @@ void AerocideGameManager::Update(float dt)
 			ThirdAsteroidSpawned = true;
 		}
 
-		if (stagePosition.Y <= -200 && !FinalAsteroidSpawned){ //Spawning final asteroid field
+		if (stagePosition.Y <= -160 && !FinalAsteroidSpawned){ //Spawning final asteroid field
 			new HugeAsteroid(-3, 25, 0, -6000);
 			new Asteroid(4, 24, 1, -10);
 			new BigAsteroid(-3.5, -5, 4, 300.5);

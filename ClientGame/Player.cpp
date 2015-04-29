@@ -71,6 +71,7 @@ void Player::Update(float dt){
 		if (theInput.IsKeyDown(' ') && framesSinceLastShot >= shotCooldownFrames){
 			framesSinceLastShot = 1;
 			if (powerLevel == 1) { //Checks what the power of the shot is
+				shotCooldownFrames = 15;
 				Shoot(this->GetPosition().X, this->GetPosition().Y + 0.0f, velocity);
 			}
 			else if (powerLevel == 2)
