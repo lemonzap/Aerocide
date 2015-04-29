@@ -31,7 +31,7 @@ TurretShot::TurretShot(float X, float Y, Vector2 newDirection){
 void TurretShot::Update(float dt){
 	timeAlive += dt;
 	//shots stay alive for 5 seconds
-	if (timeAlive >= 3){
+	if (timeAlive >= 2){
 		Destroy();
 	}
 	else{

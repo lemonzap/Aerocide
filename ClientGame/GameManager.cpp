@@ -74,6 +74,21 @@ void AerocideGameManager::Update(float dt)
 			theWorld.Remove(text);
 			theWorld.ResumeSimulation();
 			new Turret(3, 30.91, 125);
+			new Turret(-3, 44.35, 40);
+			new Turret(5.52, 79.11, 180);
+			new Turret(-5.286, 93.02, 195);
+			new Turret(-4.635, 122.71, 180);
+			new Turret(-4.453, 125.156, 186);
+			new Turret(3.4375, 142.29, 165);
+			new Turret(-1.5365, 171.56, 175);
+			new Turret(-2.422, 224.245, 180);
+			new Turret(3.4375, 269.635, 140);
+			new Turret(-.8854, 294, 146);
+			new Turret(-.41667, 366.875, 178);
+			new Turret(3.2292, 377.865, 165);
+			new Turret(-3.28125, 392.266, 192);
+			new Turret(4.47917, 393.932, 168);
+
 			stage->GetBody()->SetLinearVelocity(b2Vec2(0, -6));
 		}
 	}
