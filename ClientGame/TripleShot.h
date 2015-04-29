@@ -16,4 +16,5 @@ private:
 	Vector2 velocity;
 	Vector2 direction;
 	int animFrame = 0;
+	float timeAlive = 0;
 };

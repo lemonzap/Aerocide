@@ -51,7 +51,7 @@ void TurretShot::ReceiveMessage(Message *message)
 	{
 		PhysicsActor* collider = (PhysicsActor*)message->GetSender();
 		if (!collider->IsDestroyed()){
-			if (!collider->IsTagged("Asteroid") && !collider->IsTagged("Bullet") && !collider->IsTagged("Stage") && !collider->IsTagged("Turret")){
+			if (!collider->IsTagged("Asteroid") && !collider->IsTagged("Bullet") && !collider->IsTagged("Stage") && !collider->IsTagged("Turret") && !collider->IsTagged("Friendly")){
 				Destroy();
 			}
 		}

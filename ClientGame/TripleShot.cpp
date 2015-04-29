@@ -33,6 +33,12 @@ TripleShot::TripleShot(float X, float Y){
 
 void TripleShot::Update(float dt){
 	
+
+	timeAlive += dt;
+	//shots stay alive for 5 seconds
+	if (timeAlive >= 7){
+		Destroy();
+	}
 		//update tripleShot position according to its velocity
 		position += velocity;
 		//move tripleShot

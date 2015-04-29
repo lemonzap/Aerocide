@@ -22,7 +22,7 @@ BigAsteroid::BigAsteroid(float X, float Y, float velX, float velY){
 	SetDensity(10.0f);
 	SetShapeType(PhysicsActor::SHAPETYPE_CIRCLE);
 	InitPhysics();
-	ApplyAngularImpulse(0.25);
+	ApplyAngularImpulse(MathUtil::RandomFloatInRange(-1, 1) * 100);
 	direction = velocity;
 	//direction.Normalize();
 	//direction *= 20;
@@ -46,7 +46,9 @@ void BigAsteroid::Update(float dt){
 	}
 	if (health <= 0 && !dying){
 		dying = true;
-		new Health(this->GetPosition().X, this->GetPosition().Y);
+		if (MathUtil::RandomFloat() < 0.05f){
+			new Health(this->GetPosition().X, this->GetPosition().Y);
+		}
 		this->LoadSpriteFrames("Resources/Images/Explosion_001.png", GL_CLAMP, GL_NEAREST);
 		this->PlaySpriteAnimation(0.1, SAT_Loop, 0, 6, "explode");
 	}

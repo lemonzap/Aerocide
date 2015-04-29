@@ -46,7 +46,7 @@ void Shot::ReceiveMessage(Message *message)
 	{
 		PhysicsActor* collider = (PhysicsActor*)message->GetSender();
 		if (!collider->IsDestroyed()){
-			if (collider->GetName() != "PlayerShip" && !collider->IsTagged("Bullet") && !collider->IsTagged("Stage")){
+			if (collider->GetName() != "PlayerShip" && !collider->IsTagged("Bullet") && !collider->IsTagged("Stage") && !collider->IsTagged("Friendly")){
 				Destroy();
 			}
 		}

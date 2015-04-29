@@ -61,10 +61,10 @@ void Turret::Update(float dt){
 	}
 	if (health <= 0 && !dying){
 		dying = true;
-		if (MathUtil::RandomFloat() > 0.5f){
-		new TripleShot(this->GetPosition().X, this->GetPosition().Y);
+		if (MathUtil::RandomFloat() > 0.85f){
+			new TripleShot(this->GetPosition().X, this->GetPosition().Y);
 		}
-		else{
+		else if (MathUtil::RandomFloat() > 0.7f){
 			new BeamShot(this->GetPosition().X, this->GetPosition().Y);
 		}
 		

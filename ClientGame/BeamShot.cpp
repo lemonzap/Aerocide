@@ -33,6 +33,12 @@ BeamShot::BeamShot(float X, float Y){
 
 void BeamShot::Update(float dt){
 
+	timeAlive += dt;
+	//shots stay alive for 5 seconds
+	if (timeAlive >= 7){
+		Destroy();
+	}
+
 	//update beamShot position according to its velocity
 	position += velocity;
 	//move beamShot

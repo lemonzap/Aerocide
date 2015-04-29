@@ -33,6 +33,12 @@ Health::Health(float X, float Y){
 
 void Health::Update(float dt){
 
+	timeAlive += dt;
+	//shots stay alive for 5 seconds
+	if (timeAlive >= 7){
+		Destroy();
+	}
+
 	//update health position according to its velocity
 	position += velocity;
 	//move health
