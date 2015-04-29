@@ -14,7 +14,7 @@ AerocideGameManager::AerocideGameManager()
 	text->SetPosition(0, 1);
 	text->SetAlignment(TXT_Center);
 	text->SetLayer(4); //text layer
-	text->SetColor(0,1,0,1);
+	text->SetColor(0, 1, 0, 1);
 	theWorld.Add(text);
 
 	//setup stage
@@ -209,7 +209,7 @@ void AerocideGameManager::Update(float dt)
 			SecondAsteroidSpawned = true;
 		}
 
-		if (stagePosition.Y <= -50 && !ThirdAsteroidSpawned){ //Spawning third asteroid field
+		if (stagePosition.Y <= -90 && !ThirdAsteroidSpawned){ //Spawning the boss asteroid field
 			new HugeAsteroid(-3, 25, 0, -6000);
 			new Asteroid(4, 24, 1, -5);
 			new BigAsteroid(-3.5, 23, 4, -300.5);
@@ -244,9 +244,47 @@ void AerocideGameManager::Update(float dt)
 			new BigAsteroid(-4, 33, 14, -230);
 			new BigAsteroid(-6, 32.5, 4, -225);
 			new HugeAsteroid(6, 36, -200, -5500);
+
 			ThirdAsteroidSpawned = true;
 		}
 
+		if (stagePosition.Y <= -200 && !FinalAsteroidSpawned){ //Spawning third asteroid field
+			new HugeAsteroid(-3, 25, 0, -6000);
+			new Asteroid(4, 24, 1, -10);
+			new BigAsteroid(-3.5, -5, 4, 300.5);
+			new Asteroid(-1, -8, 1.5, 6.2);
+			new HugeAsteroid(3, -35, 400, -10004);
+			new Asteroid(-12, 0, 15, -5.4);
+			new Asteroid(-30, 1, 12, -2);
+			new Asteroid(5.5, 54.6, -1.6, -30);
+			new Asteroid(-3.7, 23.4, 1.7, -5.7);
+			new HugeAsteroid(-8, 26.7, 700, -1400.3);
+			new Asteroid(-9, 26.3, 0.3, -6.25);
+			new Asteroid(0.3, 24.5, -0.25, -5.8);
+			new Asteroid(-2.5, 23.8, 1.85, -5.9);
+			new Asteroid(4.6, 23, -0.55, -5.5);
+			new Asteroid(2, 25.5, -1.59, -5.5);
+			new Asteroid(6.7, 27.3, -1.1, -5.6);
+			new HugeAsteroid(0.75, 24.7, -1500, -1500.3);
+			new Asteroid(8.8, 24.45, -1.8, -5.2);
+			new Asteroid(-5, 26.4, 2, 1.1);
+			new Asteroid(3.5, 26.8, -0.6, -5.25);
+			new BigAsteroid(-3, 33, 20, -1740);
+			new Asteroid(-5, 33.5, 4, -9);
+			new Asteroid(-4, 33, 3, -8.2);
+			new Asteroid(7, 33.5, 2, -9);
+			new BigAsteroid(0, 25, -8.1, -210);
+			new BigAsteroid(-1.2, 26, 9.2, -240);
+			new BigAsteroid(-2.0, -40, 12, -320);
+			new BigAsteroid(35, 0, -210, 5);
+			new BigAsteroid(4, 24.5, -10.1, -215);
+			new HugeAsteroid(0, 47, 4, -3500);
+			new HugeAsteroid(0, 60, 20, -3700);
+			new BigAsteroid(0, -29, 2, -210);
+			new BigAsteroid(-6, -10, 4, 225);
+			new HugeAsteroid(25, -1, -3000, -2);
+			FinalAsteroidSpawned = true;
+		}
 
 		//move stage
 		stage->SetPosition(stagePosition);

@@ -21,7 +21,7 @@ private:
 	Vector2 position;
 	Vector2 velocity;
 	Vector2 direction;
-	int powerLevel = 3; // Should be 1 for base level
+	int powerLevel = 1; // Should be 1 for base level
 	int framesSinceLastShot = 0;
 	int shotCooldownFrames;
 	int health;

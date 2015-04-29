@@ -81,4 +81,5 @@ private:
 	bool gameStarted = false;
 	bool SecondAsteroidSpawned = false;
 	bool ThirdAsteroidSpawned = false;
+	bool FinalAsteroidSpawned = false;
 };
