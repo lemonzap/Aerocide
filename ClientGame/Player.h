@@ -10,6 +10,7 @@ class Player : public PhysicsActor{
 public:
 	Player();
 	void Shoot(float X, float Y, Vector2 shooterVel);
+	void TripleShoot(float X, float Y, Vector2 shooterVel);
 	void animateHit();
 
 	void Update(float dt);
@@ -18,6 +19,7 @@ private:
 	Vector2 position;
 	Vector2 velocity;
 	Vector2 direction;
+	int powerLevel = 1;
 	int framesSinceLastShot = 0;
 	int shotCooldownFrames;
 	int health;

@@ -2,9 +2,9 @@
 #include "Shot.h"
 
 
-Shot::Shot(float X, float Y, Vector2 shooterVel){
+Shot::Shot(float X, float Y, float angle, Vector2 shooterVel){
 	//initialize shot position and speed
-	shotVel.X = 0;
+	shotVel.X = angle;
 	shotVel.Y = 0.15;
 	shotPosition.X = X;
 	shotPosition.Y = Y;
