@@ -116,5 +116,32 @@
     <Image Include="Resources\Images\TurretTopHit.png" />
     <Image Include="Resources\Images\HealthBar.png" />
     <Image Include="Resources\Images\HealthPoint.png" />
+    <Image Include="Resources\Images\BeamShot_001.png" />
+    <Image Include="Resources\Images\BeamShot_002.png" />
+    <Image Include="Resources\Images\BeamShot_003.png" />
+    <Image Include="Resources\Images\BeamShot_004.png" />
+    <Image Include="Resources\Images\BeamShot_005.png" />
+    <Image Include="Resources\Images\BeamShot_006.png" />
+    <Image Include="Resources\Images\BeamShot_007.png" />
+    <Image Include="Resources\Images\BeamShot_008.png" />
+    <Image Include="Resources\Images\BeamShot_009.png" />
+    <Image Include="Resources\Images\Health_001.png" />
+    <Image Include="Resources\Images\Health_002.png" />
+    <Image Include="Resources\Images\Health_003.png" />
+    <Image Include="Resources\Images\Health_004.png" />
+    <Image Include="Resources\Images\Health_005.png" />
+    <Image Include="Resources\Images\Health_006.png" />
+    <Image Include="Resources\Images\Health_007.png" />
+    <Image Include="Resources\Images\Health_008.png" />
+    <Image Include="Resources\Images\Health_009.png" />
+    <Image Include="Resources\Images\TripleShot_001.png" />
+    <Image Include="Resources\Images\TripleShot_002.png" />
+    <Image Include="Resources\Images\TripleShot_003.png" />
+    <Image Include="Resources\Images\TripleShot_004.png" />
+    <Image Include="Resources\Images\TripleShot_005.png" />
+    <Image Include="Resources\Images\TripleShot_006.png" />
+    <Image Include="Resources\Images\TripleShot_007.png" />
+    <Image Include="Resources\Images\TripleShot_008.png" />
+    <Image Include="Resources\Images\TripleShot_009.png" />
   </ItemGroup>
 </Project>
