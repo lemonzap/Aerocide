@@ -66,16 +66,16 @@ void Player::Update(float dt){
 		if (theInput.IsKeyDown(' ') && framesSinceLastShot >= shotCooldownFrames){
 			framesSinceLastShot = 1;
 			if (powerLevel == 1) { //Checks what the power of the shot is
-			Shoot(this->GetPosition().X, this->GetPosition().Y + 0.0f, velocity);
-		}
+				Shoot(this->GetPosition().X, this->GetPosition().Y + 0.0f, velocity);
+			}
 			else if (powerLevel == 2)
 			{
-				shotCooldownFrames = 7;
+				shotCooldownFrames = 8;
 				Shoot(this->GetPosition().X, this->GetPosition().Y + 0.0f, velocity);
 			}
 			else if (powerLevel == 3)
 			{
-				shotCooldownFrames = 25;
+				shotCooldownFrames = 20;
 				TripleShoot(this->GetPosition().X, this->GetPosition().Y + 0.0f, velocity);
 			}
 		}
@@ -142,11 +142,11 @@ void Player::ReceiveMessage(Message *message)
 		PhysicsActor* collider = (PhysicsActor*)message->GetSender();
 		if (!collider->IsDestroyed()){
 			if (!isHit && !collider->IsTagged("Friendly") && !collider->IsTagged("Stage"))
-		{
-			health -= 1;
-			healthBar->removeHealth(1);
-			isHit = true;
-		}
+			{
+				health -= 1;
+				healthBar->removeHealth(1);
+				isHit = true;
+			}
 		}
 		if (collider->GetName().find("TripleShot") != std::string::npos){
 			powerLevel = 3;

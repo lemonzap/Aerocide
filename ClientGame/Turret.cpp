@@ -8,15 +8,19 @@ Turret::Turret(float X, float Y, float angle, char TurSize, PhysicsActor* newSta
 		size = 's';
 		health = 5;
 		this->SetSize(0.833f, 1.666f);
+		SetDensity(0.05f);
+		shotCooldownFrames = 30;
 	}
 
 	else if (TurSize == 'l')
 	{
+		shotCooldownFrames = 2;
+		SetDensity(0.001f);
 		size = 'l';
 		health = 60;
 		this->SetSize(1.75f, 3.5f);
 	}
-	shotCooldownFrames = 30;
+
 	stage = newStage;
 	//initialize turret position and speed
 	position.X = X;
@@ -33,7 +37,6 @@ Turret::Turret(float X, float Y, float angle, char TurSize, PhysicsActor* newSta
 	this->SetSprite("Resources/Images/TurretTop.png", 0, GL_CLAMP, GL_NEAREST, false);
 	this->SetLayer(2); //enemy layer
 	this->SetIsSensor(true);
-	SetDensity(0.05f);
 	SetShapeType(PhysicsActor::SHAPETYPE_BOX);
 	InitPhysics();
 	this->GetBody()->SetLinearVelocity(b2Vec2(0, -6));
