@@ -18,6 +18,7 @@ BigAsteroid::BigAsteroid(float X, float Y, float velX, float velY){
 	this->SetSprite("Resources/Images/AsteroidHit.png", 1, GL_CLAMP, GL_NEAREST, false);
 	this->SetSprite("Resources/Images/Asteroid.png", 0, GL_CLAMP, GL_NEAREST, false);
 	this->SetLayer(1); //enemy layer
+	this->SetGroupIndex(-2);
 	SetDensity(10.0f);
 	SetShapeType(PhysicsActor::SHAPETYPE_CIRCLE);
 	InitPhysics();
@@ -83,7 +84,7 @@ void BigAsteroid::ReceiveMessage(Message *message)
 	if (message->GetMessageName() == "CollisionStartWith" + GetName())
 	{
 		PhysicsActor* collider = (PhysicsActor*)message->GetSender();
-		if (!isHit && !collider->IsTagged("Asteroid"))
+		if (!isHit)
 		{
 			health -= 1;
 			isHit = true;
