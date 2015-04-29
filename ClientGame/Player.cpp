@@ -177,17 +177,17 @@ void Player::ReceiveMessage(Message *message)
 
 void Player::Shoot(float X, float Y, Vector2 shooterVel){
 	new Shot(X, Y, 0.0, shooterVel, 0, 0, 1);
-	theSound.PlaySound(shootSound, 1.0f, false, 0);
+	theSound.PlaySound(shootSound, 0.5f, false, 0);
 }
 
 void Player::BeamShoot(float X, float Y, Vector2 shooterVel){
 	new Shot(X, Y, 0.0, shooterVel, 0, 1, 0);
-	theSound.PlaySound(shootSound, 1.0f, false, 0);
+	theSound.PlaySound(shootSound, 0.5f, false, 0);
 }
 
 void Player::TripleShoot(float X, float Y, Vector2 shooterVel) // the angle can't be an actual angle. It's the x velocity
 {
-	theSound.PlaySound(shootSound, 1.0f, false, 0);
+	theSound.PlaySound(shootSound, 0.5f, false, 0);
 	new Shot(X, Y, 0.0, shooterVel,0.8, 0, 1);
 	new Shot(X, Y, -.05, shooterVel, 0.8, 0, 1);
 	new Shot(X, Y, .05, shooterVel, 0.8, 0, 1);
