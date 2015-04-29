@@ -140,11 +140,14 @@ void Player::ReceiveMessage(Message *message)
 	if (message->GetMessageName() == "CollisionStartWith" + GetName())
 	{
 		PhysicsActor* collider = (PhysicsActor*)message->GetSender();
-		if (!isHit && !collider->IsTagged("Friendly") && !collider->IsTagged("Stage"))
+		if (!isHit && !collider->IsTagged("Friendly") && !collider->IsTagged("Stage") && collider->GetName() != "TripleShot")
 		{
 			health -= 1;
 			healthBar->removeHealth(1);
 			isHit = true;
+		}
+		else if (collider->GetName() == "TripleShot"){
+			powerLevel = 3;
 		}
 	}
 }

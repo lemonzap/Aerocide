@@ -5,6 +5,7 @@
 #include <vector>
 #include <string>
 #include "TurretShot.h"
+#include "TripleShot.h"
 
 class Turret : public PhysicsActor{
 public:
