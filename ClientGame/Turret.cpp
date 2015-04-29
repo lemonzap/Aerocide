@@ -66,11 +66,24 @@ void Turret::Update(float dt){
 	if (health <= 0 && !dying){
 		dying = true;
 		theSound.PlaySound(explode, 1.0f, false, 0);
-		if (MathUtil::RandomFloat() > 0.85f){
-			new TripleShot(this->GetPosition().X, this->GetPosition().Y);
+		if (size == 'l'){
+			if (MathUtil::RandomFloat() > 0.5f){
+				new TripleShot(this->GetPosition().X, this->GetPosition().Y);
+			}
+			else if (MathUtil::RandomFloat() <= 0.5f){
+				new BeamShot(this->GetPosition().X, this->GetPosition().Y);
+			}
+			if (MathUtil::RandomFloat() > 0.5f){
+				new Health(this->GetPosition().X, this->GetPosition().Y);
+			}
 		}
-		else if (MathUtil::RandomFloat() > 0.7f){
-			new BeamShot(this->GetPosition().X, this->GetPosition().Y);
+		else{
+			if (MathUtil::RandomFloat() > 0.85f){
+				new TripleShot(this->GetPosition().X, this->GetPosition().Y);
+			}
+			else if (MathUtil::RandomFloat() > 0.7f){
+				new BeamShot(this->GetPosition().X, this->GetPosition().Y);
+			}
 		}
 		
 		this->LoadSpriteFrames("Resources/Images/Explosion_001.png", GL_CLAMP, GL_NEAREST);
