@@ -65,7 +65,18 @@ void Player::Update(float dt){
 		//if space is pressed and shooting is off cooldown then shoot
 		if (theInput.IsKeyDown(' ') && framesSinceLastShot >= shotCooldownFrames){
 			framesSinceLastShot = 1;
+			if (powerLevel == 1) { //Checks what the power of the shot is
 			Shoot(this->GetPosition().X, this->GetPosition().Y + 0.0f, velocity);
+		}
+			else if (powerLevel == 2)
+			{
+				shotCooldownFrames = 7;
+				Shoot(this->GetPosition().X, this->GetPosition().Y + 0.0f, velocity);
+			}
+			else if (powerLevel == 3)
+			{
+				TripleShoot(this->GetPosition().X, this->GetPosition().Y + 0.0f, velocity);
+			}
 		}
 		else{
 			framesSinceLastShot++;
@@ -141,7 +152,14 @@ void Player::ReceiveMessage(Message *message)
 }
 
 void Player::Shoot(float X, float Y, Vector2 shooterVel){
-	new Shot(X, Y, shooterVel);
+	new Shot(X, Y, 0.0, shooterVel);
+}
+
+void Player::TripleShoot(float X, float Y, Vector2 shooterVel) // the angle can't be an actual angle. It's the x velocity
+{
+	new Shot(X, Y, 0.0, shooterVel);
+	new Shot(X, Y, -.05, shooterVel);
+	new Shot(X, Y, .05, shooterVel);
 }
 
 void Player::animateHit(){

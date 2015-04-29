@@ -91,7 +91,6 @@ void BigAsteroid::ReceiveMessage(Message *message)
 		}
 	}
 }
-
 void BigAsteroid::animateHit(){
 	if (isHit){
 		if (currentHitFrame <= 4){
