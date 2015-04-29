@@ -3,10 +3,10 @@
 
 
 Player::Player(){
-	health = 10;
+	health = 16;
 	shotCooldownFrames = 2;
 	//setup player
-
+	healthBar = new HealthBar(health);
 	this->SetSize(1.0f);
 	this->SetColor(1, 1, 1, 1); //(white and opaque so the texture comes through fully)
 	this->ClearSpriteInfo();
@@ -131,6 +131,7 @@ void Player::ReceiveMessage(Message *message)
 		if (!isHit && !collider->IsTagged("Friendly") && !collider->IsTagged("Stage"))
 		{
 			health -= 1;
+			healthBar->removeHealth(1);
 			isHit = true;
 		}
 	}
