@@ -176,7 +176,9 @@ cd ..\Tools\BuildScripts\
       </PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="Asteroid.cpp" />
+    <ClCompile Include="BigAsteroid.cpp" />
     <ClCompile Include="GameManager.cpp" />
+    <ClCompile Include="HugeAsteroid.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Shot.cpp" />
     <ClCompile Include="stdafx.cpp">
@@ -192,7 +194,9 @@ cd ..\Tools\BuildScripts\
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Asteroid.h" />
+    <ClInclude Include="BigAsteroid.h" />
     <ClInclude Include="GameManager.h" />
+    <ClInclude Include="HugeAsteroid.h" />
     <ClInclude Include="platforms\win\resource.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Shot.h" />
