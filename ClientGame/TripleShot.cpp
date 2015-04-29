@@ -107,7 +107,7 @@ void TripleShot::ReceiveMessage(Message *message)
 	{
 		PhysicsActor* collider = (PhysicsActor*)message->GetSender();
 		if (!collider->IsDestroyed()){
-			if (collider->GetName() == "PlayerShip"){
+			if (collider->IsTagged("Ship")){
 				Destroy();
 			}
 		}

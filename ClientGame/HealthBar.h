@@ -8,7 +8,7 @@
 
 class HealthBar : public Actor{
 public:
-	HealthBar(int initialHealth);
+	HealthBar(int initialHealth, float x, float y);
 	void removeHealth(int amount);
 	void addHealth(int amount);
 private:

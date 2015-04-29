@@ -35,6 +35,7 @@
 #include "Shot.h"
 #include "Asteroid.h"
 #include "Player.h"
+#include "Player2.h"
 #include "BigAsteroid.h"
 #include "HugeAsteroid.h"
 #include "Turret.h"
@@ -67,6 +68,7 @@ protected:
 
 private:
 	Player* player;
+	Player2* player2;
 	PhysicsActor* stage;
 	TextActor* text;
 	Vector2 stagePosition;
@@ -82,6 +84,7 @@ private:
 	bool SecondAsteroidSpawned = false;
 	bool ThirdAsteroidSpawned = false;
 	bool FinalAsteroidSpawned = false;
+	bool isPlayer2 = false;
 	AngelSampleHandle music;
 	AngelSoundHandle victory;
 	Turret *final1, *final2, *final3;

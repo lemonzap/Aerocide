@@ -41,6 +41,7 @@
     <ClCompile Include="TripleShot.cpp" />
     <ClCompile Include="BeamShot.cpp" />
     <ClCompile Include="Health.cpp" />
+    <ClCompile Include="Player2.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="platforms\win\ClientGame.rc">
@@ -67,6 +68,7 @@
     <ClInclude Include="TripleShot.h" />
     <ClInclude Include="BeamShot.h" />
     <ClInclude Include="Health.h" />
+    <ClInclude Include="Player2.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Config\defaults.lua">

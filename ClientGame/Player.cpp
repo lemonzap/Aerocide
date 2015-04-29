@@ -6,7 +6,7 @@ Player::Player(){
 	health = 16;
 	shotCooldownFrames = 15;
 	//setup player
-	healthBar = new HealthBar(health);
+	healthBar = new HealthBar(health, 0, 9.2);
 	this->SetSize(1.0f);
 	this->SetColor(1, 1, 1, 1); //(white and opaque so the texture comes through fully)
 	this->ClearSpriteInfo();
@@ -62,10 +62,12 @@ void Player::Update(float dt){
 		if (theInput.IsKeyDown('d')){
 			direction.X += 1;
 		}
-		if (theInput.IsKeyDown('h')){
+		//fill health (for testing)
+		/*if (theInput.IsKeyDown('h')){
 			health = 16;
 			healthBar->addHealth(16);
-		}
+		}*/
+
 		//if vector is not (0,0) then normalize it (normalizing a zero vector produces (1,0) for some reason)
 		if (direction != Vector2::Zero){
 			direction.Normalize();
@@ -158,7 +160,7 @@ void Player::ReceiveMessage(Message *message)
 	{
 		PhysicsActor* collider = (PhysicsActor*)message->GetSender();
 		if (!collider->IsDestroyed()){
-			if (!isHit && !collider->IsTagged("Friendly") && !collider->IsTagged("Stage"))
+			if (!isHit && !collider->IsTagged("Friendly") && !collider->IsTagged("Stage") && !collider->IsTagged("Ship"))
 			{
 				health -= 1;
 				if (powerLevel != 1){
