@@ -82,4 +82,5 @@ private:
 	bool SecondAsteroidSpawned = false;
 	bool ThirdAsteroidSpawned = false;
 	bool FinalAsteroidSpawned = false;
+	AngelSoundHandle music;
 };

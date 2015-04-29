@@ -31,4 +31,5 @@ private:
 	int dyingFrame = 0;
 	Vector2 stagePosition;
 	int rotation = 1;
+	AngelSoundHandle explode;
 };

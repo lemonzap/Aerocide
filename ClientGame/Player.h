@@ -30,4 +30,9 @@ private:
 	bool isHit = false;
 	int dyingFrame = 0;
 	bool dying = false;
+	AngelSampleHandle shootSound;
+	AngelSoundHandle explode;
+	AngelSoundHandle healthSound;
+	AngelSoundHandle upgradeSound;
+	AngelSoundHandle downgradeSound;
 };

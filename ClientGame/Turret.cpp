@@ -35,6 +35,7 @@ Turret::Turret(float X, float Y, float angle, char TurSize, PhysicsActor* newSta
 	this->ClearSpriteInfo();
 	this->SetSprite("Resources/Images/TurretTopHit.png", 1, GL_CLAMP, GL_NEAREST, false);
 	this->SetSprite("Resources/Images/TurretTop.png", 0, GL_CLAMP, GL_NEAREST, false);
+	explode = theSound.LoadSample("Resources/Sounds/Explosion.wav", false);
 	this->SetLayer(2); //enemy layer
 	this->SetIsSensor(true);
 	SetShapeType(PhysicsActor::SHAPETYPE_BOX);
@@ -64,6 +65,7 @@ void Turret::Update(float dt){
 	}
 	if (health <= 0 && !dying){
 		dying = true;
+		theSound.PlaySound(explode, 1.0f, false, 0);
 		if (MathUtil::RandomFloat() > 0.85f){
 			new TripleShot(this->GetPosition().X, this->GetPosition().Y);
 		}

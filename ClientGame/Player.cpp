@@ -12,6 +12,11 @@ Player::Player(){
 	this->ClearSpriteInfo();
 	this->SetSprite("Resources/Images/ShipHit.png", 1, GL_CLAMP, GL_NEAREST, false);
 	this->SetSprite("Resources/Images/Ship.png", 0, GL_CLAMP, GL_NEAREST, false);
+	shootSound = theSound.LoadSample("Resources/Sounds/Shoot.wav", false);
+	explode = theSound.LoadSample("Resources/Sounds/Explosion.wav", false);
+	healthSound = theSound.LoadSample("Resources/Sounds/Health.wav", false);
+	upgradeSound = theSound.LoadSample("Resources/Sounds/Upgrade.wav", false);
+	downgradeSound = theSound.LoadSample("Resources/Sounds/Downgrade.wav", false);
 	this->SetLayer(3); //player layer
 	this->SetFixedRotation(true);
 	this->SetGroupIndex(-1);
@@ -100,6 +105,7 @@ void Player::Update(float dt){
 	}
 	if (health <= 0 && !dying){
 		dying = true;
+		theSound.PlaySound(explode, 1.0f, false, 0);
 		this->LoadSpriteFrames("Resources/Images/Explosion_001.png", GL_CLAMP, GL_NEAREST);
 		this->PlaySpriteAnimation(0.1, SAT_Loop, 0, 6, "explode");
 	}
@@ -144,6 +150,9 @@ void Player::ReceiveMessage(Message *message)
 			if (!isHit && !collider->IsTagged("Friendly") && !collider->IsTagged("Stage"))
 			{
 				health -= 1;
+				if (powerLevel != 1){
+					theSound.PlaySound(downgradeSound, 1.0f, false, 0);
+				}
 				powerLevel = 1;
 				healthBar->removeHealth(1);
 				isHit = true;
@@ -151,27 +160,33 @@ void Player::ReceiveMessage(Message *message)
 		}
 		if (collider->GetName().find("TripleShot") != std::string::npos){
 			powerLevel = 3;
+			theSound.PlaySound(upgradeSound, 1.0f, false, 0);
 		}
 		else if (collider->GetName().find("BeamShot") != std::string::npos){
 			powerLevel = 2;
+			theSound.PlaySound(upgradeSound, 1.0f, false, 0);
 		}
 		else if (collider->GetName().find("Health") != std::string::npos){
 			health += 4;
 			healthBar->addHealth(4);
+			theSound.PlaySound(healthSound, 1.0f, false, 0);
 		}
 	}
 }
 
 void Player::Shoot(float X, float Y, Vector2 shooterVel){
 	new Shot(X, Y, 0.0, shooterVel, 0, 0, 1);
+	theSound.PlaySound(shootSound, 1.0f, false, 0);
 }
 
 void Player::BeamShoot(float X, float Y, Vector2 shooterVel){
 	new Shot(X, Y, 0.0, shooterVel, 0, 1, 0);
+	theSound.PlaySound(shootSound, 1.0f, false, 0);
 }
 
 void Player::TripleShoot(float X, float Y, Vector2 shooterVel) // the angle can't be an actual angle. It's the x velocity
 {
+	theSound.PlaySound(shootSound, 1.0f, false, 0);
 	new Shot(X, Y, 0.0, shooterVel,0.8, 0, 1);
 	new Shot(X, Y, -.05, shooterVel, 0.8, 0, 1);
 	new Shot(X, Y, .05, shooterVel, 0.8, 0, 1);
