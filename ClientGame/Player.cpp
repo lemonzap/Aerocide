@@ -81,17 +81,17 @@ void Player::Update(float dt){
 
 		//if space is pressed and shooting is off cooldown then shoot
 		if (theInput.IsKeyDown(' ') && framesSinceLastShot >= shotCooldownFrames){
-			framesSinceLastShot = 1;
+			framesSinceLastShot = 15;
 			if (powerLevel == 1) { //Checks what the power of the shot is
-				shotCooldownFrames = 15;
+				shotCooldownFrames = 15; //base shot
 				Shoot(this->GetPosition().X, this->GetPosition().Y + 0.0f, velocity);
 			}
-			else if (powerLevel == 2)
+			else if (powerLevel == 2) //faster shot
 			{
 				shotCooldownFrames = 8;
 				BeamShoot(this->GetPosition().X, this->GetPosition().Y + 0.0f, velocity);
 			}
-			else if (powerLevel == 3)
+			else if (powerLevel == 3) //triple shot
 			{
 				shotCooldownFrames = 20;
 				TripleShoot(this->GetPosition().X, this->GetPosition().Y + 0.0f, velocity);
@@ -116,13 +116,13 @@ void Player::Update(float dt){
 
 		animateHit();
 	}
-	if (health <= 0 && !dying){
+	if (health <= 0 && !dying){ //player blows up if they die
 		dying = true;
 		theSound.PlaySound(explode, 1.0f, false, 0);
 		this->LoadSpriteFrames("Resources/Images/Explosion_001.png", GL_CLAMP, GL_NEAREST);
 		this->PlaySpriteAnimation(0.1, SAT_Loop, 0, 6, "explode");
 	}
-	if (dying){
+	if (dying){ //the death animation
 		switch (dyingFrame){
 		case 0:
 			SetSpriteFrame(0);
@@ -154,7 +154,7 @@ void Player::Update(float dt){
 
 }
 
-void Player::ReceiveMessage(Message *message)
+void Player::ReceiveMessage(Message *message) //player colliding with something
 {
 	try{
 		if (message->GetMessageName() == "CollisionStartWith" + GetName())
@@ -162,7 +162,7 @@ void Player::ReceiveMessage(Message *message)
 			PhysicsActor* collider = (PhysicsActor*)message->GetSender();
 			if (!collider->IsDestroyed()){
 				if (!isHit && !collider->IsTagged("Friendly") && !collider->IsTagged("Stage") && !collider->IsTagged("Ship"))
-				{
+				{ //enemy or enemy shot
 					health -= 1;
 					if (powerLevel != 1){
 						theSound.PlaySound(downgradeSound, 1.0f, false, 0);
@@ -177,15 +177,15 @@ void Player::ReceiveMessage(Message *message)
 				}
 			}
 			if (collider->GetName().find("TripleShot") != std::string::npos){
-				powerLevel = 3;
+				powerLevel = 3; //upgrades the shot to triple and plays sound
 				theSound.PlaySound(upgradeSound, 1.0f, false, 0);
 			}
 			else if (collider->GetName().find("BeamShot") != std::string::npos){
-				powerLevel = 2;
+				powerLevel = 2; //upgrades the shot to increase firerate and play sound
 				theSound.PlaySound(upgradeSound, 1.0f, false, 0);
 			}
 			else if (collider->GetName().find("Health") != std::string::npos){
-				health += 4;
+				health += 4; //adds 4 health to the player and plays the sound
 				if (health > 16){
 					health = 16;
 				}
@@ -199,12 +199,12 @@ void Player::ReceiveMessage(Message *message)
 	}
 }
 
-void Player::Shoot(float X, float Y, Vector2 shooterVel){
+void Player::Shoot(float X, float Y, Vector2 shooterVel){ //makes a shot function class when shooting
 	new Shot(X, Y, 0.0, shooterVel, 0, 0, 1);
 	theSound.PlaySound(shootSound, 0.5f, false, 0);
 }
 
-void Player::BeamShoot(float X, float Y, Vector2 shooterVel){
+void Player::BeamShoot(float X, float Y, Vector2 shooterVel){ //makes the faster shot with a different color
 	new Shot(X, Y, 0.0, shooterVel, 0, 1, 0);
 	theSound.PlaySound(shootSound, 0.5f, false, 0);
 }
@@ -217,7 +217,7 @@ void Player::TripleShoot(float X, float Y, Vector2 shooterVel) // the angle can'
 	new Shot(X, Y, .05, shooterVel, 0.8, 0, 1);
 }
 
-void Player::animateHit(){
+void Player::animateHit(){ //hit animation
 	if (isHit){
 		if (currentHitFrame <= 4){
 			this->SetSpriteFrame(1);

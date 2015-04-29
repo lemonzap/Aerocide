@@ -5,7 +5,7 @@
 #include <vector>
 #include <string>
 
-class Shot : public PhysicsActor{
+class Shot : public PhysicsActor{ //inheriting from the physics actor class
 public:
 	Shot(float X, float Y, float angle, Vector2 shooterVel, float r, float g, float b); //Accepts position, angle of the shot and the shooter
 

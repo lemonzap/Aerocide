@@ -13,7 +13,7 @@ Player2::Player2(){
 	this->ClearSpriteInfo();
 	this->SetSprite("Resources/Images/ShipHit.png", 1, GL_CLAMP, GL_NEAREST, false);
 	this->SetSprite("Resources/Images/Ship.png", 0, GL_CLAMP, GL_NEAREST, false);
-	shootSound = theSound.LoadSample("Resources/Sounds/Shoot.wav", false);
+	shootSound = theSound.LoadSample("Resources/Sounds/Shoot2.wav", false);
 	explode = theSound.LoadSample("Resources/Sounds/Explosion.wav", false);
 	healthSound = theSound.LoadSample("Resources/Sounds/Health.wav", false);
 	upgradeSound = theSound.LoadSample("Resources/Sounds/Upgrade.wav", false);

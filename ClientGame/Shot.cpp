@@ -12,7 +12,7 @@ Shot::Shot(float X, float Y, float angle, Vector2 shooterVel, float r, float g, 
 	//setup shot
 	this->SetPosition(shotPosition);
 	if (angle > 0.01){
-		this->SetRotation(-20);
+		this->SetRotation(-20); //setting rotation
 	}
 	else if (angle < -0.01){
 		this->SetRotation(20);
@@ -24,19 +24,19 @@ Shot::Shot(float X, float Y, float angle, Vector2 shooterVel, float r, float g, 
 	this->SetLayer(2); //player shots layer
 	this->SetGroupIndex(-1);
 	this->SetIsSensor(true);
-	SetDensity(0.05f);
+	SetDensity(0.05f); //setting density
 	InitPhysics();
 	ApplyLinearImpulse(shotVel, Vector2::Zero);
 	theWorld.Add(this);
 	Tag("bullet");
-	Tag("Friendly");
+	Tag("Friendly"); //tagging the shot
 	SetName("PlayerShot");
 	theSwitchboard.SubscribeTo(this, "CollisionStartWith" + GetName());
 }
 
 void Shot::Update(float dt){
 	timeAlive += dt;
-	//shots stay alive for 5 seconds
+	//shots stay alive for 1.6 seconds
 	if (timeAlive >= 1.6 || shouldDie){
 		Destroy();
 	}
@@ -46,7 +46,7 @@ void Shot::Update(float dt){
 
 }
 
-void Shot::ReceiveMessage(Message *message)
+void Shot::ReceiveMessage(Message *message) //coliding with something
 {
 	try{
 		if (!shouldDie){

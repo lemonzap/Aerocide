@@ -7,7 +7,7 @@
 #include "Shot.h"
 #include "healthBar.h"
 
-class Player : public PhysicsActor{
+class Player : public PhysicsActor{ //inheriting from physics actor
 public:
 	Player();
 	void Shoot(float X, float Y, Vector2 shooterVel);
