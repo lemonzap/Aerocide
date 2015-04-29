@@ -176,8 +176,10 @@ cd ..\Tools\BuildScripts\
       </PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="Asteroid.cpp" />
+    <ClCompile Include="BeamShot.cpp" />
     <ClCompile Include="BigAsteroid.cpp" />
     <ClCompile Include="GameManager.cpp" />
+    <ClCompile Include="Health.cpp" />
     <ClCompile Include="HealthBar.cpp" />
     <ClCompile Include="HealthPoint.cpp" />
     <ClCompile Include="HugeAsteroid.cpp" />
@@ -197,8 +199,10 @@ cd ..\Tools\BuildScripts\
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Asteroid.h" />
+    <ClInclude Include="BeamShot.h" />
     <ClInclude Include="BigAsteroid.h" />
     <ClInclude Include="GameManager.h" />
+    <ClInclude Include="Health.h" />
     <ClInclude Include="HealthBar.h" />
     <ClInclude Include="HealthPoint.h" />
     <ClInclude Include="HugeAsteroid.h" />

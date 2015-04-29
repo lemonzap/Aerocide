@@ -39,6 +39,8 @@
     <ClCompile Include="HealthBar.cpp" />
     <ClCompile Include="HealthPoint.cpp" />
     <ClCompile Include="TripleShot.cpp" />
+    <ClCompile Include="BeamShot.cpp" />
+    <ClCompile Include="Health.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="platforms\win\ClientGame.rc">
@@ -63,6 +65,8 @@
     <ClInclude Include="HealthBar.h" />
     <ClInclude Include="HealthPoint.h" />
     <ClInclude Include="TripleShot.h" />
+    <ClInclude Include="BeamShot.h" />
+    <ClInclude Include="Health.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Config\defaults.lua">

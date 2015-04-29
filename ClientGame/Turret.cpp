@@ -2,9 +2,10 @@
 #include "Turret.h"
 
 
-Turret::Turret(float X, float Y, float angle){
+Turret::Turret(float X, float Y, float angle, PhysicsActor* newStage){
 	health = 5;
 	shotCooldownFrames = 30;
+	stage = newStage;
 	//initialize turret position and speed
 	position.X = X;
 	position.Y = Y;
@@ -33,10 +34,13 @@ Turret::Turret(float X, float Y, float angle){
 
 void Turret::Update(float dt){
 	if (health > 0){
-
+		this->GetBody()->SetLinearVelocity(stage->GetBody()->GetLinearVelocity());
+		this->direction = Vector2(cos((GetRotation() + 90)*0.01745), sin((GetRotation() + 90)*0.01745));
 		if (framesSinceLastShot >= shotCooldownFrames){
 			framesSinceLastShot = 1;
 			Shoot(this->GetPosition().X, this->GetPosition().Y, this->direction);
+			ApplyAngularImpulse(rotation*0.05);
+			rotation *= -1;
 		}
 		else{
 			framesSinceLastShot++;
@@ -46,7 +50,13 @@ void Turret::Update(float dt){
 	}
 	if (health <= 0 && !dying){
 		dying = true;
-		new TripleShot(this->GetPosition().X, this->GetPosition().Y);
+		if (MathUtil::RandomFloat() > 0.5f){
+			new TripleShot(this->GetPosition().X, this->GetPosition().Y);
+		}
+		else{
+			new BeamShot(this->GetPosition().X, this->GetPosition().Y);
+		}
+		
 		this->LoadSpriteFrames("Resources/Images/Explosion_001.png", GL_CLAMP, GL_NEAREST);
 		this->PlaySpriteAnimation(0.1, SAT_Loop, 0, 6, "explode");
 	}
@@ -87,10 +97,12 @@ void Turret::ReceiveMessage(Message *message)
 	if (message->GetMessageName() == "CollisionStartWith" + GetName())
 	{
 		PhysicsActor* collider = (PhysicsActor*)message->GetSender();
-		if (!isHit && !collider->IsTagged("Asteroid") && !collider->IsTagged("Stage") && !collider->IsTagged("EnemyBullet"))
-		{
-			health -= 1;
-			isHit = true;
+		if (!collider->IsDestroyed()){
+			if (!isHit && !collider->IsTagged("Asteroid") && !collider->IsTagged("Stage") && !collider->IsTagged("EnemyBullet"))
+			{
+				health -= 1;
+				isHit = true;
+			}
 		}
 	}
 }

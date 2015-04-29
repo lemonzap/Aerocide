@@ -73,21 +73,21 @@ void AerocideGameManager::Update(float dt)
 			gameStarted = true;
 			theWorld.Remove(text);
 			theWorld.ResumeSimulation();
-			new Turret(3, 30.91, 125);
-			new Turret(-3, 44.35, 40);
-			new Turret(5.52, 79.11, 180);
-			new Turret(-5.286, 93.02, 195);
-			new Turret(-4.635, 122.71, 180);
-			new Turret(-4.453, 125.156, 186);
-			new Turret(3.4375, 142.29, 165);
-			new Turret(-1.5365, 171.56, 175);
-			new Turret(-2.422, 224.245, 180);
-			new Turret(3.4375, 269.635, 140);
-			new Turret(-.8854, 294, 146);
-			new Turret(-.41667, 366.875, 178);
-			new Turret(3.2292, 377.865, 165);
-			new Turret(-3.28125, 392.266, 192);
-			new Turret(4.47917, 393.932, 168);
+			new Turret(3, 30.91, 125, stage);
+			new Turret(-3, 44.35, 40, stage);
+			new Turret(5.52, 79.11, 180, stage);
+			new Turret(-5.286, 93.02, 195, stage);
+			new Turret(-4.635, 122.71, 180, stage);
+			new Turret(-4.453, 125.156, 186, stage);
+			new Turret(3.4375, 142.29, 165, stage);
+			new Turret(-1.5365, 171.56, 175, stage);
+			new Turret(-2.422, 224.245, 180, stage);
+			new Turret(3.4375, 269.635, 140, stage);
+			new Turret(-.8854, 294, 146, stage);
+			new Turret(-.41667, 366.875, 178, stage);
+			new Turret(3.2292, 377.865, 165, stage);
+			new Turret(-3.28125, 392.266, 192, stage);
+			new Turret(4.47917, 393.932, 168, stage);
 
 			stage->GetBody()->SetLinearVelocity(b2Vec2(0, -6));
 		}
@@ -119,7 +119,7 @@ void AerocideGameManager::Update(float dt)
 			debugInfoFPS = realFPS;
 		}
 		//if end of stage not reached continue scrolling
-		if (stagePosition.Y <= (-426.666 / 2.0f) + 11 && !player->IsDestroyed()){ //half the stage images height plus half the screens height and 1 as a buffer from overshooting the edge of the image
+		if (stage->GetPosition().Y <= (-426.666 / 2.0f) + 11 && !player->IsDestroyed()){ //half the stage images height plus half the screens height and 1 as a buffer from overshooting the edge of the image
 			//update stage position according to its velocity
 			stage->GetBody()->SetLinearVelocity(b2Vec2(0, 0));
 		}

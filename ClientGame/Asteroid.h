@@ -4,6 +4,7 @@
 #include "stdafx.h"
 #include <vector>
 #include <string>
+#include "Health.h"
 
 class Asteroid : public PhysicsActor{
 public:

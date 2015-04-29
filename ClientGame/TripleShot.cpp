@@ -26,6 +26,7 @@ TripleShot::TripleShot(float X, float Y){
 	ApplyLinearImpulse(direction, Vector2::Zero);
 	theWorld.Add(this);
 	Tag("TripleShot");
+	Tag("Friendly");
 	SetName("TripleShot");
 	theSwitchboard.SubscribeTo(this, "CollisionStartWith" + GetName());
 }
@@ -99,8 +100,10 @@ void TripleShot::ReceiveMessage(Message *message)
 	if (message->GetMessageName() == "CollisionStartWith" + GetName())
 	{
 		PhysicsActor* collider = (PhysicsActor*)message->GetSender();
-		if (collider->GetName() == "PlayerShip"){
-			Destroy();
+		if (!collider->IsDestroyed()){
+			if (collider->GetName() == "PlayerShip"){
+				Destroy();
+			}
 		}
 	}
 }

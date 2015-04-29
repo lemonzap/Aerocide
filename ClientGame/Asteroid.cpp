@@ -44,6 +44,7 @@ void Asteroid::Update(float dt){
 	}
 	if (health <= 0 && !dying){
 		dying = true;
+		new Health(this->GetPosition().X, this->GetPosition().Y);
 		this->LoadSpriteFrames("Resources/Images/Explosion_001.png", GL_CLAMP, GL_NEAREST);
 		this->PlaySpriteAnimation(0.1, SAT_Loop, 0, 6, "explode");
 	}
@@ -84,11 +85,11 @@ void Asteroid::ReceiveMessage(Message *message)
 	if (message->GetMessageName() == "CollisionStartWith" + GetName())
 	{
 		PhysicsActor* collider = (PhysicsActor*)message->GetSender();
-		if (!isHit)
-		{
+			if (!isHit)
+			{
 				health -= 1;
 				isHit = true;
-		}
+			}
 	}
 }
 

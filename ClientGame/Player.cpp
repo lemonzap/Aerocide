@@ -4,7 +4,7 @@
 
 Player::Player(){
 	health = 16;
-	shotCooldownFrames = 2;
+	shotCooldownFrames = 15;
 	//setup player
 	healthBar = new HealthBar(health);
 	this->SetSize(1.0f);
@@ -75,6 +75,7 @@ void Player::Update(float dt){
 			}
 			else if (powerLevel == 3)
 			{
+				shotCooldownFrames = 15;
 				TripleShoot(this->GetPosition().X, this->GetPosition().Y + 0.0f, velocity);
 			}
 		}
@@ -139,14 +140,23 @@ void Player::ReceiveMessage(Message *message)
 	if (message->GetMessageName() == "CollisionStartWith" + GetName())
 	{
 		PhysicsActor* collider = (PhysicsActor*)message->GetSender();
-		if (!isHit && !collider->IsTagged("Friendly") && !collider->IsTagged("Stage") && collider->GetName() != "TripleShot")
-		{
-			health -= 1;
-			healthBar->removeHealth(1);
-			isHit = true;
+		if (!collider->IsDestroyed()){
+			if (!isHit && !collider->IsTagged("Friendly") && !collider->IsTagged("Stage"))
+			{
+				health -= 1;
+				healthBar->removeHealth(1);
+				isHit = true;
+			}
 		}
-		else if (collider->GetName() == "TripleShot"){
+		if (collider->GetName() == "TripleShot"){
 			powerLevel = 3;
+		}
+		else if (collider->GetName() == "BeamShot"){
+			powerLevel = 2;
+		}
+		else if (collider->GetName() == "Health"){
+			health += 2;
+			healthBar->addHealth(2);
 		}
 	}
 }
