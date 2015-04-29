@@ -37,6 +37,7 @@ Turret::Turret(float X, float Y, float angle, char TurSize, PhysicsActor* newSta
 	this->SetSprite("Resources/Images/TurretTop.png", 0, GL_CLAMP, GL_NEAREST, false);
 	explode = theSound.LoadSample("Resources/Sounds/Explosion.wav", false);
 	this->SetLayer(2); //enemy layer
+	this->SetGroupIndex(-2);
 	this->SetIsSensor(true);
 	SetShapeType(PhysicsActor::SHAPETYPE_BOX);
 	InitPhysics();
@@ -124,16 +125,23 @@ void Turret::Update(float dt){
 
 void Turret::ReceiveMessage(Message *message)
 {
-	if (message->GetMessageName() == "CollisionStartWith" + GetName())
-	{
-		PhysicsActor* collider = (PhysicsActor*)message->GetSender();
-		if (!collider->IsDestroyed()){
-			if (!isHit && !collider->IsTagged("Asteroid") && !collider->IsTagged("Stage") && !collider->IsTagged("EnemyBullet"))
+	try{
+		if (health > 0){
+			if (message->GetMessageName() == "CollisionStartWith" + GetName())
 			{
-				health -= 1;
-				isHit = true;
+				PhysicsActor* collider = (PhysicsActor*)message->GetSender();
+				if (!collider->IsDestroyed() && !IsDestroyed()){
+					if (!isHit && !collider->IsTagged("Asteroid") && !collider->IsTagged("Stage") && !collider->IsTagged("EnemyBullet"))
+					{
+						health -= 1;
+						isHit = true;
+					}
+				}
 			}
 		}
+	}
+	catch (int e){
+		std::cout << "Turret Error" << std::endl;
 	}
 }
 

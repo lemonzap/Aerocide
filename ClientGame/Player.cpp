@@ -156,41 +156,46 @@ void Player::Update(float dt){
 
 void Player::ReceiveMessage(Message *message)
 {
-	if (message->GetMessageName() == "CollisionStartWith" + GetName())
-	{
-		PhysicsActor* collider = (PhysicsActor*)message->GetSender();
-		if (!collider->IsDestroyed()){
-			if (!isHit && !collider->IsTagged("Friendly") && !collider->IsTagged("Stage") && !collider->IsTagged("Ship"))
-			{
-				health -= 1;
-				if (powerLevel != 1){
-					theSound.PlaySound(downgradeSound, 1.0f, false, 0);
-				}
-				else{
-					theSound.PlaySound(hitSound, 1.0f, false, 0);
-				}
+	try{
+		if (message->GetMessageName() == "CollisionStartWith" + GetName())
+		{
+			PhysicsActor* collider = (PhysicsActor*)message->GetSender();
+			if (!collider->IsDestroyed()){
+				if (!isHit && !collider->IsTagged("Friendly") && !collider->IsTagged("Stage") && !collider->IsTagged("Ship"))
+				{
+					health -= 1;
+					if (powerLevel != 1){
+						theSound.PlaySound(downgradeSound, 1.0f, false, 0);
+					}
+					else{
+						theSound.PlaySound(hitSound, 1.0f, false, 0);
+					}
 
-				powerLevel = 1;
-				healthBar->removeHealth(1);
-				isHit = true;
+					powerLevel = 1;
+					healthBar->removeHealth(1);
+					isHit = true;
+				}
+			}
+			if (collider->GetName().find("TripleShot") != std::string::npos){
+				powerLevel = 3;
+				theSound.PlaySound(upgradeSound, 1.0f, false, 0);
+			}
+			else if (collider->GetName().find("BeamShot") != std::string::npos){
+				powerLevel = 2;
+				theSound.PlaySound(upgradeSound, 1.0f, false, 0);
+			}
+			else if (collider->GetName().find("Health") != std::string::npos){
+				health += 4;
+				if (health > 16){
+					health = 16;
+				}
+				healthBar->addHealth(4);
+				theSound.PlaySound(healthSound, 1.0f, false, 0);
 			}
 		}
-		if (collider->GetName().find("TripleShot") != std::string::npos){
-			powerLevel = 3;
-			theSound.PlaySound(upgradeSound, 1.0f, false, 0);
-		}
-		else if (collider->GetName().find("BeamShot") != std::string::npos){
-			powerLevel = 2;
-			theSound.PlaySound(upgradeSound, 1.0f, false, 0);
-		}
-		else if (collider->GetName().find("Health") != std::string::npos){
-			health += 4;
-			if (health > 16){
-				health = 16;
-			}
-			healthBar->addHealth(4);
-			theSound.PlaySound(healthSound, 1.0f, false, 0);
-		}
+	}
+	catch (int e){
+		std::cout << "Player Error" << std::endl;
 	}
 }
 

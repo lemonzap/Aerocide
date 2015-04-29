@@ -25,6 +25,7 @@ TurretShot::TurretShot(float X, float Y, Vector2 newDirection, char TurSize, flo
 	this->ClearSpriteInfo();
 	this->SetSprite("Resources/Images/TurretShot.png", 0, GL_CLAMP, GL_NEAREST, false);
 	this->SetLayer(1); //player shots layer
+	this->SetGroupIndex(-2);
 	this->SetIsSensor(true);
 	SetShapeType(PhysicsActor::SHAPETYPE_CIRCLE);
 	InitPhysics();
@@ -40,20 +41,26 @@ TurretShot::TurretShot(float X, float Y, Vector2 newDirection, char TurSize, flo
 void TurretShot::Update(float dt){
 	timeAlive += dt;
 	//shots stay alive for 5 seconds
-	if (timeAlive >= 2){
+	if (timeAlive >= 2 || shouldDie){
 		Destroy();
 	}
 }
 
 void TurretShot::ReceiveMessage(Message *message)
 {
-	if (message->GetMessageName() == "CollisionStartWith" + GetName())
-	{
-		PhysicsActor* collider = (PhysicsActor*)message->GetSender();
-		if (!collider->IsDestroyed()){
-			if (!collider->IsTagged("Asteroid") && !collider->IsTagged("Bullet") && !collider->IsTagged("Stage") && !collider->IsTagged("Turret") && !collider->IsTagged("Friendly")){
-				Destroy();
+	try{
+		if (message->GetMessageName() == "CollisionStartWith" + GetName())
+		{
+			PhysicsActor* collider = (PhysicsActor*)message->GetSender();
+			if (!shouldDie && !collider->IsDestroyed() && !IsDestroyed()){
+				if (!collider->IsTagged("Bullet") && !collider->IsTagged("Stage") && !collider->IsTagged("Turret") && !collider->IsTagged("Friendly")){
+					shouldDie = true;
+					theSwitchboard.UnsubscribeFrom(this, "CollisionStartWith" + GetName());
+				}
 			}
 		}
+	}
+	catch(int e){
+		std::cout << "This code is unreachable, this shouldn't be happening" << std::endl;
 	}
 }

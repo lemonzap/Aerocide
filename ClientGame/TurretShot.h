@@ -15,5 +15,6 @@ private:
 	Vector2 shotVel;
 	Vector2 direction;
 	float timeAlive = 0;
+	bool shouldDie = false;
 	float stageSpeed;
 };

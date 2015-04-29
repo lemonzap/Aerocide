@@ -41,7 +41,7 @@ void BigAsteroid::Update(float dt){
 
 		animateHit();
 
-		if (GetPosition().Y < -20){
+		if (GetPosition().Y < -70){
 			Destroy();
 		}
 	}
@@ -88,16 +88,21 @@ void BigAsteroid::Update(float dt){
 
 void BigAsteroid::ReceiveMessage(Message *message)
 {
-	if (message->GetMessageName() == "CollisionStartWith" + GetName())
-	{
-		PhysicsActor* collider = (PhysicsActor*)message->GetSender();
-		if (!collider->IsDestroyed()){
-			if (!isHit && !collider->IsTagged("EnemyBullet"))
-			{
-				health -= 1;
-				isHit = true;
+	try{
+		if (message->GetMessageName() == "CollisionStartWith" + GetName())
+		{
+			PhysicsActor* collider = (PhysicsActor*)message->GetSender();
+			if (!collider->IsDestroyed()){
+				if (!isHit)
+				{
+					health -= 1;
+					isHit = true;
+				}
 			}
 		}
+	}
+	catch (int e){
+		std::cout << "Asteroid Error" << std::endl;
 	}
 }
 void BigAsteroid::animateHit(){

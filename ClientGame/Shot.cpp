@@ -28,7 +28,7 @@ Shot::Shot(float X, float Y, float angle, Vector2 shooterVel, float r, float g, 
 	InitPhysics();
 	ApplyLinearImpulse(shotVel, Vector2::Zero);
 	theWorld.Add(this);
-	Tag("Bullet");
+	Tag("bullet");
 	Tag("Friendly");
 	SetName("PlayerShot");
 	theSwitchboard.SubscribeTo(this, "CollisionStartWith" + GetName());
@@ -48,13 +48,23 @@ void Shot::Update(float dt){
 
 void Shot::ReceiveMessage(Message *message)
 {
-	if (message->GetMessageName() == "CollisionStartWith" + GetName())
-	{
-		PhysicsActor* collider = (PhysicsActor*)message->GetSender();
-		if (!collider->IsDestroyed()){
-			if (!collider->IsTagged("Ship") && !collider->IsTagged("Bullet") && !collider->IsTagged("Stage") && !collider->IsTagged("Friendly")){
-				shouldDie = true;
+	try{
+		if (!shouldDie){
+			if (message->GetMessageName() == "CollisionStartWith" + GetName())
+			{
+				if (message->GetSender() != NULL){
+					PhysicsActor* collider = (PhysicsActor*)message->GetSender();
+					if (!collider->IsDestroyed() && !shouldDie && !IsDestroyed()){
+						if (!collider->IsTagged("bullet") && !collider->IsTagged("Stage") && !collider->IsTagged("Friendly")){
+							shouldDie = true;
+							theSwitchboard.UnsubscribeFrom(this, "CollisionStartWith" + GetName());
+						}
+					}
+				}
 			}
 		}
+	}
+	catch (int e){
+		std::cout << "shot Error" << std::endl;
 	}
 }
