@@ -2,11 +2,12 @@
 #include "TurretShot.h"
 
 
-TurretShot::TurretShot(float X, float Y, Vector2 newDirection, char TurSize){
+TurretShot::TurretShot(float X, float Y, Vector2 newDirection, char TurSize, float newStageSpeed){
 	//initialize shot position and speed
 	shotPosition.X = X;
 	shotPosition.Y = Y;
 	direction = newDirection;
+	stageSpeed = newStageSpeed;
 	//shotVel += shooterVel;
 	//setup shot
 	this->SetSize(0.15f);
@@ -27,7 +28,7 @@ TurretShot::TurretShot(float X, float Y, Vector2 newDirection, char TurSize){
 	this->SetIsSensor(true);
 	SetShapeType(PhysicsActor::SHAPETYPE_CIRCLE);
 	InitPhysics();
-	this->GetBody()->SetLinearVelocity(b2Vec2(0, -6));
+	this->GetBody()->SetLinearVelocity(b2Vec2(0, stageSpeed));
 	ApplyLinearImpulse(direction*0.01, Vector2::Zero);
 	theWorld.Add(this);
 	Tag("Bullet");

@@ -52,7 +52,7 @@ void Turret::Update(float dt){
 		this->direction = Vector2(cos((GetRotation() + 90)*0.01745), sin((GetRotation() + 90)*0.01745));
 		if (framesSinceLastShot >= shotCooldownFrames){
 			framesSinceLastShot = 1;
-			Shoot(this->GetPosition().X, this->GetPosition().Y, this->direction);
+			Shoot(this->GetPosition().X, this->GetPosition().Y, direction);
 			ApplyAngularImpulse(rotation*0.05);
 			rotation *= -1;
 		}
@@ -122,7 +122,7 @@ void Turret::ReceiveMessage(Message *message)
 }
 
 void Turret::Shoot(float X, float Y, Vector2 newDirection){
-	new TurretShot(X, Y, newDirection, size);
+	new TurretShot(X, Y, newDirection, size, stage->GetBody()->GetLinearVelocity().y);
 }
 
 void Turret::animateHit(){
