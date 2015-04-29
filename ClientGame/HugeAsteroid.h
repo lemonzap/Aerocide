@@ -21,4 +21,5 @@ private:
 	bool isHit = false;
 	bool dying = false;
 	int dyingFrame = 0;
+	AngelSoundHandle explode;
 };

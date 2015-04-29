@@ -17,6 +17,7 @@ BigAsteroid::BigAsteroid(float X, float Y, float velX, float velY){
 	this->ClearSpriteInfo();
 	this->SetSprite("Resources/Images/AsteroidHit.png", 1, GL_CLAMP, GL_NEAREST, false);
 	this->SetSprite("Resources/Images/Asteroid.png", 0, GL_CLAMP, GL_NEAREST, false);
+	explode = theSound.LoadSample("Resources/Sounds/Explosion.wav", false);
 	this->SetLayer(1); //enemy layer
 	this->SetGroupIndex(-2);
 	SetDensity(10.0f);
@@ -46,6 +47,7 @@ void BigAsteroid::Update(float dt){
 	}
 	if (health <= 0 && !dying){
 		dying = true;
+		theSound.PlaySound(explode, 1.0f, false, 0);
 		if (MathUtil::RandomFloat() < 0.05f){
 			new Health(this->GetPosition().X, this->GetPosition().Y);
 		}
