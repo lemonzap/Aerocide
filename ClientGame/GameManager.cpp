@@ -90,9 +90,10 @@ void AerocideGameManager::Update(float dt)
 			new Turret(3.2292, 377.865, 165, 's', stage);
 			new Turret(-3.28125, 392.266, 192, 's', stage);
 			new Turret(4.47917, 393.932, 168, 's', stage);
-			new Turret(-5.70313, 415.052, 180, 'l', stage);
-			new Turret(5.88542, 415.052, 180, 'l', stage);
-			new Turret(.15625, 412.422, 180, 'l', stage);
+			final1 = new Turret(-5.70313, 415.052, 180, 'l', stage);
+			final2 = new Turret(5.88542, 415.052, 180, 'l', stage);
+			final3 = new Turret(.15625, 412.422, 180, 'l', stage);
+
 
 			stage->GetBody()->SetLinearVelocity(b2Vec2(0, -6));
 		}
@@ -289,6 +290,17 @@ void AerocideGameManager::Update(float dt)
 			FinalAsteroidSpawned = true;
 		}
 
+		if (final1->IsDestroyed() && final2->IsDestroyed() && final3->IsDestroyed())
+		{
+			text = new TextActor("Console", "YOU WON!!!!!! Press 'Esc' to exit.");
+			text->SetPosition(0, 1);
+			text->SetAlignment(TXT_Center);
+			text->SetLayer(4); //text layer
+			text->SetColor(0, 1, 0, 1);
+			theWorld.Add(text);
+			theWorld.PauseSimulation();
+
+		}
 		//move stage
 		stage->SetPosition(stagePosition);
 
