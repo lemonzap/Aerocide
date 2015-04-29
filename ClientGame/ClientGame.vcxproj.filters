@@ -84,4 +84,25 @@
     <None Include="Resources\Scripts\client_start.lua" />
     <None Include="script_interface.i" />
   </ItemGroup>
+  <ItemGroup>
+    <Image Include="Resources\Images\Asteroid.png" />
+    <Image Include="Resources\Images\AsteroidHit.png" />
+    <Image Include="Resources\Images\DefaultSkin.png" />
+    <Image Include="Resources\Images\Explosion_001.png" />
+    <Image Include="Resources\Images\Explosion_002.png" />
+    <Image Include="Resources\Images\Explosion_003.png" />
+    <Image Include="Resources\Images\Explosion_004.png" />
+    <Image Include="Resources\Images\Explosion_005.png" />
+    <Image Include="Resources\Images\Explosion_006.png" />
+    <Image Include="Resources\Images\Explosion_007.png" />
+    <Image Include="Resources\Images\ExplosionSheet.png" />
+    <Image Include="Resources\Images\Ship.png" />
+    <Image Include="Resources\Images\ShipHit.png" />
+    <Image Include="Resources\Images\Shot.png" />
+    <Image Include="Resources\Images\TestStage.png" />
+    <Image Include="Resources\Images\TurretBase.png" />
+    <Image Include="Resources\Images\TurretShot.png" />
+    <Image Include="Resources\Images\TurretTop.png" />
+    <Image Include="Resources\Images\TurretTopHit.png" />
+  </ItemGroup>
 </Project>
