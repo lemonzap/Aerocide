@@ -9,7 +9,7 @@ Player2::Player2(){
 	healthBar = new HealthBar(health, 0, 7.8);
 	this->SetSize(1.0f);
 	this->SetPosition(5, 0);
-	this->SetColor(1, 1, 1, 1); //(white and opaque so the texture comes through fully)
+	this->SetColor(0.5, 1, 0.5, 1); //(white and opaque so the texture comes through fully)
 	this->ClearSpriteInfo();
 	this->SetSprite("Resources/Images/ShipHit.png", 1, GL_CLAMP, GL_NEAREST, false);
 	this->SetSprite("Resources/Images/Ship.png", 0, GL_CLAMP, GL_NEAREST, false);
