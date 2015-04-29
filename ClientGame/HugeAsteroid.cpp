@@ -90,11 +90,13 @@ void HugeAsteroid::ReceiveMessage(Message *message)
 	if (message->GetMessageName() == "CollisionStartWith" + GetName())
 	{
 		PhysicsActor* collider = (PhysicsActor*)message->GetSender();
-			if (!isHit)
+		if (!collider->IsDestroyed()){
+			if (!isHit && !collider->IsTagged("EnemyBullet"))
 			{
 				health -= 1;
 				isHit = true;
 			}
+		}
 	}
 }
 

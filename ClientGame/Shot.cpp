@@ -31,7 +31,7 @@ Shot::Shot(float X, float Y, float angle, Vector2 shooterVel, float r, float g, 
 void Shot::Update(float dt){
 	timeAlive += dt;
 	//shots stay alive for 5 seconds
-	if (timeAlive >= 1.6){
+	if (timeAlive >= 1.6 || shouldDie){
 		Destroy();
 	}
 	else{
@@ -47,7 +47,7 @@ void Shot::ReceiveMessage(Message *message)
 		PhysicsActor* collider = (PhysicsActor*)message->GetSender();
 		if (!collider->IsDestroyed()){
 			if (collider->GetName() != "PlayerShip" && !collider->IsTagged("Bullet") && !collider->IsTagged("Stage") && !collider->IsTagged("Friendly")){
-				Destroy();
+				shouldDie = true;
 			}
 		}
 	}

@@ -112,13 +112,13 @@ void Turret::ReceiveMessage(Message *message)
 	{
 		PhysicsActor* collider = (PhysicsActor*)message->GetSender();
 		if (!collider->IsDestroyed()){
-		if (!isHit && !collider->IsTagged("Asteroid") && !collider->IsTagged("Stage") && !collider->IsTagged("EnemyBullet"))
-		{
-			health -= 1;
-			isHit = true;
+			if (!isHit && !collider->IsTagged("Asteroid") && !collider->IsTagged("Stage") && !collider->IsTagged("EnemyBullet"))
+			{
+				health -= 1;
+				isHit = true;
+			}
 		}
 	}
-}
 }
 
 void Turret::Shoot(float X, float Y, Vector2 newDirection){

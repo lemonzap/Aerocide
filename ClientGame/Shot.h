@@ -15,4 +15,5 @@ private:
 	Vector2 shotPosition;
 	Vector2 shotVel;
 	float timeAlive = 0;
+	bool shouldDie = false;
 };
