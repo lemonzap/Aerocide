@@ -144,4 +144,12 @@
     <Image Include="Resources\Images\TripleShot_008.png" />
     <Image Include="Resources\Images\TripleShot_009.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Media Include="Resources\Sounds\Downgrade.wav" />
+    <Media Include="Resources\Sounds\Explosion.wav" />
+    <Media Include="Resources\Sounds\Health.wav" />
+    <Media Include="Resources\Sounds\Shoot.wav" />
+    <Media Include="Resources\Sounds\StarFox.wav" />
+    <Media Include="Resources\Sounds\Upgrade.wav" />
+  </ItemGroup>
 </Project>

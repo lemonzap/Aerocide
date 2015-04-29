@@ -276,6 +276,14 @@ cd ..\Tools\BuildScripts\
     <Image Include="Resources\Images\TurretTop.png" />
     <Image Include="Resources\Images\TurretTopHit.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Media Include="Resources\Sounds\Downgrade.wav" />
+    <Media Include="Resources\Sounds\Explosion.wav" />
+    <Media Include="Resources\Sounds\Health.wav" />
+    <Media Include="Resources\Sounds\Shoot.wav" />
+    <Media Include="Resources\Sounds\StarFox.wav" />
+    <Media Include="Resources\Sounds\Upgrade.wav" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
