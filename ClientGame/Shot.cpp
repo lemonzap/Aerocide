@@ -11,6 +11,12 @@ Shot::Shot(float X, float Y, float angle, Vector2 shooterVel, float r, float g, 
 	//shotVel += shooterVel;
 	//setup shot
 	this->SetPosition(shotPosition);
+	if (angle > 0.01){
+		this->SetRotation(-20);
+	}
+	else if (angle < -0.01){
+		this->SetRotation(20);
+	}
 	this->SetSize(0.5f);
 	this->SetColor(r, g, b, 1); //(white and opaque so the texture comes through fully)
 	this->ClearSpriteInfo();
@@ -46,7 +52,7 @@ void Shot::ReceiveMessage(Message *message)
 	{
 		PhysicsActor* collider = (PhysicsActor*)message->GetSender();
 		if (!collider->IsDestroyed()){
-			if (collider->GetName() != "PlayerShip" && !collider->IsTagged("Bullet") && !collider->IsTagged("Stage") && !collider->IsTagged("Friendly")){
+			if (!collider->IsTagged("Ship") && !collider->IsTagged("Bullet") && !collider->IsTagged("Stage") && !collider->IsTagged("Friendly")){
 				shouldDie = true;
 			}
 		}

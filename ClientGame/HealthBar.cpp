@@ -2,10 +2,10 @@
 #include "healthBar.h"
 
 
-HealthBar::HealthBar(int initialHealth){
+HealthBar::HealthBar(int initialHealth, float x, float y){
 	health = initialHealth;
 	this->SetSize(6, 1.5f);
-	this->SetPosition(Vector2(0, 9.2));
+	this->SetPosition(Vector2(x, y));
 	this->SetColor(1, 1, 1, 1); //(white and opaque so the texture comes through fully)
 	this->ClearSpriteInfo();
 	this->SetSprite("Resources/Images/HealthBar.png", 0, GL_CLAMP, GL_NEAREST, false);

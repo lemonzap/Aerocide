@@ -41,7 +41,7 @@ void Asteroid::Update(float dt){
 
 		animateHit();
 
-		if (GetPosition().Y < -70){
+		if (GetPosition().Y < -20){
 			Destroy();
 		}
 	}

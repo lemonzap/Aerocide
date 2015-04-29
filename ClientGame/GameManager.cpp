@@ -12,7 +12,7 @@ AerocideGameManager::AerocideGameManager()
 	music = theSound.LoadSample("Resources/Sounds/StarFox.wav", false);
 	victory = theSound.LoadSample("Resources/Sounds/VictoryFanfare.wav", false);
 
-	text = new TextActor("Console", "Press Enter to Begin");
+	text = new TextActor("Console", "Press Enter to Begin\nPress Shift for a 2nd player");
 	text->SetPosition(0, 1);
 	text->SetAlignment(TXT_Center);
 	text->SetLayer(4); //text layer
@@ -67,13 +67,16 @@ void AerocideGameManager::ReceiveMessage(Message* message)
 	}
 }
 
-void AerocideGameManager::Update(float dt)
-{
+void AerocideGameManager::Update(float dt){
 	if (!gameStarted){
 		theWorld.PauseSimulation();
+		if (theInput.IsKeyDown(GLFW_KEY_RIGHT_SHIFT)){
+			player2 = new Player2();
+			isPlayer2 = true;
+		}
 		if (theInput.IsKeyDown(GLFW_KEY_ENTER)){
 			gameStarted = true;
-			theSound.PlaySound(music, 1, true, 0);
+			music = theSound.PlaySound(music, 1, true, 0);
 			theWorld.Remove(text);
 			theWorld.ResumeSimulation();
 			new Turret(3, 30.91, 125, 's', stage);
@@ -101,7 +104,7 @@ void AerocideGameManager::Update(float dt)
 	}
 	else{
 
-		if (player->IsDestroyed()){
+		if (player->IsDestroyed() && (!isPlayer2 || player2->IsDestroyed())){
 			text = new TextActor("Console", "Game Over. Press 'Esc' to exit.");
 			text->SetPosition(0, 1);
 			text->SetAlignment(TXT_Center);
@@ -126,7 +129,7 @@ void AerocideGameManager::Update(float dt)
 			debugInfoFPS = realFPS;
 		}
 		//if end of stage not reached continue scrolling
-		if (stage->GetPosition().Y <= (-426.666 / 2.0f) + 11 && !player->IsDestroyed()){ //half the stage images height plus half the screens height and 1 as a buffer from overshooting the edge of the image
+		if (stage->GetPosition().Y <= (-426.666 / 2.0f) + 11 && !(player->IsDestroyed() && (!isPlayer2 || player2->IsDestroyed()))){ //half the stage images height plus half the screens height and 1 as a buffer from overshooting the edge of the image
 			//update stage position according to its velocity
 			stage->GetBody()->SetLinearVelocity(b2Vec2(0, 0));
 		}
@@ -295,6 +298,7 @@ void AerocideGameManager::Update(float dt)
 		{
 			text = new TextActor("Console", "YOU WON!!!!!! Press 'Esc' to exit.");
 			theSound.StopSound(music);
+			//theSound.Update();
 			theSound.PlaySound(victory, 1.0f, false, 0);
 			text->SetPosition(0, 1);
 			text->SetAlignment(TXT_Center);

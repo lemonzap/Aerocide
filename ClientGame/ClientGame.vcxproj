@@ -184,6 +184,7 @@ cd ..\Tools\BuildScripts\
     <ClCompile Include="HealthPoint.cpp" />
     <ClCompile Include="HugeAsteroid.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="Player2.cpp" />
     <ClCompile Include="Shot.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
@@ -208,6 +209,7 @@ cd ..\Tools\BuildScripts\
     <ClInclude Include="HugeAsteroid.h" />
     <ClInclude Include="platforms\win\resource.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="Player2.h" />
     <ClInclude Include="Shot.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="TripleShot.h" />
@@ -283,6 +285,7 @@ cd ..\Tools\BuildScripts\
     <Media Include="Resources\Sounds\Shoot.wav" />
     <Media Include="Resources\Sounds\StarFox.wav" />
     <Media Include="Resources\Sounds\Upgrade.wav" />
+    <Media Include="Resources\Sounds\VictoryFanfare.wav" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
