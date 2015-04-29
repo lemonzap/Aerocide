@@ -105,7 +105,7 @@ void AerocideGameManager::Update(float dt)
 
 
 
-		if (stagePosition.Y <= 185 && !asteroidSpawned){ //Spawning first asteroid field
+		if (stagePosition.Y <= 185 && !asteroidSpawned){ //Spawning asteroid field
 			new Asteroid(-3, 25, 0.5, -6);
 			new Asteroid(4, 24, 1, -5);
 			new Asteroid(-3.5, 23, 0.7, -6.5);
@@ -134,27 +134,11 @@ void AerocideGameManager::Update(float dt)
 			new HugeAsteroid(0, 27, 4, -1500);
 			asteroidSpawned = true;
 		}
-		
-		if (stagePosition.Y <= -20 && !BigAsteroidSpawned){ //Spawning second asteroid field
-			new BigAsteroid(-3, 25, -15, -197);
-			new BigAsteroid(6, 24, 15, -201);
-			new BigAsteroid(9, 23, 16, -202);
-			new HugeAsteroid(4, 29, 50, -1600);
-			new HugeAsteroid(-2, 29, -50, -1600);
-			new HugeAsteroid(-9, 24, -30, -1400);
-			new Asteroid(6, 27, -0.2, -5.4);
-			new Asteroid(9, 25.4, -0.3, -5.5);
-			new Asteroid(5.5, 24.6, -1.2, -7);
-			new Asteroid(-3.7, 23.4, 1.7, -5.7);
-			new Asteroid(-8, 26.7, 0.4, -6.3);
-			new Asteroid(-9, 26.3, 0.3, -6.25);
-			new Asteroid(0.3, 24.5, -0.25, -5.8);
-			new Asteroid(-2.5, 23.8, 1.25, -5.9);
-			new Asteroid(4.6, 23, -0.55, -5.5);
-			new Asteroid(2, 25.5, -0.59, -5.5);
-
+		/*
+		if (stagePosition.Y <= 185 && !BigAsteroidSpawned){ //Spawning asteroid field
+			new BigAsteroid(-3, 25, 0.5, -6);
 			BigAsteroidSpawned = true;
-		}
+		}*/
 
 		//move stage
 		stage->SetPosition(stagePosition);

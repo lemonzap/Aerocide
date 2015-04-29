@@ -3,7 +3,7 @@
 
 
 BigAsteroid::BigAsteroid(float X, float Y, float velX, float velY){
-	health = 7;
+	health = 10;
 	//initialize asteroid position and speed
 	velocity.X = velX;
 	velocity.Y = velY;
