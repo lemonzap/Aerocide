@@ -7,7 +7,7 @@
 
 class Shot : public PhysicsActor{
 public:
-	Shot(float X, float Y, float angle, Vector2 shooterVel); //Accepts position, angle of the shot and the shooter
+	Shot(float X, float Y, float angle, Vector2 shooterVel, float r, float g, float b); //Accepts position, angle of the shot and the shooter
 
 	void Update(float dt);
 	void Shot::ReceiveMessage(Message *message);

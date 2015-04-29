@@ -11,6 +11,7 @@ class Player : public PhysicsActor{
 public:
 	Player();
 	void Shoot(float X, float Y, Vector2 shooterVel);
+	void BeamShoot(float X, float Y, Vector2 shooterVel);
 	void TripleShoot(float X, float Y, Vector2 shooterVel);
 	void animateHit();
 

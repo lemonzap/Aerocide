@@ -71,7 +71,7 @@ void Player::Update(float dt){
 			else if (powerLevel == 2)
 			{
 				shotCooldownFrames = 8;
-				Shoot(this->GetPosition().X, this->GetPosition().Y + 0.0f, velocity);
+				BeamShoot(this->GetPosition().X, this->GetPosition().Y + 0.0f, velocity);
 			}
 			else if (powerLevel == 3)
 			{
@@ -144,6 +144,7 @@ void Player::ReceiveMessage(Message *message)
 			if (!isHit && !collider->IsTagged("Friendly") && !collider->IsTagged("Stage"))
 			{
 				health -= 1;
+				powerLevel = 1;
 				healthBar->removeHealth(1);
 				isHit = true;
 			}
@@ -162,14 +163,18 @@ void Player::ReceiveMessage(Message *message)
 }
 
 void Player::Shoot(float X, float Y, Vector2 shooterVel){
-	new Shot(X, Y, 0.0, shooterVel);
+	new Shot(X, Y, 0.0, shooterVel, 0, 0, 1);
+}
+
+void Player::BeamShoot(float X, float Y, Vector2 shooterVel){
+	new Shot(X, Y, 0.0, shooterVel, 0, 1, 0);
 }
 
 void Player::TripleShoot(float X, float Y, Vector2 shooterVel) // the angle can't be an actual angle. It's the x velocity
 {
-	new Shot(X, Y, 0.0, shooterVel);
-	new Shot(X, Y, -.05, shooterVel);
-	new Shot(X, Y, .05, shooterVel);
+	new Shot(X, Y, 0.0, shooterVel,0.8, 0, 1);
+	new Shot(X, Y, -.05, shooterVel, 0.8, 0, 1);
+	new Shot(X, Y, .05, shooterVel, 0.8, 0, 1);
 }
 
 void Player::animateHit(){
