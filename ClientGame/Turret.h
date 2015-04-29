@@ -10,7 +10,7 @@
 
 class Turret : public PhysicsActor{
 public:
-	Turret(float X, float Y, float angle, PhysicsActor* stage);
+	Turret(float X, float Y, float angle, char TurSize, PhysicsActor* newStage);
 	void animateHit();
 	void Shoot(float X, float Y, Vector2 direction);
 
@@ -22,6 +22,7 @@ private:
 	Vector2 direction;
 	PhysicsActor* stage;
 	int health;
+	char size = 'l';
 	int framesSinceLastShot = 0;
 	int shotCooldownFrames;
 	int currentHitFrame = 0;

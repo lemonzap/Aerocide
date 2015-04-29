@@ -75,7 +75,7 @@ void Player::Update(float dt){
 			}
 			else if (powerLevel == 3)
 			{
-				shotCooldownFrames = 15;
+				shotCooldownFrames = 25;
 				TripleShoot(this->GetPosition().X, this->GetPosition().Y + 0.0f, velocity);
 			}
 		}
@@ -142,11 +142,11 @@ void Player::ReceiveMessage(Message *message)
 		PhysicsActor* collider = (PhysicsActor*)message->GetSender();
 		if (!collider->IsDestroyed()){
 			if (!isHit && !collider->IsTagged("Friendly") && !collider->IsTagged("Stage"))
-			{
-				health -= 1;
-				healthBar->removeHealth(1);
-				isHit = true;
-			}
+		{
+			health -= 1;
+			healthBar->removeHealth(1);
+			isHit = true;
+		}
 		}
 		if (collider->GetName() == "TripleShot"){
 			powerLevel = 3;

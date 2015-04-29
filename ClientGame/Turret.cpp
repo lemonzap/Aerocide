@@ -2,8 +2,20 @@
 #include "Turret.h"
 
 
-Turret::Turret(float X, float Y, float angle, PhysicsActor* newStage){
-	health = 5;
+Turret::Turret(float X, float Y, float angle, char TurSize, PhysicsActor* newStage){
+	if (TurSize == 's')
+	{
+		size = 's';
+		health = 5;
+		this->SetSize(0.833f, 1.666f);
+	}
+
+	else if (TurSize == 'l')
+	{
+		size = 'l';
+		health = 60;
+		this->SetSize(1.75f, 3.5f);
+	}
 	shotCooldownFrames = 30;
 	stage = newStage;
 	//initialize turret position and speed
@@ -15,7 +27,6 @@ Turret::Turret(float X, float Y, float angle, PhysicsActor* newStage){
 	//setup turret
 	this->SetPosition(position);
 	this->SetRotation(angle);
-	this->SetSize(0.833f, 1.666f);
 	this->SetColor(1, 1, 1, 1); //(white and opaque so the texture comes through fully)
 	this->ClearSpriteInfo();
 	this->SetSprite("Resources/Images/TurretTopHit.png", 1, GL_CLAMP, GL_NEAREST, false);
@@ -51,7 +62,7 @@ void Turret::Update(float dt){
 	if (health <= 0 && !dying){
 		dying = true;
 		if (MathUtil::RandomFloat() > 0.5f){
-			new TripleShot(this->GetPosition().X, this->GetPosition().Y);
+		new TripleShot(this->GetPosition().X, this->GetPosition().Y);
 		}
 		else{
 			new BeamShot(this->GetPosition().X, this->GetPosition().Y);
@@ -98,17 +109,17 @@ void Turret::ReceiveMessage(Message *message)
 	{
 		PhysicsActor* collider = (PhysicsActor*)message->GetSender();
 		if (!collider->IsDestroyed()){
-			if (!isHit && !collider->IsTagged("Asteroid") && !collider->IsTagged("Stage") && !collider->IsTagged("EnemyBullet"))
-			{
-				health -= 1;
-				isHit = true;
-			}
+		if (!isHit && !collider->IsTagged("Asteroid") && !collider->IsTagged("Stage") && !collider->IsTagged("EnemyBullet"))
+		{
+			health -= 1;
+			isHit = true;
 		}
 	}
 }
+}
 
 void Turret::Shoot(float X, float Y, Vector2 newDirection){
-	new TurretShot(X, Y, newDirection);
+	new TurretShot(X, Y, newDirection, size);
 }
 
 void Turret::animateHit(){
