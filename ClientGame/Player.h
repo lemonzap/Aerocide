@@ -35,4 +35,5 @@ private:
 	AngelSoundHandle healthSound;
 	AngelSoundHandle upgradeSound;
 	AngelSoundHandle downgradeSound;
+	AngelSoundHandle hitSound;
 };

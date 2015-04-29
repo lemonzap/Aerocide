@@ -73,7 +73,7 @@ void AerocideGameManager::Update(float dt)
 		theWorld.PauseSimulation();
 		if (theInput.IsKeyDown(GLFW_KEY_ENTER)){
 			gameStarted = true;
-			theSound.PlaySound(music, 1, true, 0);
+			music = theSound.PlaySound(music, 1, true, 0);
 			theWorld.Remove(text);
 			theWorld.ResumeSimulation();
 			new Turret(3, 30.91, 125, 's', stage);
@@ -295,6 +295,7 @@ void AerocideGameManager::Update(float dt)
 		{
 			text = new TextActor("Console", "YOU WON!!!!!! Press 'Esc' to exit.");
 			theSound.StopSound(music);
+			//theSound.Update();
 			theSound.PlaySound(victory, 1.0f, false, 0);
 			text->SetPosition(0, 1);
 			text->SetAlignment(TXT_Center);

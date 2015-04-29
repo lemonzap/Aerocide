@@ -151,5 +151,6 @@
     <Media Include="Resources\Sounds\Shoot.wav" />
     <Media Include="Resources\Sounds\StarFox.wav" />
     <Media Include="Resources\Sounds\Upgrade.wav" />
+    <Media Include="Resources\Sounds\VictoryFanfare.wav" />
   </ItemGroup>
 </Project>

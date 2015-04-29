@@ -67,10 +67,11 @@ void Turret::Update(float dt){
 		dying = true;
 		theSound.PlaySound(explode, 1.0f, false, 0);
 		if (size == 'l'){
-			if (MathUtil::RandomFloat() > 0.5f){
+			float rand = MathUtil::RandomFloat();
+			if (rand > 0.5f){
 				new TripleShot(this->GetPosition().X, this->GetPosition().Y);
 			}
-			else if (MathUtil::RandomFloat() <= 0.5f){
+			else if (rand <= 0.5f){
 				new BeamShot(this->GetPosition().X, this->GetPosition().Y);
 			}
 			if (MathUtil::RandomFloat() > 0.5f){

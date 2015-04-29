@@ -17,6 +17,7 @@ Player::Player(){
 	healthSound = theSound.LoadSample("Resources/Sounds/Health.wav", false);
 	upgradeSound = theSound.LoadSample("Resources/Sounds/Upgrade.wav", false);
 	downgradeSound = theSound.LoadSample("Resources/Sounds/Downgrade.wav", false);
+	hitSound = theSound.LoadSample("Resources/Sounds/HitSound.wav", false);
 	this->SetLayer(3); //player layer
 	this->SetFixedRotation(true);
 	this->SetGroupIndex(-1);
@@ -37,6 +38,11 @@ Player::Player(){
 void Player::Update(float dt){
 
 	if (health > 0){
+
+		if (health > 16){
+			health = 16;
+		}
+
 		//update player position according to its velocity
 		position += velocity;
 		//move
@@ -55,6 +61,10 @@ void Player::Update(float dt){
 		}
 		if (theInput.IsKeyDown('d')){
 			direction.X += 1;
+		}
+		if (theInput.IsKeyDown('h')){
+			health = 16;
+			healthBar->addHealth(16);
 		}
 		//if vector is not (0,0) then normalize it (normalizing a zero vector produces (1,0) for some reason)
 		if (direction != Vector2::Zero){
@@ -154,6 +164,10 @@ void Player::ReceiveMessage(Message *message)
 				if (powerLevel != 1){
 					theSound.PlaySound(downgradeSound, 1.0f, false, 0);
 				}
+				else{
+					theSound.PlaySound(hitSound, 1.0f, false, 0);
+				}
+
 				powerLevel = 1;
 				healthBar->removeHealth(1);
 				isHit = true;
@@ -169,6 +183,9 @@ void Player::ReceiveMessage(Message *message)
 		}
 		else if (collider->GetName().find("Health") != std::string::npos){
 			health += 4;
+			if (health > 16){
+				health = 16;
+			}
 			healthBar->addHealth(4);
 			theSound.PlaySound(healthSound, 1.0f, false, 0);
 		}

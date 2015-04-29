@@ -82,7 +82,7 @@ private:
 	bool SecondAsteroidSpawned = false;
 	bool ThirdAsteroidSpawned = false;
 	bool FinalAsteroidSpawned = false;
-	AngelSoundHandle music;
+	AngelSampleHandle music;
 	AngelSoundHandle victory;
 	Turret *final1, *final2, *final3;
 };
