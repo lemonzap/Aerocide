@@ -3,10 +3,10 @@
 
 
 Player::Player(){
-	health = 10;
-	shotCooldownFrames = 15;
+	health = 16;
+	shotCooldownFrames = 2;
 	//setup player
-
+	healthBar = new HealthBar(health);
 	this->SetSize(1.0f);
 	this->SetColor(1, 1, 1, 1); //(white and opaque so the texture comes through fully)
 	this->ClearSpriteInfo();
@@ -66,8 +66,8 @@ void Player::Update(float dt){
 		if (theInput.IsKeyDown(' ') && framesSinceLastShot >= shotCooldownFrames){
 			framesSinceLastShot = 1;
 			if (powerLevel == 1) { //Checks what the power of the shot is
-				Shoot(this->GetPosition().X, this->GetPosition().Y + 0.0f, velocity);
-			}
+			Shoot(this->GetPosition().X, this->GetPosition().Y + 0.0f, velocity);
+		}
 			else if (powerLevel == 2)
 			{
 				shotCooldownFrames = 7;
@@ -142,6 +142,7 @@ void Player::ReceiveMessage(Message *message)
 		if (!isHit && !collider->IsTagged("Friendly") && !collider->IsTagged("Stage"))
 		{
 			health -= 1;
+			healthBar->removeHealth(1);
 			isHit = true;
 		}
 	}

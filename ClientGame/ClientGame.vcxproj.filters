@@ -108,5 +108,7 @@
     <Image Include="Resources\Images\TurretShot.png" />
     <Image Include="Resources\Images\TurretTop.png" />
     <Image Include="Resources\Images\TurretTopHit.png" />
+    <Image Include="Resources\Images\HealthBar.png" />
+    <Image Include="Resources\Images\HealthPoint.png" />
   </ItemGroup>
 </Project>

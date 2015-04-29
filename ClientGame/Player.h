@@ -5,6 +5,7 @@
 #include <vector>
 #include <string>
 #include "Shot.h"
+#include "healthBar.h"
 
 class Player : public PhysicsActor{
 public:
@@ -16,6 +17,7 @@ public:
 	void Update(float dt);
 	void ReceiveMessage(Message *message);
 private:
+	HealthBar* healthBar;
 	Vector2 position;
 	Vector2 velocity;
 	Vector2 direction;

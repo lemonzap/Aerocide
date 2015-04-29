@@ -232,6 +232,8 @@ cd ..\Tools\BuildScripts\
     <Image Include="Resources\Images\Explosion_005.png" />
     <Image Include="Resources\Images\Explosion_006.png" />
     <Image Include="Resources\Images\Explosion_007.png" />
+    <Image Include="Resources\Images\HealthBar.png" />
+    <Image Include="Resources\Images\HealthPoint.png" />
     <Image Include="Resources\Images\Ship.png" />
     <Image Include="Resources\Images\ShipHit.png" />
     <Image Include="Resources\Images\Shot.png" />
