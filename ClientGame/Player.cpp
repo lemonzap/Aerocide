@@ -155,8 +155,8 @@ void Player::ReceiveMessage(Message *message)
 			powerLevel = 2;
 		}
 		else if (collider->GetName().find("Health") != std::string::npos){
-			health += 2;
-			healthBar->addHealth(2);
+			health += 4;
+			healthBar->addHealth(4);
 		}
 	}
 }
