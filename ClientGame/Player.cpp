@@ -127,7 +127,7 @@ void Player::ReceiveMessage(Message *message)
 	if (message->GetMessageName() == "CollisionStartWith" + GetName())
 	{
 		PhysicsActor* collider = (PhysicsActor*)message->GetSender();
-		if (!isHit && !collider->IsTagged("Friendly"))
+		if (!isHit && !collider->IsTagged("Friendly") && !collider->IsTagged("Stage"))
 		{
 			health -= 1;
 			isHit = true;

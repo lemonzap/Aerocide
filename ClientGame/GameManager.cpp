@@ -18,21 +18,26 @@ AerocideGameManager::AerocideGameManager()
 	theWorld.Add(text);
 
 	//setup stage
-	stage = new Actor();
+	stage = new PhysicsActor();
 	stage->SetSize(20.0f, 426.666f);
 	stage->SetColor(1, 1, 1, 1); //(white and opaque so the texture comes through fully)
 	stage->ClearSpriteInfo();
 	stage->SetSprite("Resources/Images/TestStage.png", 0, GL_CLAMP, GL_NEAREST, false);
 	stage->SetLayer(0); //background layer
-	theWorld.Add(stage);
+	stage->SetIsSensor(true);
+	stage->SetDensity(0.05f);
 	stagePosition.X = 0.0f;
-	stagePosition.Y = (426.666f/2.0f) - 10; //Half the stage images height - half the screens height
+	stagePosition.Y = (426.666f / 2.0f) - 10; //Half the stage images height - half the screens height
 	stage->SetPosition(stagePosition);
+	stage->InitPhysics();
+	theWorld.Add(stage);
+	stage->Tag("Stage");
+	stage->SetName("Stage");
 	stageVel.X = 0.0f;
 	stageVel.Y = -0.1f;
 
 	player = new Player();
-
+	
 	//initialize first frame time in the past so that the first frame will run
 	lastFrameTime = glfwGetTime() - 1;
 
@@ -67,6 +72,8 @@ void AerocideGameManager::Update(float dt)
 			gameStarted = true;
 			theWorld.Remove(text);
 			theWorld.ResumeSimulation();
+			new Turret(3, 30.91, 125);
+			stage->GetBody()->SetLinearVelocity(b2Vec2(0, -6));
 		}
 	}
 	else{
@@ -96,11 +103,13 @@ void AerocideGameManager::Update(float dt)
 			debugInfoFPS = realFPS;
 		}
 		//if end of stage not reached continue scrolling
-		if (stagePosition.Y > (-426.666 / 2.0f) + 11 && !player->IsDestroyed()){ //half the stage images height plus half the screens height and 1 as a buffer from overshooting the edge of the image
+		if (stagePosition.Y <= (-426.666 / 2.0f) + 11 && !player->IsDestroyed()){ //half the stage images height plus half the screens height and 1 as a buffer from overshooting the edge of the image
 			//update stage position according to its velocity
+			stage->GetBody()->SetLinearVelocity(b2Vec2(0, 0));
+		}
+		else{
 			stagePosition.Y += stageVel.Y;
 		}
-
 
 
 
@@ -148,6 +157,10 @@ void AerocideGameManager::Render()
 
 void AerocideGameManager::ToggleDebugInfo(){
 	debugInfo = !debugInfo;
+}
+
+Vector2 AerocideGameManager::getStagePosition(){
+	return stagePosition;
 }
 
 void AerocideGameManager::SoundEnded(AngelSoundHandle sound)

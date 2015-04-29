@@ -184,6 +184,8 @@ cd ..\Tools\BuildScripts\
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="Turret.cpp" />
+    <ClCompile Include="TurretShot.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="platforms\win\ClientGame.rc" />
@@ -195,6 +197,8 @@ cd ..\Tools\BuildScripts\
     <ClInclude Include="Player.h" />
     <ClInclude Include="Shot.h" />
     <ClInclude Include="stdafx.h" />
+    <ClInclude Include="Turret.h" />
+    <ClInclude Include="TurretShot.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Config\defaults.lua" />

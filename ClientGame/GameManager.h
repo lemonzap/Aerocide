@@ -35,6 +35,7 @@
 #include "Shot.h"
 #include "Asteroid.h"
 #include "Player.h"
+#include "Turret.h"
 
 //AerocideGameManager is a singleton and inherits from:
 //  GameManager -- so we receive update and render calls, plus collision notifications
@@ -45,6 +46,8 @@ class AerocideGameManager : public GameManager
 public:
 
 	void ToggleDebugInfo();
+
+	Vector2 getStagePosition();
 
 	static AerocideGameManager &GetInstance();
 
@@ -62,7 +65,7 @@ protected:
 
 private:
 	Player* player;
-	Actor* stage;
+	PhysicsActor* stage;
 	TextActor* text;
 	Vector2 stagePosition;
 	Vector2 stageVel;

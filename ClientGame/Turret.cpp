@@ -1,43 +1,46 @@
 #include "stdafx.h"
-#include "Asteroid.h"
+#include "Turret.h"
 
 
-Asteroid::Asteroid(float X, float Y, float velX, float velY){
-	health = 3;
-	//initialize asteroid position and speed
-	velocity.X = velX;
-	velocity.Y = velY;
+Turret::Turret(float X, float Y, float angle){
+	health = 5;
+	shotCooldownFrames = 30;
+	//initialize turret position and speed
 	position.X = X;
 	position.Y = Y;
-	//asteroidVel += shooterVel;
-	//setup asteroid
+	//std::cout << cos(angle*0.01745) << ", " << sin(angle*0.01745) << std::endl;
+	this->direction = Vector2(cos((angle + 90)*0.01745), sin((angle + 90)*0.01745));
+	//turretVel += shooterVel;
+	//setup turret
 	this->SetPosition(position);
-	this->SetSize(0.75f);
+	this->SetRotation(angle);
+	this->SetSize(0.833f, 1.666f);
 	this->SetColor(1, 1, 1, 1); //(white and opaque so the texture comes through fully)
 	this->ClearSpriteInfo();
-	this->SetSprite("Resources/Images/AsteroidHit.png", 1, GL_CLAMP, GL_NEAREST, false);
-	this->SetSprite("Resources/Images/Asteroid.png", 0, GL_CLAMP, GL_NEAREST, false);
-	this->SetLayer(1); //enemy layer
-	SetDensity(5.0f);
-	SetShapeType(PhysicsActor::SHAPETYPE_CIRCLE);
+	this->SetSprite("Resources/Images/TurretTopHit.png", 1, GL_CLAMP, GL_NEAREST, false);
+	this->SetSprite("Resources/Images/TurretTop.png", 0, GL_CLAMP, GL_NEAREST, false);
+	this->SetLayer(2); //enemy layer
+	this->SetIsSensor(true);
+	SetDensity(0.05f);
+	SetShapeType(PhysicsActor::SHAPETYPE_BOX);
 	InitPhysics();
-	ApplyAngularImpulse(0.25);
-	direction = velocity;
-	//direction.Normalize();
-	//direction *= 20;
-	ApplyLinearImpulse(direction, Vector2::Zero);
+	this->GetBody()->SetLinearVelocity(b2Vec2(0, -6));
 	theWorld.Add(this);
-	Tag("Asteroid");
-	SetName("Asteroid");
+	Tag("Turret");
+	SetName("Turret");
 	theSwitchboard.SubscribeTo(this, "CollisionStartWith" + GetName());
 }
 
-void Asteroid::Update(float dt){
+void Turret::Update(float dt){
 	if (health > 0){
-		//update asteroid position according to its velocity
-		position += velocity;
-		//move asteroid
-		this->SetRotation(this->GetRotation() + 1);
+
+		if (framesSinceLastShot >= shotCooldownFrames){
+			framesSinceLastShot = 1;
+			Shoot(this->GetPosition().X, this->GetPosition().Y, this->direction);
+		}
+		else{
+			framesSinceLastShot++;
+		}
 
 		animateHit();
 	}
@@ -78,20 +81,24 @@ void Asteroid::Update(float dt){
 
 }
 
-void Asteroid::ReceiveMessage(Message *message)
+void Turret::ReceiveMessage(Message *message)
 {
 	if (message->GetMessageName() == "CollisionStartWith" + GetName())
 	{
 		PhysicsActor* collider = (PhysicsActor*)message->GetSender();
-		if (!isHit && !collider->IsTagged("Asteroid") && !collider->IsTagged("Stage"))
+		if (!isHit && !collider->IsTagged("Asteroid") && !collider->IsTagged("Stage") && !collider->IsTagged("EnemyBullet"))
 		{
-				health -= 1;
-				isHit = true;
+			health -= 1;
+			isHit = true;
 		}
 	}
 }
 
-void Asteroid::animateHit(){
+void Turret::Shoot(float X, float Y, Vector2 newDirection){
+	new TurretShot(X, Y, newDirection);
+}
+
+void Turret::animateHit(){
 	if (isHit){
 		if (currentHitFrame <= 4){
 			this->SetSpriteFrame(1);
