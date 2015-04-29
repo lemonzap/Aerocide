@@ -148,13 +148,13 @@ void Player::ReceiveMessage(Message *message)
 			isHit = true;
 		}
 		}
-		if (collider->GetName() == "TripleShot"){
+		if (collider->GetName().find("TripleShot") != std::string::npos){
 			powerLevel = 3;
 		}
-		else if (collider->GetName() == "BeamShot"){
+		else if (collider->GetName().find("BeamShot") != std::string::npos){
 			powerLevel = 2;
 		}
-		else if (collider->GetName() == "Health"){
+		else if (collider->GetName().find("Health") != std::string::npos){
 			health += 2;
 			healthBar->addHealth(2);
 		}

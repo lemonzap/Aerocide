@@ -37,10 +37,12 @@ void HugeAsteroid::Update(float dt){
 	if (health > 0){
 		//update asteroid position according to its velocity
 		position += velocity;
-		//move asteroid
-		this->SetRotation(this->GetRotation() + 1);
 
 		animateHit();
+
+		if (GetPosition().Y < -70){
+			Destroy();
+		}
 	}
 	if (health <= 0 && !dying){
 		dying = true;
