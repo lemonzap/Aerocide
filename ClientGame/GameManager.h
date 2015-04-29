@@ -79,5 +79,6 @@ private:
 	bool debugInfo = false;
 	bool asteroidSpawned = false;
 	bool gameStarted = false;
-	bool BigAsteroidSpawned = false;
+	bool SecondAsteroidSpawned = false;
+	bool ThirdAsteroidSpawned = false;
 };

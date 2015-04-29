@@ -4,7 +4,7 @@
 
 Player::Player(){
 	health = 16;
-	shotCooldownFrames = 2;
+	shotCooldownFrames = 15;
 	//setup player
 	healthBar = new HealthBar(health);
 	this->SetSize(1.0f);
@@ -75,6 +75,7 @@ void Player::Update(float dt){
 			}
 			else if (powerLevel == 3)
 			{
+				shotCooldownFrames = 25;
 				TripleShoot(this->GetPosition().X, this->GetPosition().Y + 0.0f, velocity);
 			}
 		}

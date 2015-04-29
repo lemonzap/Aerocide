@@ -2,21 +2,29 @@
 #include "TurretShot.h"
 
 
-TurretShot::TurretShot(float X, float Y, Vector2 newDirection){
+TurretShot::TurretShot(float X, float Y, Vector2 newDirection, char TurSize){
 	//initialize shot position and speed
 	shotPosition.X = X;
 	shotPosition.Y = Y;
 	direction = newDirection;
 	//shotVel += shooterVel;
 	//setup shot
-	this->SetPosition(shotPosition);
 	this->SetSize(0.15f);
+	if (TurSize == 's')
+	{
+		SetDensity(0.05f);
+		this->SetSize(0.15f);
+	}
+	else if (TurSize == 'l') {
+		SetDensity(0.01f);
+		this->SetSize(.35f);
+	}
+	this->SetPosition(shotPosition);
 	this->SetColor(1, 1, 1, 1); //(white and opaque so the texture comes through fully)
 	this->ClearSpriteInfo();
 	this->SetSprite("Resources/Images/TurretShot.png", 0, GL_CLAMP, GL_NEAREST, false);
 	this->SetLayer(1); //player shots layer
 	this->SetIsSensor(true);
-	SetDensity(0.05f);
 	SetShapeType(PhysicsActor::SHAPETYPE_CIRCLE);
 	InitPhysics();
 	this->GetBody()->SetLinearVelocity(b2Vec2(0, -6));
@@ -34,10 +42,6 @@ void TurretShot::Update(float dt){
 	if (timeAlive >= 2){
 		Destroy();
 	}
-	else{
-
-	}
-
 }
 
 void TurretShot::ReceiveMessage(Message *message)

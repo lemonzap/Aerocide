@@ -6,7 +6,7 @@
 
 class TurretShot : public PhysicsActor{
 public:
-	TurretShot(float X, float Y, Vector2 newDirection);
+	TurretShot(float X, float Y, Vector2 newDirection, char size);
 
 	void Update(float dt);
 	void TurretShot::ReceiveMessage(Message *message);
