@@ -16,6 +16,7 @@ Shot::Shot(float X, float Y, Vector2 shooterVel){
 	this->ClearSpriteInfo();
 	this->SetSprite("Resources/Images/Shot.png", 0, GL_CLAMP, GL_NEAREST, false);
 	this->SetLayer(2); //player shots layer
+	this->SetGroupIndex(-1);
 	this->SetIsSensor(true);
 	SetDensity(0.05f);
 	InitPhysics();

@@ -4,7 +4,7 @@
 
 Player::Player(){
 	health = 10;
-	shotCooldownFrames = 15;
+	shotCooldownFrames = 2;
 	//setup player
 
 	this->SetSize(1.0f);
@@ -14,6 +14,7 @@ Player::Player(){
 	this->SetSprite("Resources/Images/Ship.png", 0, GL_CLAMP, GL_NEAREST, false);
 	this->SetLayer(3); //player layer
 	this->SetFixedRotation(true);
+	this->SetGroupIndex(-1);
 	SetDensity(0.05f);
 	SetShapeType(PhysicsActor::SHAPETYPE_CIRCLE);
 	InitPhysics();

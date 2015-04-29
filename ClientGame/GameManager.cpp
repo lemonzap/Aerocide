@@ -24,6 +24,7 @@ AerocideGameManager::AerocideGameManager()
 	stage->ClearSpriteInfo();
 	stage->SetSprite("Resources/Images/TestStage.png", 0, GL_CLAMP, GL_NEAREST, false);
 	stage->SetLayer(0); //background layer
+	stage->SetGroupIndex(-2);
 	stage->SetIsSensor(true);
 	stage->SetDensity(0.05f);
 	stagePosition.X = 0.0f;
