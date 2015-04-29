@@ -1,4 +1,7 @@
-
+/*
+GROUP MEMBER #1: GABE NELSON / LAB TA: CHASE PUGLISI 
+GROUP MEMBER #2: NATHAN HENRY / LAB TA: TRAVIS LANE
+*/
 #include "stdafx.h"
 
 #include "GameManager.h"
