@@ -90,6 +90,7 @@ void AerocideGameManager::Update(float dt)
 			new Turret(4.47917, 393.932, 168, 's', stage);
 			new Turret(-5.70313, 415.052, 180, 'l', stage);
 			new Turret(5.88542, 415.052, 180, 'l', stage);
+			new Turret(.15625, 412.422, 180, 'l', stage);
 
 			stage->GetBody()->SetLinearVelocity(b2Vec2(0, -6));
 		}
@@ -209,7 +210,7 @@ void AerocideGameManager::Update(float dt)
 			SecondAsteroidSpawned = true;
 		}
 
-		if (stagePosition.Y <= -90 && !ThirdAsteroidSpawned){ //Spawning the boss asteroid field
+		if (stagePosition.Y <= -90 && !ThirdAsteroidSpawned){ //Spawning third asteroid field
 			new HugeAsteroid(-3, 25, 0, -6000);
 			new Asteroid(4, 24, 1, -5);
 			new BigAsteroid(-3.5, 23, 4, -300.5);
@@ -248,7 +249,7 @@ void AerocideGameManager::Update(float dt)
 			ThirdAsteroidSpawned = true;
 		}
 
-		if (stagePosition.Y <= -200 && !FinalAsteroidSpawned){ //Spawning third asteroid field
+		if (stagePosition.Y <= -200 && !FinalAsteroidSpawned){ //Spawning final asteroid field
 			new HugeAsteroid(-3, 25, 0, -6000);
 			new Asteroid(4, 24, 1, -10);
 			new BigAsteroid(-3.5, -5, 4, 300.5);

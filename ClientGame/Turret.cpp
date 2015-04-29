@@ -14,7 +14,7 @@ Turret::Turret(float X, float Y, float angle, char TurSize, PhysicsActor* newSta
 
 	else if (TurSize == 'l')
 	{
-		shotCooldownFrames = 12;
+		shotCooldownFrames = 2;
 		SetDensity(0.001f);
 		size = 'l';
 		health = 60;
