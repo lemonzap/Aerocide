@@ -3,7 +3,7 @@
 
 
 Turret::Turret(float X, float Y, float angle, char TurSize, PhysicsActor* newStage){
-	if (TurSize == 's')
+	if (TurSize == 's') //size small
 	{
 		size = 's';
 		health = 5;
@@ -12,7 +12,7 @@ Turret::Turret(float X, float Y, float angle, char TurSize, PhysicsActor* newSta
 		shotCooldownFrames = 30;
 	}
 
-	else if (TurSize == 'l')
+	else if (TurSize == 'l') //size large
 	{
 		shotCooldownFrames = 2;
 		SetDensity(0.001f);
