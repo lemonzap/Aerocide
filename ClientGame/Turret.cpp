@@ -104,22 +104,6 @@ void Turret::animateHit(){
 			this->SetSpriteFrame(1);
 			currentHitFrame++;
 		}
-		else if (currentHitFrame <= 9){
-			this->SetSpriteFrame(0);
-			currentHitFrame++;
-		}
-		else if (currentHitFrame <= 14){
-			this->SetSpriteFrame(1);
-			currentHitFrame++;
-		}
-		else if (currentHitFrame <= 19){
-			this->SetSpriteFrame(0);
-			currentHitFrame++;
-		}
-		else if (currentHitFrame <= 24){
-			this->SetSpriteFrame(1);
-			currentHitFrame++;
-		}
 		else{
 			this->SetSpriteFrame(0);
 			isHit = false;

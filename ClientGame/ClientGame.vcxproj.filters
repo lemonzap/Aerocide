@@ -34,6 +34,8 @@
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Turret.cpp" />
     <ClCompile Include="TurretShot.cpp" />
+    <ClCompile Include="BigAsteroid.cpp" />
+    <ClCompile Include="HugeAsteroid.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="platforms\win\ClientGame.rc">
@@ -53,6 +55,8 @@
     <ClInclude Include="Player.h" />
     <ClInclude Include="Turret.h" />
     <ClInclude Include="TurretShot.h" />
+    <ClInclude Include="BigAsteroid.h" />
+    <ClInclude Include="HugeAsteroid.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Config\defaults.lua">
