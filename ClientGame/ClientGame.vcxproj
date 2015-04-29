@@ -178,6 +178,8 @@ cd ..\Tools\BuildScripts\
     <ClCompile Include="Asteroid.cpp" />
     <ClCompile Include="BigAsteroid.cpp" />
     <ClCompile Include="GameManager.cpp" />
+    <ClCompile Include="HealthBar.cpp" />
+    <ClCompile Include="HealthPoint.cpp" />
     <ClCompile Include="HugeAsteroid.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Shot.cpp" />
@@ -196,6 +198,8 @@ cd ..\Tools\BuildScripts\
     <ClInclude Include="Asteroid.h" />
     <ClInclude Include="BigAsteroid.h" />
     <ClInclude Include="GameManager.h" />
+    <ClInclude Include="HealthBar.h" />
+    <ClInclude Include="HealthPoint.h" />
     <ClInclude Include="HugeAsteroid.h" />
     <ClInclude Include="platforms\win\resource.h" />
     <ClInclude Include="Player.h" />

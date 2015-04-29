@@ -136,12 +136,20 @@ void AerocideGameManager::Update(float dt)
 			new Asteroid(8.8, 24.45, -1.8, -5.2);
 			new Asteroid(-5, 26.4, 2, 1.1);
 			new Asteroid(3.5, 26.8, -0.6, -5.25);
+			new Asteroid(-3, 33, 3, -8.2);
+			new Asteroid(-5, 33.5, 2, -9);
+			new Asteroid(-4, 33, 3, -8.2);
+			new Asteroid(7, 33.5, 2, -9);
 			new BigAsteroid(0, 25, -8.1, -210);
 			new BigAsteroid(-1.2, 26, 9.2, -240);
 			new BigAsteroid(-2.0, 23.5, 12, -190);
 			new BigAsteroid(-3.4, 24.2, -14.1, -220);
 			new BigAsteroid(4, 24.5, -10.1, -215);
 			new HugeAsteroid(0, 27, 4, -1500);
+			new HugeAsteroid(5, 32, 20, -1700);
+			new BigAsteroid(-4, 33, 14, -230);
+			new BigAsteroid(-6, 32.5, 4, -225);
+			new HugeAsteroid(-4, 36, -400, -3500);
 			asteroidSpawned = true;
 		}
 		/*
