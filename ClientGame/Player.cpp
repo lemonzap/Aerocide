@@ -81,7 +81,7 @@ void Player::Update(float dt){
 
 		//if space is pressed and shooting is off cooldown then shoot
 		if (theInput.IsKeyDown(' ') && framesSinceLastShot >= shotCooldownFrames){
-			framesSinceLastShot = 15;
+			framesSinceLastShot = 1;
 			if (powerLevel == 1) { //Checks what the power of the shot is
 				shotCooldownFrames = 15; //base shot
 				Shoot(this->GetPosition().X, this->GetPosition().Y + 0.0f, velocity);
@@ -93,7 +93,7 @@ void Player::Update(float dt){
 			}
 			else if (powerLevel == 3) //triple shot
 			{
-				shotCooldownFrames = 20;
+				shotCooldownFrames = 15; //I changed this from 20 to 15 for balancing reasons. the beam is more useful when the triple is restricted to 20
 				TripleShoot(this->GetPosition().X, this->GetPosition().Y + 0.0f, velocity);
 			}
 		}

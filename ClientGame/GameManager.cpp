@@ -259,7 +259,7 @@ void AerocideGameManager::Update(float dt){ //This updates the game
 		if (stagePosition.Y <= -160 && !FinalAsteroidSpawned){ //Spawning final asteroid field
 			new HugeAsteroid(-3, 25, 0, -6000);
 			new Asteroid(4, 24, 1, -10);
-			new BigAsteroid(-3.5, -5, 4, 300.5);
+			new BigAsteroid(-3.5, -15, 4, 300.5);
 			new Asteroid(-1, -8, 1.5, 6.2);
 			new HugeAsteroid(3, -35, 400, -10004);
 			new Asteroid(-12, 0, 15, -5.4);
@@ -289,7 +289,7 @@ void AerocideGameManager::Update(float dt){ //This updates the game
 			new HugeAsteroid(0, 47, 4, -3500);
 			new HugeAsteroid(0, 60, 20, -3700);
 			new BigAsteroid(0, -29, 2, -210);
-			new BigAsteroid(-6, -10, 4, 225);
+			new BigAsteroid(-6, -11, 4, 225);
 			new HugeAsteroid(25, -1, -3000, -2);
 			FinalAsteroidSpawned = true;
 		}

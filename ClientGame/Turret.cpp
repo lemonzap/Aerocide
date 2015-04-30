@@ -95,7 +95,7 @@ void Turret::Update(float dt){ //updating the turret
 		switch (dyingFrame){
 		case 0:
 			SetSpriteFrame(0);
-			break;
+			break;                  
 		case 3:
 			SetSpriteFrame(1);
 			break;
@@ -113,7 +113,8 @@ void Turret::Update(float dt){ //updating the turret
 			break;
 		case 18:
 			SetSpriteFrame(6);
-			break;
+			this->_deleteMe = true; //This is making sure that the turret destroys itself if dead.
+			break;			//This was done to fix a bug if the turret died while coliding with the stage boundaries
 		case 21:
 			Destroy();
 			break;

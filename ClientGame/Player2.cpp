@@ -93,7 +93,7 @@ void Player2::Update(float dt){
 			}
 			else if (powerLevel == 3)
 			{
-				shotCooldownFrames = 20;
+				shotCooldownFrames = 15; //buffed to balance with the beam shot.
 				TripleShoot(this->GetPosition().X, this->GetPosition().Y + 0.0f, velocity);
 			}
 		}
