@@ -44,7 +44,7 @@
 //  GameManager -- so we receive update and render calls, plus collision notifications
 #define theGame AerocideGameManager::GetInstance()
 
-class AerocideGameManager : public GameManager
+class AerocideGameManager : public GameManager //Inheriting from the base game manager
 {
 public:
 

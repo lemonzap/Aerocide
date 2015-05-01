@@ -3,7 +3,7 @@
 
 
 Asteroid::Asteroid(float X, float Y, float velX, float velY){
-	health = 3;
+	health = 2;
 	//initialize asteroid position and speed
 	velocity.X = velX;
 	velocity.Y = velY;
@@ -11,12 +11,12 @@ Asteroid::Asteroid(float X, float Y, float velX, float velY){
 	position.Y = Y;
 	//asteroidVel += shooterVel;
 	//setup asteroid
-	this->SetPosition(position);
+	this->SetPosition(position); //setting initial position
 	this->SetSize(0.75f);
 	this->SetColor(1, 1, 1, 1); //(white and opaque so the texture comes through fully)
 	this->ClearSpriteInfo();
 	this->SetSprite("Resources/Images/AsteroidHit.png", 1, GL_CLAMP, GL_NEAREST, false);
-	this->SetSprite("Resources/Images/Asteroid.png", 0, GL_CLAMP, GL_NEAREST, false);
+	this->SetSprite("Resources/Images/Asteroid.png", 0, GL_CLAMP, GL_NEAREST, false); //getting textures
 	explode = theSound.LoadSample("Resources/Sounds/Explosion.wav", false);
 	this->SetLayer(1); //enemy layer
 	this->SetGroupIndex(-2);
@@ -86,7 +86,7 @@ void Asteroid::Update(float dt){
 
 }
 
-void Asteroid::ReceiveMessage(Message *message)
+void Asteroid::ReceiveMessage(Message *message) //coliding with something
 {
 	try{
 		if (message->GetMessageName() == "CollisionStartWith" + GetName())
@@ -106,9 +106,9 @@ void Asteroid::ReceiveMessage(Message *message)
 	}
 }
 
-void Asteroid::animateHit(){
+void Asteroid::animateHit(){ //animating the hit
 	if (isHit){
-		if (currentHitFrame <= 4){
+		if (currentHitFrame <= 2){
 			this->SetSpriteFrame(1);
 			currentHitFrame++;
 		}

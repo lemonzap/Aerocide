@@ -48,7 +48,7 @@ Turret::Turret(float X, float Y, float angle, char TurSize, PhysicsActor* newSta
 	theSwitchboard.SubscribeTo(this, "CollisionStartWith" + GetName());
 }
 
-void Turret::Update(float dt){
+void Turret::Update(float dt){ //updating the turret
 	if (health > 0){
 		this->GetBody()->SetLinearVelocity(stage->GetBody()->GetLinearVelocity());
 		this->direction = Vector2(cos((GetRotation() + 90)*0.01745), sin((GetRotation() + 90)*0.01745));
@@ -64,10 +64,10 @@ void Turret::Update(float dt){
 
 		animateHit();
 	}
-	if (health <= 0 && !dying){
+	if (health <= 0 && !dying){ //turret dies
 		dying = true;
 		theSound.PlaySound(explode, 1.0f, false, 0);
-		if (size == 'l'){
+		if (size == 'l'){ //different drop rate for larger turret
 			float rand = MathUtil::RandomFloat();
 			if (rand > 0.5f){
 				new TripleShot(this->GetPosition().X, this->GetPosition().Y);
@@ -91,11 +91,11 @@ void Turret::Update(float dt){
 		this->LoadSpriteFrames("Resources/Images/Explosion_001.png", GL_CLAMP, GL_NEAREST);
 		this->PlaySpriteAnimation(0.1, SAT_Loop, 0, 6, "explode");
 	}
-	if (dying){
+	if (dying){ //dying animation
 		switch (dyingFrame){
 		case 0:
 			SetSpriteFrame(0);
-			break;
+			break;                  
 		case 3:
 			SetSpriteFrame(1);
 			break;
@@ -113,7 +113,8 @@ void Turret::Update(float dt){
 			break;
 		case 18:
 			SetSpriteFrame(6);
-			break;
+			this->_deleteMe = true; //This is making sure that the turret destroys itself if dead.
+			break;			//This was done to fix a bug if the turret died while coliding with the stage boundaries
 		case 21:
 			Destroy();
 			break;
@@ -123,7 +124,7 @@ void Turret::Update(float dt){
 
 }
 
-void Turret::ReceiveMessage(Message *message)
+void Turret::ReceiveMessage(Message *message) //coliding with something
 {
 	try{
 		if (health > 0){
@@ -134,7 +135,7 @@ void Turret::ReceiveMessage(Message *message)
 					if (!isHit && !collider->IsTagged("Asteroid") && !collider->IsTagged("Stage") && !collider->IsTagged("EnemyBullet"))
 					{
 						health -= 1;
-						isHit = true;
+						isHit = true; //takes damage from player shots
 					}
 				}
 			}
@@ -145,13 +146,13 @@ void Turret::ReceiveMessage(Message *message)
 	}
 }
 
-void Turret::Shoot(float X, float Y, Vector2 newDirection){
+void Turret::Shoot(float X, float Y, Vector2 newDirection){ //makes a turret shot for every new shot
 	new TurretShot(X, Y, newDirection, size, stage->GetBody()->GetLinearVelocity().y);
 }
 
-void Turret::animateHit(){
+void Turret::animateHit(){ //using the hit animation
 	if (isHit){
-		if (currentHitFrame <= 4){
+		if (currentHitFrame <= 2){
 			this->SetSpriteFrame(1);
 			currentHitFrame++;
 		}

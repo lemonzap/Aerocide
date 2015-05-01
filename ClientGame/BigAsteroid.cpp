@@ -3,7 +3,7 @@
 
 
 BigAsteroid::BigAsteroid(float X, float Y, float velX, float velY){
-	health = 10;
+	health = 8;
 	//initialize asteroid position and speed
 	velocity.X = velX;
 	velocity.Y = velY;
@@ -107,7 +107,7 @@ void BigAsteroid::ReceiveMessage(Message *message)
 }
 void BigAsteroid::animateHit(){
 	if (isHit){
-		if (currentHitFrame <= 4){
+		if (currentHitFrame <= 2){
 			this->SetSpriteFrame(1);
 			currentHitFrame++;
 		}

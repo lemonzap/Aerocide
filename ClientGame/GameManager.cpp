@@ -3,21 +3,21 @@
 
 AerocideGameManager* AerocideGameManager::s_AerocideGameManager = NULL;
 
-AerocideGameManager::AerocideGameManager()
+AerocideGameManager::AerocideGameManager() //The main game manager function
 {
 	//subscribe to messages
 	theSwitchboard.SubscribeTo(this, "ToggleDebugInfo");
 
 	idealFPS = 60;
-	music = theSound.LoadSample("Resources/Sounds/StarFox.wav", false);
+	music = theSound.LoadSample("Resources/Sounds/StarFox.wav", false); //loading some audio
 	victory = theSound.LoadSample("Resources/Sounds/VictoryFanfare.wav", false);
 
-	text = new TextActor("Console", "Press Enter to Begin\nPress Shift for a 2nd player");
+	text = new TextActor("Console", "Press Enter to Begin\nPress Shift for a 2nd player\n\n\nWASD for movement\nSpacebar for firing\n\nSecond player controls:\nArrow Keys and 0 on numpad");
 	text->SetPosition(0, 1);
-	text->SetAlignment(TXT_Center);
+	text->SetAlignment(TXT_Center); //displaying the text
 	text->SetLayer(4); //text layer
 	text->SetColor(0, 1, 0, 1);
-	theWorld.Add(text);
+	theWorld.Add(text); //Actually adding the text to the screen
 
 	//setup stage
 	stage = new PhysicsActor();
@@ -34,12 +34,12 @@ AerocideGameManager::AerocideGameManager()
 	stage->SetPosition(stagePosition);
 	stage->InitPhysics();
 	theWorld.Add(stage);
-	stage->Tag("Stage");
+	stage->Tag("Stage"); //tagging the physics actor as a stage
 	stage->SetName("Stage");
 	stageVel.X = 0.0f;
 	stageVel.Y = -0.1f;
 
-	player = new Player();
+	player = new Player(); //Creating the player
 
 	//initialize first frame time in the past so that the first frame will run
 	lastFrameTime = glfwGetTime() - 1;
@@ -67,14 +67,14 @@ void AerocideGameManager::ReceiveMessage(Message* message)
 	}
 }
 
-void AerocideGameManager::Update(float dt){
-	if (!gameStarted){
+void AerocideGameManager::Update(float dt){ //This updates the game
+	if (!gameStarted){ //If still on start screen
 		theWorld.PauseSimulation();
-		if (theInput.IsKeyDown(GLFW_KEY_RIGHT_SHIFT)){
+		if (theInput.IsKeyDown(GLFW_KEY_RIGHT_SHIFT)){ //making it 2 player
 			player2 = new Player2();
 			isPlayer2 = true;
 		}
-		if (theInput.IsKeyDown(GLFW_KEY_ENTER)){
+		if (theInput.IsKeyDown(GLFW_KEY_ENTER)){ //checks to see if the user is ready to start
 			gameStarted = true;
 			music = theSound.PlaySound(music, 1, true, 0);
 			theWorld.Remove(text);
@@ -86,7 +86,7 @@ void AerocideGameManager::Update(float dt){
 			new Turret(-4.635, 122.71, 180, 's', stage);
 			new Turret(-4.453, 125.156, 186, 's', stage);
 			new Turret(3.4375, 142.29, 165, 's', stage);
-			new Turret(-1.5365, 171.56, 175, 's', stage);
+			new Turret(-1.5365, 171.56, 175, 's', stage); //spawning the turrets on the stage
 			new Turret(-2.422, 224.245, 180, 's', stage);
 			new Turret(3.4375, 269.635, 140, 's', stage);
 			new Turret(-.8854, 294, 146, 's', stage);
@@ -94,7 +94,7 @@ void AerocideGameManager::Update(float dt){
 			new Turret(3.2292, 377.865, 165, 's', stage);
 			new Turret(-3.28125, 392.266, 192, 's', stage);
 			new Turret(4.47917, 393.932, 168, 's', stage);
-			final1 = new Turret(-5.70313, 415.052, 180, 'l', stage);
+			final1 = new Turret(-5.70313, 415.052, 180, 'l', stage); //spawning the 3 final turrets
 			final2 = new Turret(5.88542, 415.052, 180, 'l', stage);
 			final3 = new Turret(.15625, 412.422, 180, 'l', stage);
 
@@ -104,7 +104,7 @@ void AerocideGameManager::Update(float dt){
 	}
 	else{
 
-		if (player->IsDestroyed() && (!isPlayer2 || player2->IsDestroyed())){
+		if (player->IsDestroyed() && (!isPlayer2 || player2->IsDestroyed())){ //if the player is destroyed
 			text = new TextActor("Console", "Game Over. Press 'Esc' to exit.");
 			text->SetPosition(0, 1);
 			text->SetAlignment(TXT_Center);
@@ -259,7 +259,7 @@ void AerocideGameManager::Update(float dt){
 		if (stagePosition.Y <= -160 && !FinalAsteroidSpawned){ //Spawning final asteroid field
 			new HugeAsteroid(-3, 25, 0, -6000);
 			new Asteroid(4, 24, 1, -10);
-			new BigAsteroid(-3.5, -5, 4, 300.5);
+			new BigAsteroid(-3.5, -15, 4, 300.5);
 			new Asteroid(-1, -8, 1.5, 6.2);
 			new HugeAsteroid(3, -35, 400, -10004);
 			new Asteroid(-12, 0, 15, -5.4);
@@ -289,13 +289,13 @@ void AerocideGameManager::Update(float dt){
 			new HugeAsteroid(0, 47, 4, -3500);
 			new HugeAsteroid(0, 60, 20, -3700);
 			new BigAsteroid(0, -29, 2, -210);
-			new BigAsteroid(-6, -10, 4, 225);
+			new BigAsteroid(-6, -11, 4, 225);
 			new HugeAsteroid(25, -1, -3000, -2);
 			FinalAsteroidSpawned = true;
 		}
 
-		if (final1->IsDestroyed() && final2->IsDestroyed() && final3->IsDestroyed())
-		{
+		if (final1->IsDestroyed() && final2->IsDestroyed() && final3->IsDestroyed()) //Checks if the last 3 turrets are destroyed
+		{ //Winning the game
 			text = new TextActor("Console", "YOU WON!!!!!! Press 'Esc' to exit.");
 			theSound.StopSound(music);
 			//theSound.Update();
@@ -316,7 +316,7 @@ void AerocideGameManager::Update(float dt){
 	}
 }
 
-void AerocideGameManager::Render()
+void AerocideGameManager::Render() //displays the fps
 {
 	//if debug info is requested then display the fps (more information will be included later. toggle debug info with f3)
 	if (debugInfo){

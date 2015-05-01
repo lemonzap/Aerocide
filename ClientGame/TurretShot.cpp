@@ -11,12 +11,12 @@ TurretShot::TurretShot(float X, float Y, Vector2 newDirection, char TurSize, flo
 	//shotVel += shooterVel;
 	//setup shot
 	this->SetSize(0.15f);
-	if (TurSize == 's')
+	if (TurSize == 's') //small turret
 	{
 		SetDensity(0.05f);
 		this->SetSize(0.15f);
 	}
-	else if (TurSize == 'l') {
+	else if (TurSize == 'l') { //large turret
 		SetDensity(0.01f);
 		this->SetSize(.35f);
 	}
@@ -27,7 +27,7 @@ TurretShot::TurretShot(float X, float Y, Vector2 newDirection, char TurSize, flo
 	this->SetLayer(1); //player shots layer
 	this->SetGroupIndex(-2);
 	this->SetIsSensor(true);
-	SetShapeType(PhysicsActor::SHAPETYPE_CIRCLE);
+	SetShapeType(PhysicsActor::SHAPETYPE_CIRCLE); //making hitbox a circle
 	InitPhysics();
 	this->GetBody()->SetLinearVelocity(b2Vec2(0, stageSpeed));
 	ApplyLinearImpulse(direction*0.01, Vector2::Zero);
@@ -46,7 +46,7 @@ void TurretShot::Update(float dt){
 	}
 }
 
-void TurretShot::ReceiveMessage(Message *message)
+void TurretShot::ReceiveMessage(Message *message) //colliding with something
 {
 	try{
 		if (message->GetMessageName() == "CollisionStartWith" + GetName())
