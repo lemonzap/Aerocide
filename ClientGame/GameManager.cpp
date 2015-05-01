@@ -314,10 +314,17 @@ void AerocideGameManager::Update(float dt){ //This updates the game
 		//store time completed
 		lastFrameTime = glfwGetTime();
 	}
+	
 }
 
 void AerocideGameManager::Render() //displays the fps
 {
+	glColor3f(1.0f, 1.0f, 0.0f);
+	DrawGameText("Player1 Score: " + std::to_string(player->score), "Console", 4, 18);
+	if (isPlayer2){
+		glColor3f(1.0f, 1.0f, 0.0f);
+		DrawGameText("Player2 Score: " + std::to_string(player2->score), "Console", 525, 18);
+	}
 	//if debug info is requested then display the fps (more information will be included later. toggle debug info with f3)
 	if (debugInfo){
 		glColor3f(1.0f, 0.0f, 0.0f);

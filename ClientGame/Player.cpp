@@ -4,12 +4,15 @@
 
 Player::Player(){
 	health = 16;
+	score = 0;
 	shotCooldownFrames = 15;
 	//setup player
 	healthBar = new HealthBar(health, 0, 9.2);
 	this->SetSize(1.0f);
 	this->SetColor(1, 1, 1, 1); //(white and opaque so the texture comes through fully)
 	this->ClearSpriteInfo();
+	this->SetSprite("Resources/Images/ShipLeftTilt.png", 2, GL_CLAMP, GL_NEAREST, false);
+	this->SetSprite("Resources/Images/ShipRightTilt.png", 3, GL_CLAMP, GL_NEAREST, false);
 	this->SetSprite("Resources/Images/ShipHit.png", 1, GL_CLAMP, GL_NEAREST, false);
 	this->SetSprite("Resources/Images/Ship.png", 0, GL_CLAMP, GL_NEAREST, false);
 	shootSound = theSound.LoadSample("Resources/Sounds/Shoot.wav", false);
@@ -50,6 +53,7 @@ void Player::Update(float dt){
 		direction.X = 0;
 		direction.Y = 0;
 		//handle movement inputs (up: y = 1, down: y = -1, left: x = -1, right: x = 1)
+		this->SetSpriteFrame(0);
 		if (theInput.IsKeyDown('w')){
 			direction.Y += 1;
 		}
@@ -58,9 +62,11 @@ void Player::Update(float dt){
 		}
 		if (theInput.IsKeyDown('a')){
 			direction.X -= 1;
+			this->SetSpriteFrame(2);
 		}
 		if (theInput.IsKeyDown('d')){
 			direction.X += 1;
+			this->SetSpriteFrame(3);
 		}
 		//fill health (for testing)
 		/*if (theInput.IsKeyDown('h')){
@@ -197,6 +203,7 @@ void Player::ReceiveMessage(Message *message) //player colliding with something
 				}
 			}
 			if (collider->GetName().find("TripleShot") != std::string::npos){
+				score += 5;
 				if (powerLevel == 2 || powerLevel == 4){
 					powerLevel = 4;
 				}
@@ -212,6 +219,7 @@ void Player::ReceiveMessage(Message *message) //player colliding with something
 				theSound.PlaySound(upgradeSound, 1.0f, false, 0);
 			}
 			else if (collider->GetName().find("BeamShot") != std::string::npos){
+				score += 5;
 				if (powerLevel == 3 || powerLevel == 4){
 					powerLevel = 4;
 				}
@@ -227,6 +235,7 @@ void Player::ReceiveMessage(Message *message) //player colliding with something
 				theSound.PlaySound(upgradeSound, 1.0f, false, 0);
 			}
 			else if (collider->GetName().find("PierceShot") != std::string::npos){
+				score += 5;
 				if (powerLevel == 3 || powerLevel == 7){
 					powerLevel = 7;
 				}
@@ -242,6 +251,7 @@ void Player::ReceiveMessage(Message *message) //player colliding with something
 				theSound.PlaySound(upgradeSound, 1.0f, false, 0);
 			}
 			else if (collider->GetName().find("Health") != std::string::npos){
+				score += 5;
 				health += 4; //adds 4 health to the player and plays the sound
 				if (health > 16){
 					health = 16;

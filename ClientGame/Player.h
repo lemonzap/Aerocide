@@ -5,10 +5,11 @@
 #include <vector>
 #include <string>
 #include "Shot.h"
-#include "healthBar.h"
+#include "HealthBar.h"
 
 class Player : public PhysicsActor{ //inheriting from physics actor
 public:
+	friend class HealthBar;
 	Player();
 	void Shoot(float X, float Y, Vector2 shooterVel, bool pierce);
 	void BeamShoot(float X, float Y, Vector2 shooterVel, bool pierce);
@@ -17,6 +18,8 @@ public:
 
 	void Update(float dt);
 	void ReceiveMessage(Message *message);
+	int score;
+	int health;
 private:
 	HealthBar* healthBar;
 	Vector2 position;
@@ -25,7 +28,6 @@ private:
 	int powerLevel = 1; // Should be 1 for base level
 	int framesSinceLastShot = 0;
 	int shotCooldownFrames;
-	int health;
 	int currentHitFrame = 0;
 	bool isHit = false;
 	int dyingFrame = 0;

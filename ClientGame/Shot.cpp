@@ -90,6 +90,7 @@ void Shot::ReceiveMessage(Message *message) //coliding with something
 								shouldDie = true;
 							}
 							theSwitchboard.UnsubscribeFrom(this, "CollisionStartWith" + GetName());
+							
 						}
 					}
 				}

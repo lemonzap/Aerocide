@@ -5,10 +5,11 @@
 #include <vector>
 #include <string>
 #include "Shot.h"
-#include "healthBar.h"
+#include "HealthBar.h"
 
 class Player2 : public PhysicsActor{
 public:
+	friend class HealthBar;
 	Player2();
 	void Shoot(float X, float Y, Vector2 shooterVel, bool pierce);
 	void BeamShoot(float X, float Y, Vector2 shooterVel, bool pierce);
@@ -17,6 +18,7 @@ public:
 
 	void Update(float dt);
 	void ReceiveMessage(Message *message);
+	int score;
 private:
 	HealthBar* healthBar;
 	Vector2 position;
