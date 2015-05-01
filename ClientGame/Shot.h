@@ -7,7 +7,7 @@
 
 class Shot : public PhysicsActor{ //inheriting from the physics actor class
 public:
-	Shot(float X, float Y, float angle, Vector2 shooterVel, float r, float g, float b, bool newIsSuper); //Accepts position, angle of the shot and the shooter
+	Shot(float X, float Y, float angle, Vector2 shooterVel, float r, float g, float b, bool newIsSuper, bool pierce); //Accepts position, angle of the shot and the shooter
 
 	void Update(float dt);
 	void Shot::ReceiveMessage(Message *message);
@@ -17,5 +17,6 @@ private:
 	float timeAlive = 0;
 	bool shouldDie = false;
 	bool isSuper = false;
+	bool shouldPierce;
 	int superFrame = 1;
 };

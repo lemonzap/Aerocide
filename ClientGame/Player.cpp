@@ -84,21 +84,37 @@ void Player::Update(float dt){
 			framesSinceLastShot = 1;
 			if (powerLevel == 1) { //Checks what the power of the shot is
 				shotCooldownFrames = 15; //base shot
-				Shoot(this->GetPosition().X, this->GetPosition().Y + 0.0f, velocity);
+				Shoot(this->GetPosition().X, this->GetPosition().Y + 0.0f, velocity, false);
 			}
 			else if (powerLevel == 2) //faster shot
 			{
 				shotCooldownFrames = 8;
-				BeamShoot(this->GetPosition().X, this->GetPosition().Y + 0.0f, velocity);
+				BeamShoot(this->GetPosition().X, this->GetPosition().Y + 0.0f, velocity, false);
 			}
 			else if (powerLevel == 3) //triple shot
 			{
 				shotCooldownFrames = 15; //I changed this from 20 to 15 for balancing reasons. the beam is more useful when the triple is restricted to 20
-				TripleShoot(this->GetPosition().X, this->GetPosition().Y + 0.0f, velocity);
+				TripleShoot(this->GetPosition().X, this->GetPosition().Y + 0.0f, velocity, false);
 			}
 			else if (powerLevel == 4){
 				shotCooldownFrames = 8;
-				TripleShoot(this->GetPosition().X, this->GetPosition().Y + 0.0f, velocity);
+				TripleShoot(this->GetPosition().X, this->GetPosition().Y + 0.0f, velocity, false);
+			}
+			else if (powerLevel == 5){
+				shotCooldownFrames = 15;
+				Shoot(this->GetPosition().X, this->GetPosition().Y + 0.0f, velocity, true);
+			}
+			else if (powerLevel == 6){
+				shotCooldownFrames = 8;
+				BeamShoot(this->GetPosition().X, this->GetPosition().Y + 0.0f, velocity, true);
+			}
+			else if (powerLevel == 7){
+				shotCooldownFrames = 15;
+				TripleShoot(this->GetPosition().X, this->GetPosition().Y + 0.0f, velocity, true);
+			}
+			else if (powerLevel == 8){
+				shotCooldownFrames = 8;
+				TripleShoot(this->GetPosition().X, this->GetPosition().Y + 0.0f, velocity, true);
 			}
 		}
 		else{
@@ -181,8 +197,14 @@ void Player::ReceiveMessage(Message *message) //player colliding with something
 				}
 			}
 			if (collider->GetName().find("TripleShot") != std::string::npos){
-				if (powerLevel == 2){
+				if (powerLevel == 2 || powerLevel == 4){
 					powerLevel = 4;
+				}
+				else if (powerLevel == 5 || powerLevel == 7){
+					powerLevel = 7;
+				}
+				else if (powerLevel == 6 || powerLevel == 8){
+					powerLevel = 8;
 				}
 				else{
 					powerLevel = 3;//upgrades the shot to triple and plays sound
@@ -190,11 +212,32 @@ void Player::ReceiveMessage(Message *message) //player colliding with something
 				theSound.PlaySound(upgradeSound, 1.0f, false, 0);
 			}
 			else if (collider->GetName().find("BeamShot") != std::string::npos){
-				if (powerLevel == 3){
+				if (powerLevel == 3 || powerLevel == 4){
 					powerLevel = 4;
+				}
+				else if (powerLevel == 5 || powerLevel == 6){
+					powerLevel = 6;
+				}
+				else if (powerLevel == 7 || powerLevel == 8){
+					powerLevel = 8;
 				}
 				else{
 					powerLevel = 2;//upgrades the shot to increase firerate and play sound
+				}
+				theSound.PlaySound(upgradeSound, 1.0f, false, 0);
+			}
+			else if (collider->GetName().find("PierceShot") != std::string::npos){
+				if (powerLevel == 3 || powerLevel == 7){
+					powerLevel = 7;
+				}
+				else if (powerLevel == 2 || powerLevel == 6){
+					powerLevel = 6;
+				}
+				else if (powerLevel == 3 || powerLevel == 8){
+					powerLevel = 8;
+				}
+				else{
+					powerLevel = 5;//upgrades the shot to pierce and play sound
 				}
 				theSound.PlaySound(upgradeSound, 1.0f, false, 0);
 			}
@@ -221,28 +264,48 @@ void Player::ReceiveMessage(Message *message) //player colliding with something
 	}
 }
 
-void Player::Shoot(float X, float Y, Vector2 shooterVel){ //makes a shot function class when shooting
-	new Shot(X, Y, 0.0, shooterVel, 0, 0, 1, false);
+void Player::Shoot(float X, float Y, Vector2 shooterVel, bool pierce){ //makes a shot function class when shooting
+	if (!pierce){
+		new Shot(X, Y, 0.0, shooterVel, 0, 0, 1, false, pierce);
+	}
+	else{
+		new Shot(X, Y, 0.0, shooterVel, 1, 1, 0, false, pierce);
+	}
 	theSound.PlaySound(shootSound, 0.5f, false, 0);
 }
 
-void Player::BeamShoot(float X, float Y, Vector2 shooterVel){ //makes the faster shot with a different color
-	new Shot(X, Y, 0.0, shooterVel, 0, 1, 0, false);
+void Player::BeamShoot(float X, float Y, Vector2 shooterVel, bool pierce){ //makes the faster shot with a different color
+	if (!pierce){
+		new Shot(X, Y, 0.0, shooterVel, 0, 1, 0, false, pierce);
+	}
+	else{
+		new Shot(X, Y, 0.0, shooterVel, 1, 1, 0, false, pierce);
+	}
 	theSound.PlaySound(shootSound, 0.5f, false, 0);
 }
 
-void Player::TripleShoot(float X, float Y, Vector2 shooterVel) // the angle can't be an actual angle. It's the x velocity
+void Player::TripleShoot(float X, float Y, Vector2 shooterVel, bool pierce) // the angle can't be an actual angle. It's the x velocity
 {
 	theSound.PlaySound(shootSound, 0.5f, false, 0);
 	if (powerLevel == 3){
-		new Shot(X, Y, 0.0, shooterVel, 0.8, 0, 1, false);
-		new Shot(X, Y, -0.05, shooterVel, 0.8, 0, 1, false);
-		new Shot(X, Y, 0.05, shooterVel, 0.8, 0, 1, false);
+		new Shot(X, Y, 0.0, shooterVel, 0.8, 0, 1, false, pierce);
+		new Shot(X, Y, -0.05, shooterVel, 0.8, 0, 1, false, pierce);
+		new Shot(X, Y, 0.05, shooterVel, 0.8, 0, 1, false, pierce);
 	}
-	else{
-		new Shot(X, Y, 0.0, shooterVel, 0, 0, 0, true);
-		new Shot(X, Y, -0.05, shooterVel, 0, 0, 0, true);
-		new Shot(X, Y, 0.05, shooterVel, 0, 0, 0, true);
+	else if (powerLevel == 4){
+		new Shot(X, Y, 0.0, shooterVel, 0, 1, 0, false, pierce);
+		new Shot(X, Y, -0.05, shooterVel, 0, 1, 0, false, pierce);
+		new Shot(X, Y, 0.05, shooterVel, 0, 1, 0, false, pierce);
+	}
+	else if(powerLevel == 8){
+		new Shot(X, Y, 0.0, shooterVel, 0, 0, 0, true, pierce);
+		new Shot(X, Y, -0.05, shooterVel, 0, 0, 0, true, pierce);
+		new Shot(X, Y, 0.05, shooterVel, 0, 0, 0, true, pierce);
+	}
+	else if (pierce){
+		new Shot(X, Y, 0.0, shooterVel, 1, 1, 0, false, pierce);
+		new Shot(X, Y, -0.05, shooterVel, 1, 1, 0, false, pierce);
+		new Shot(X, Y, 0.05, shooterVel, 1, 1, 0, false, pierce);
 	}
 }
 

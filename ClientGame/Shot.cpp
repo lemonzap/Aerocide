@@ -2,8 +2,9 @@
 #include "Shot.h"
 
 
-Shot::Shot(float X, float Y, float angle, Vector2 shooterVel, float r, float g, float b, bool newIsSuper){
+Shot::Shot(float X, float Y, float angle, Vector2 shooterVel, float r, float g, float b, bool newIsSuper, bool pierce){
 	isSuper = newIsSuper;
+	shouldPierce = pierce;
 	//initialize shot position and speed
 	shotVel.X = angle;
 	shotVel.Y = 0.15;
@@ -85,7 +86,9 @@ void Shot::ReceiveMessage(Message *message) //coliding with something
 					PhysicsActor* collider = (PhysicsActor*)message->GetSender();
 					if (!collider->IsDestroyed() && !shouldDie && !IsDestroyed()){
 						if (!collider->IsTagged("bullet") && !collider->IsTagged("Stage") && !collider->IsTagged("Friendly")){
-							shouldDie = true;
+							if (!shouldPierce){
+								shouldDie = true;
+							}
 							theSwitchboard.UnsubscribeFrom(this, "CollisionStartWith" + GetName());
 						}
 					}

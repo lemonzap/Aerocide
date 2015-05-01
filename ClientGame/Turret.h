@@ -7,6 +7,7 @@
 #include "TurretShot.h"
 #include "TripleShot.h"
 #include "BeamShot.h"
+#include "PierceShot.h"
 #include "Health.h"
 
 class Turret : public PhysicsActor{

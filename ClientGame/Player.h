@@ -10,9 +10,9 @@
 class Player : public PhysicsActor{ //inheriting from physics actor
 public:
 	Player();
-	void Shoot(float X, float Y, Vector2 shooterVel);
-	void BeamShoot(float X, float Y, Vector2 shooterVel);
-	void TripleShoot(float X, float Y, Vector2 shooterVel);
+	void Shoot(float X, float Y, Vector2 shooterVel, bool pierce);
+	void BeamShoot(float X, float Y, Vector2 shooterVel, bool pierce);
+	void TripleShoot(float X, float Y, Vector2 shooterVel, bool pierce);
 	void animateHit();
 
 	void Update(float dt);

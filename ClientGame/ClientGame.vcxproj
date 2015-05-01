@@ -183,6 +183,7 @@ cd ..\Tools\BuildScripts\
     <ClCompile Include="HealthBar.cpp" />
     <ClCompile Include="HealthPoint.cpp" />
     <ClCompile Include="HugeAsteroid.cpp" />
+    <ClCompile Include="PierceShot.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Player2.cpp" />
     <ClCompile Include="Shot.cpp" />
@@ -207,6 +208,7 @@ cd ..\Tools\BuildScripts\
     <ClInclude Include="HealthBar.h" />
     <ClInclude Include="HealthPoint.h" />
     <ClInclude Include="HugeAsteroid.h" />
+    <ClInclude Include="PierceShot.h" />
     <ClInclude Include="platforms\win\resource.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Player2.h" />

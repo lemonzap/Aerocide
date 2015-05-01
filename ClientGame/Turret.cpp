@@ -81,11 +81,14 @@ void Turret::Update(float dt){ //updating the turret
 		}
 		else{
 			float rand = MathUtil::RandomFloat();
-			if (rand > 0.9f){
+			if (rand > 0.8f){
 				new TripleShot(this->GetPosition().X, this->GetPosition().Y);
 			}
-			else if (rand > 0.8f){
+			else if (rand > 0.6f){
 				new BeamShot(this->GetPosition().X, this->GetPosition().Y);
+			}
+			else if (rand > 0.4f){
+				new PierceShot(this->GetPosition().X, this->GetPosition().Y);
 			}
 		}
 		
