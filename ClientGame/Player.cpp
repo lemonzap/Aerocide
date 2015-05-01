@@ -192,6 +192,14 @@ void Player::ReceiveMessage(Message *message) //player colliding with something
 				healthBar->addHealth(4);
 				theSound.PlaySound(healthSound, 1.0f, false, 0);
 			}
+			else if (collider->GetName().find("BigAsteroid") != std::string::npos){
+				health -= 1; //lose an extra 1 health if big asteroid
+				healthBar->removeHealth(1);
+			}
+			else if (collider->GetName().find("HugeAsteroid") != std::string::npos){
+				health -= 2; //lose an extra 2 health if huge asteroid
+				healthBar->removeHealth(2);
+			}
 		}
 	}
 	catch (int e){

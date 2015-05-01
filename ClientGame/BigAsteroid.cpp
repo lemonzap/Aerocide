@@ -47,8 +47,11 @@ void BigAsteroid::Update(float dt){
 	}
 	if (health <= 0 && !dying){
 		dying = true;
+		new Asteroid(this->GetPosition().X + 0.8, this->GetPosition().Y + 0.4, MathUtil::RandomFloatInRange(-3, 3), MathUtil::RandomFloatInRange(-4, -10));
+		new Asteroid(this->GetPosition().X, this->GetPosition().Y - 1, MathUtil::RandomFloatInRange(-3, 3), MathUtil::RandomFloatInRange(-4, -10));
+		new Asteroid(this->GetPosition().X - 0.8, this->GetPosition().Y + 0.4, MathUtil::RandomFloatInRange(-3, 3), MathUtil::RandomFloatInRange(-4, -10));
 		theSound.PlaySound(explode, 1.0f, false, 0);
-		if (MathUtil::RandomFloat() < 0.05f){
+		if (MathUtil::RandomFloat() < 0.15f){
 			new Health(this->GetPosition().X, this->GetPosition().Y);
 		}
 		this->LoadSpriteFrames("Resources/Images/Explosion_001.png", GL_CLAMP, GL_NEAREST);

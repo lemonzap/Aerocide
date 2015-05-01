@@ -48,7 +48,7 @@ void Asteroid::Update(float dt){
 	if (health <= 0 && !dying){
 		dying = true;
 		theSound.PlaySound(explode, 1.0f, false, 0);
-		if (MathUtil::RandomFloat() < 0.01f){
+		if (MathUtil::RandomFloat() < 0.025f){
 			new Health(this->GetPosition().X, this->GetPosition().Y);
 		}
 		this->LoadSpriteFrames("Resources/Images/Explosion_001.png", GL_CLAMP, GL_NEAREST);
@@ -97,7 +97,11 @@ void Asteroid::ReceiveMessage(Message *message) //coliding with something
 				{
 					health -= 1;
 					isHit = true;
+					if (collider->IsTagged("Ship")){
+						health -= 3;
+					}
 				}
+				
 			}
 		}
 	}

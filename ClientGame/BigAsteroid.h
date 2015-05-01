@@ -5,6 +5,7 @@
 #include <vector>
 #include <string>
 #include "Health.h"
+#include "Asteroid.h"
 
 class BigAsteroid : public PhysicsActor{
 public:
