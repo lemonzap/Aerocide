@@ -233,7 +233,7 @@ void Player::ReceiveMessage(Message *message) //player colliding with something
 				else if (powerLevel == 2 || powerLevel == 6){
 					powerLevel = 6;
 				}
-				else if (powerLevel == 3 || powerLevel == 8){
+				else if (powerLevel == 4 || powerLevel == 8){
 					powerLevel = 8;
 				}
 				else{
