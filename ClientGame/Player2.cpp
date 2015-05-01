@@ -96,6 +96,10 @@ void Player2::Update(float dt){
 				shotCooldownFrames = 15; //buffed to balance with the beam shot.
 				TripleShoot(this->GetPosition().X, this->GetPosition().Y + 0.0f, velocity);
 			}
+			else if (powerLevel == 4){
+				shotCooldownFrames = 8;
+				TripleShoot(this->GetPosition().X, this->GetPosition().Y + 0.0f, velocity);
+			}
 		}
 		else{
 			framesSinceLastShot++;
@@ -176,12 +180,24 @@ void Player2::ReceiveMessage(Message *message)
 			}
 		}
 		if (collider->GetName().find("TripleShot") != std::string::npos){
-			powerLevel = 3;
+			if (powerLevel == 2){
+				powerLevel = 4;
+			}
+			else{
+				powerLevel = 3;
+			}
 			theSound.PlaySound(upgradeSound, 1.0f, false, 0);
+			
 		}
 		else if (collider->GetName().find("BeamShot") != std::string::npos){
-			powerLevel = 2;
+			if (powerLevel == 3){
+				powerLevel = 4;
+			}
+			else{
+				powerLevel = 2;
+			}
 			theSound.PlaySound(upgradeSound, 1.0f, false, 0);
+			
 		}
 		else if (collider->GetName().find("Health") != std::string::npos){
 			health += 4;
@@ -203,21 +219,28 @@ void Player2::ReceiveMessage(Message *message)
 }
 
 void Player2::Shoot(float X, float Y, Vector2 shooterVel){
-	new Shot(X, Y, 0.0, shooterVel, 0, 0, 1);
+	new Shot(X, Y, 0.0, shooterVel, 0, 0, 1, false);
 	theSound.PlaySound(shootSound, 0.5f, false, 0);
 }
 
-void Player2::BeamShoot(float X, float Y, Vector2 shooterVel){
-	new Shot(X, Y, 0.0, shooterVel, 0, 1, 0);
+void Player2::BeamShoot(float X, float Y, Vector2 shooterVel){ //makes the faster shot with a different color
+	new Shot(X, Y, 0.0, shooterVel, 0, 1, 0, false);
 	theSound.PlaySound(shootSound, 0.5f, false, 0);
 }
 
 void Player2::TripleShoot(float X, float Y, Vector2 shooterVel) // the angle can't be an actual angle. It's the x velocity
 {
 	theSound.PlaySound(shootSound, 0.5f, false, 0);
-	new Shot(X, Y, 0.0, shooterVel, 0.8, 0, 1);
-	new Shot(X, Y, -.05, shooterVel, 0.8, 0, 1);
-	new Shot(X, Y, .05, shooterVel, 0.8, 0, 1);
+	if (powerLevel == 3){
+		new Shot(X, Y, 0.0, shooterVel, 0.8, 0, 1, false);
+		new Shot(X, Y, -.05, shooterVel, 0.8, 0, 1, false);
+		new Shot(X, Y, .05, shooterVel, 0.8, 0, 1, false);
+	}
+	else{
+		new Shot(X, Y, 0.0, shooterVel, 0, 0, 0, true);
+		new Shot(X, Y, 0.0, shooterVel, 0, 0, 0, true);
+		new Shot(X, Y, 0.0, shooterVel, 0, 0, 0, true);
+	}
 }
 
 void Player2::animateHit(){

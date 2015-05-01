@@ -2,7 +2,8 @@
 #include "Shot.h"
 
 
-Shot::Shot(float X, float Y, float angle, Vector2 shooterVel, float r, float g, float b){
+Shot::Shot(float X, float Y, float angle, Vector2 shooterVel, float r, float g, float b, bool newIsSuper){
+	isSuper = newIsSuper;
 	//initialize shot position and speed
 	shotVel.X = angle;
 	shotVel.Y = 0.15;
@@ -18,7 +19,12 @@ Shot::Shot(float X, float Y, float angle, Vector2 shooterVel, float r, float g, 
 		this->SetRotation(20);
 	}
 	this->SetSize(0.5f);
-	this->SetColor(r, g, b, 1); //(white and opaque so the texture comes through fully)
+	if (!isSuper){
+		this->SetColor(r, g, b, 1); //(white and opaque so the texture comes through fully)
+	}
+	else{
+		this->SetColor(0.8, 0, 1, 1); //(white and opaque so the texture comes through fully)
+	}
 	this->ClearSpriteInfo();
 	this->SetSprite("Resources/Images/Shot.png", 0, GL_CLAMP, GL_NEAREST, false);
 	this->SetLayer(2); //player shots layer
@@ -41,7 +47,30 @@ void Shot::Update(float dt){
 		Destroy();
 	}
 	else{
-		
+		if (isSuper){
+			switch (superFrame){
+			case 1:
+				this->SetColor(1, 0, 0, 1);
+				superFrame = 2;
+				break;
+			case 2:
+				this->SetColor(1, 1, 0, 1);
+				superFrame = 3;
+				break;
+			case 3:
+				this->SetColor(0, 1, 0, 1);
+				superFrame = 4;
+				break;
+			case 4:
+				this->SetColor(0, 0, 1, 1);
+				superFrame = 5;
+				break;
+			case 5:
+				this->SetColor(0.8, 0, 1, 1);
+				superFrame = 1;
+				break;
+			}
+		}
 	}
 
 }

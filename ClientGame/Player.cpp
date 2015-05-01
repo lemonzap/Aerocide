@@ -96,6 +96,10 @@ void Player::Update(float dt){
 				shotCooldownFrames = 15; //I changed this from 20 to 15 for balancing reasons. the beam is more useful when the triple is restricted to 20
 				TripleShoot(this->GetPosition().X, this->GetPosition().Y + 0.0f, velocity);
 			}
+			else if (powerLevel == 4){
+				shotCooldownFrames = 8;
+				TripleShoot(this->GetPosition().X, this->GetPosition().Y + 0.0f, velocity);
+			}
 		}
 		else{
 			framesSinceLastShot++;
@@ -177,11 +181,21 @@ void Player::ReceiveMessage(Message *message) //player colliding with something
 				}
 			}
 			if (collider->GetName().find("TripleShot") != std::string::npos){
-				powerLevel = 3; //upgrades the shot to triple and plays sound
+				if (powerLevel == 2){
+					powerLevel = 4;
+				}
+				else{
+					powerLevel = 3;//upgrades the shot to triple and plays sound
+				}
 				theSound.PlaySound(upgradeSound, 1.0f, false, 0);
 			}
 			else if (collider->GetName().find("BeamShot") != std::string::npos){
-				powerLevel = 2; //upgrades the shot to increase firerate and play sound
+				if (powerLevel == 3){
+					powerLevel = 4;
+				}
+				else{
+					powerLevel = 2;//upgrades the shot to increase firerate and play sound
+				}
 				theSound.PlaySound(upgradeSound, 1.0f, false, 0);
 			}
 			else if (collider->GetName().find("Health") != std::string::npos){
@@ -208,21 +222,28 @@ void Player::ReceiveMessage(Message *message) //player colliding with something
 }
 
 void Player::Shoot(float X, float Y, Vector2 shooterVel){ //makes a shot function class when shooting
-	new Shot(X, Y, 0.0, shooterVel, 0, 0, 1);
+	new Shot(X, Y, 0.0, shooterVel, 0, 0, 1, false);
 	theSound.PlaySound(shootSound, 0.5f, false, 0);
 }
 
 void Player::BeamShoot(float X, float Y, Vector2 shooterVel){ //makes the faster shot with a different color
-	new Shot(X, Y, 0.0, shooterVel, 0, 1, 0);
+	new Shot(X, Y, 0.0, shooterVel, 0, 1, 0, false);
 	theSound.PlaySound(shootSound, 0.5f, false, 0);
 }
 
 void Player::TripleShoot(float X, float Y, Vector2 shooterVel) // the angle can't be an actual angle. It's the x velocity
 {
 	theSound.PlaySound(shootSound, 0.5f, false, 0);
-	new Shot(X, Y, 0.0, shooterVel,0.8, 0, 1);
-	new Shot(X, Y, -.05, shooterVel, 0.8, 0, 1);
-	new Shot(X, Y, .05, shooterVel, 0.8, 0, 1);
+	if (powerLevel == 3){
+		new Shot(X, Y, 0.0, shooterVel, 0.8, 0, 1, false);
+		new Shot(X, Y, -0.05, shooterVel, 0.8, 0, 1, false);
+		new Shot(X, Y, 0.05, shooterVel, 0.8, 0, 1, false);
+	}
+	else{
+		new Shot(X, Y, 0.0, shooterVel, 0, 0, 0, true);
+		new Shot(X, Y, -0.05, shooterVel, 0, 0, 0, true);
+		new Shot(X, Y, 0.05, shooterVel, 0, 0, 0, true);
+	}
 }
 
 void Player::animateHit(){ //hit animation
