@@ -12,7 +12,7 @@ AerocideGameManager::AerocideGameManager() //The main game manager function
 	music = theSound.LoadSample("Resources/Sounds/StarFox.wav", false); //loading some audio
 	victory = theSound.LoadSample("Resources/Sounds/VictoryFanfare.wav", false);
 
-	text = new TextActor("Console", "Press Enter to Begin\nPress Shift for a 2nd player");
+	text = new TextActor("Console", "Press Enter to Begin\nPress Shift for a 2nd player\n\n\nWASD for movement\nSpacebar for firing\n\nSecond player controls:\nArrow Keys and 0 on numpad");
 	text->SetPosition(0, 1);
 	text->SetAlignment(TXT_Center); //displaying the text
 	text->SetLayer(4); //text layer

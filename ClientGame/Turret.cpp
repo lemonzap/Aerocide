@@ -152,7 +152,7 @@ void Turret::Shoot(float X, float Y, Vector2 newDirection){ //makes a turret sho
 
 void Turret::animateHit(){ //using the hit animation
 	if (isHit){
-		if (currentHitFrame <= 4){
+		if (currentHitFrame <= 2){
 			this->SetSpriteFrame(1);
 			currentHitFrame++;
 		}

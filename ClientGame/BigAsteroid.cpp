@@ -107,7 +107,7 @@ void BigAsteroid::ReceiveMessage(Message *message)
 }
 void BigAsteroid::animateHit(){
 	if (isHit){
-		if (currentHitFrame <= 4){
+		if (currentHitFrame <= 2){
 			this->SetSpriteFrame(1);
 			currentHitFrame++;
 		}

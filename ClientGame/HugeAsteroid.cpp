@@ -109,7 +109,7 @@ void HugeAsteroid::ReceiveMessage(Message *message)
 
 void HugeAsteroid::animateHit(){
 	if (isHit){
-		if (currentHitFrame <= 4){
+		if (currentHitFrame <= 2){ //Changed to 2 so that they are invulnerable for half of the time that they used to be
 			this->SetSpriteFrame(1);
 			currentHitFrame++;
 		}

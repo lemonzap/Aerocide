@@ -108,7 +108,7 @@ void Asteroid::ReceiveMessage(Message *message) //coliding with something
 
 void Asteroid::animateHit(){ //animating the hit
 	if (isHit){
-		if (currentHitFrame <= 4){
+		if (currentHitFrame <= 2){
 			this->SetSpriteFrame(1);
 			currentHitFrame++;
 		}
