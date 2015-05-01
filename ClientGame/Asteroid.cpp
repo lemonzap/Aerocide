@@ -3,7 +3,7 @@
 
 
 Asteroid::Asteroid(float X, float Y, float velX, float velY){
-	health = 3;
+	health = 2;
 	//initialize asteroid position and speed
 	velocity.X = velX;
 	velocity.Y = velY;
