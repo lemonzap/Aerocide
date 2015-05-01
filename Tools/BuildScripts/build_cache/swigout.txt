@@ -1657,49 +1657,50 @@ SWIG_Lua_dostring(lua_State *L, const char* str) {
 #define SWIGTYPE_p_GestureData swig_types[16]
 #define SWIGTYPE_p_GridActor swig_types[17]
 #define SWIGTYPE_p_MathUtil swig_types[18]
-#define SWIGTYPE_p_Message swig_types[19]
-#define SWIGTYPE_p_MessageListener swig_types[20]
-#define SWIGTYPE_p_MouseListener swig_types[21]
-#define SWIGTYPE_p_ParticleActor swig_types[22]
-#define SWIGTYPE_p_PhysicsActor swig_types[23]
-#define SWIGTYPE_p_Preferences swig_types[24]
-#define SWIGTYPE_p_Renderable swig_types[25]
-#define SWIGTYPE_p_SoundDevice swig_types[26]
-#define SWIGTYPE_p_Switchboard swig_types[27]
-#define SWIGTYPE_p_SystemLog swig_types[28]
-#define SWIGTYPE_p_TagCollection swig_types[29]
-#define SWIGTYPE_p_TextActor swig_types[30]
-#define SWIGTYPE_p_Touch swig_types[31]
-#define SWIGTYPE_p_TouchListener swig_types[32]
-#define SWIGTYPE_p_Tuning swig_types[33]
-#define SWIGTYPE_p_TypedMessageT_Vec2i_t swig_types[34]
-#define SWIGTYPE_p_TypedMessageT_Vec2ui_t swig_types[35]
-#define SWIGTYPE_p_TypedMessageT_Vec3i_t swig_types[36]
-#define SWIGTYPE_p_TypedMessageT_Vec3ui_t swig_types[37]
-#define SWIGTYPE_p_TypedMessageT_Vector2_t swig_types[38]
-#define SWIGTYPE_p_TypedMessageT_Vector3_t swig_types[39]
-#define SWIGTYPE_p_TypedMessageT_float_t swig_types[40]
-#define SWIGTYPE_p_TypedMessageT_int_t swig_types[41]
-#define SWIGTYPE_p_TypedMessageT_std__string_t swig_types[42]
-#define SWIGTYPE_p_Vec2i swig_types[43]
-#define SWIGTYPE_p_Vec2ui swig_types[44]
-#define SWIGTYPE_p_Vec3i swig_types[45]
-#define SWIGTYPE_p_Vec3ui swig_types[46]
-#define SWIGTYPE_p_Vector2 swig_types[47]
-#define SWIGTYPE_p_Vector2List swig_types[48]
-#define SWIGTYPE_p_Vector3 swig_types[49]
-#define SWIGTYPE_p_World swig_types[50]
-#define SWIGTYPE_p_std__setT_Actor_p_t swig_types[51]
-#define SWIGTYPE_p_std__setT_MessageListener_p_t swig_types[52]
-#define SWIGTYPE_p_std__setT_std__string_t swig_types[53]
-#define SWIGTYPE_p_std__string swig_types[54]
-#define SWIGTYPE_p_std__vectorT_Actor_p_t swig_types[55]
-#define SWIGTYPE_p_std__vectorT_Touch_p_t swig_types[56]
-#define SWIGTYPE_p_std__vectorT_Vec3ui_t swig_types[57]
-#define SWIGTYPE_p_std__vectorT_std__string_t swig_types[58]
-#define SWIGTYPE_p_void swig_types[59]
-static swig_type_info *swig_types[61];
-static swig_module_info swig_module = {swig_types, 60, 0, 0, 0, 0};
+#define SWIGTYPE_p_MazeFinder swig_types[19]
+#define SWIGTYPE_p_Message swig_types[20]
+#define SWIGTYPE_p_MessageListener swig_types[21]
+#define SWIGTYPE_p_MouseListener swig_types[22]
+#define SWIGTYPE_p_ParticleActor swig_types[23]
+#define SWIGTYPE_p_PhysicsActor swig_types[24]
+#define SWIGTYPE_p_Preferences swig_types[25]
+#define SWIGTYPE_p_Renderable swig_types[26]
+#define SWIGTYPE_p_SoundDevice swig_types[27]
+#define SWIGTYPE_p_Switchboard swig_types[28]
+#define SWIGTYPE_p_SystemLog swig_types[29]
+#define SWIGTYPE_p_TagCollection swig_types[30]
+#define SWIGTYPE_p_TextActor swig_types[31]
+#define SWIGTYPE_p_Touch swig_types[32]
+#define SWIGTYPE_p_TouchListener swig_types[33]
+#define SWIGTYPE_p_Tuning swig_types[34]
+#define SWIGTYPE_p_TypedMessageT_Vec2i_t swig_types[35]
+#define SWIGTYPE_p_TypedMessageT_Vec2ui_t swig_types[36]
+#define SWIGTYPE_p_TypedMessageT_Vec3i_t swig_types[37]
+#define SWIGTYPE_p_TypedMessageT_Vec3ui_t swig_types[38]
+#define SWIGTYPE_p_TypedMessageT_Vector2_t swig_types[39]
+#define SWIGTYPE_p_TypedMessageT_Vector3_t swig_types[40]
+#define SWIGTYPE_p_TypedMessageT_float_t swig_types[41]
+#define SWIGTYPE_p_TypedMessageT_int_t swig_types[42]
+#define SWIGTYPE_p_TypedMessageT_std__string_t swig_types[43]
+#define SWIGTYPE_p_Vec2i swig_types[44]
+#define SWIGTYPE_p_Vec2ui swig_types[45]
+#define SWIGTYPE_p_Vec3i swig_types[46]
+#define SWIGTYPE_p_Vec3ui swig_types[47]
+#define SWIGTYPE_p_Vector2 swig_types[48]
+#define SWIGTYPE_p_Vector2List swig_types[49]
+#define SWIGTYPE_p_Vector3 swig_types[50]
+#define SWIGTYPE_p_World swig_types[51]
+#define SWIGTYPE_p_std__setT_Actor_p_t swig_types[52]
+#define SWIGTYPE_p_std__setT_MessageListener_p_t swig_types[53]
+#define SWIGTYPE_p_std__setT_std__string_t swig_types[54]
+#define SWIGTYPE_p_std__string swig_types[55]
+#define SWIGTYPE_p_std__vectorT_Actor_p_t swig_types[56]
+#define SWIGTYPE_p_std__vectorT_Touch_p_t swig_types[57]
+#define SWIGTYPE_p_std__vectorT_Vec3ui_t swig_types[58]
+#define SWIGTYPE_p_std__vectorT_std__string_t swig_types[59]
+#define SWIGTYPE_p_void swig_types[60]
+static swig_type_info *swig_types[62];
+static swig_module_info swig_module = {swig_types, 61, 0, 0, 0, 0};
 #define SWIG_TypeQuery(name) SWIG_TypeQueryModule(&swig_module, &swig_module, name)
 #define SWIG_MangledTypeQuery(name) SWIG_MangledTypeQueryModule(&swig_module, &swig_module, name)
 
@@ -1800,7 +1801,10 @@ SWIGINTERN int SWIG_lua_isnilstring(lua_State *L, int idx) {
 #include "../../Infrastructure/Textures.h"
 
 
-//#include "../../../ClientGame/<INCLUDE_HEADER.H>"
+// Any header files that define classes should be here. 
+//  Note the paths, which are relative to Angel/Scripting/Interfaces/angel.i
+//  (the central wrapping file). 
+#include "../../../IntroGame/DemoScreens/DemoScreenPathfinding.h"
 
 #ifdef __cplusplus
 extern "C" {
@@ -5856,7 +5860,7 @@ static int _wrap_Message_GetSender(lua_State* L) {
   result = (MessageListener *)(arg1)->GetSender();
   {
     int dcast = 0;
-    /*@SWIG:C:\Users\nathan is a fag\Documents\Visual Studio 2013\Projects\Angel2D\Angel-3.2\Code\Tools\swigwin-2.0.6\Lib\typemaps\swigmacros.swg,200,%formacro@*//*@SWIG:C:\Users\nathan is a fag\Documents\Visual Studio 2013\Projects\Angel2D\Angel-3.2\Code\Tools\swigwin-2.0.6\Lib\typemaps\swigmacros.swg,192,%_formacro_1@*//*@SWIG:C:\Users\nathan is a fag\Documents\Visual Studio 2013\Projects\Angel2D\Angel-3.2\Code\Tools\swigwin-2.0.6\Lib\lua\factory.i,7,%_factory_dispatch@*/ 
+    /*@SWIG:C:\Users\Lemonzap\Documents\Angel2D\Angel-3.2\Code\Tools\swigwin-2.0.6\Lib\typemaps\swigmacros.swg,200,%formacro@*//*@SWIG:C:\Users\Lemonzap\Documents\Angel2D\Angel-3.2\Code\Tools\swigwin-2.0.6\Lib\typemaps\swigmacros.swg,192,%_formacro_1@*//*@SWIG:C:\Users\Lemonzap\Documents\Angel2D\Angel-3.2\Code\Tools\swigwin-2.0.6\Lib\lua\factory.i,7,%_factory_dispatch@*/ 
     if (!dcast) {
       TextActor *dobj = dynamic_cast<TextActor *>(result);
       if (dobj) {
@@ -5865,16 +5869,16 @@ static int _wrap_Message_GetSender(lua_State* L) {
       }   
     }/*@SWIG@*/
     
-    /*@SWIG:C:\Users\nathan is a fag\Documents\Visual Studio 2013\Projects\Angel2D\Angel-3.2\Code\Tools\swigwin-2.0.6\Lib\typemaps\swigmacros.swg,192,%_formacro_1@*//*@SWIG:C:\Users\nathan is a fag\Documents\Visual Studio 2013\Projects\Angel2D\Angel-3.2\Code\Tools\swigwin-2.0.6\Lib\lua\factory.i,7,%_factory_dispatch@*/ 
+    /*@SWIG:C:\Users\Lemonzap\Documents\Angel2D\Angel-3.2\Code\Tools\swigwin-2.0.6\Lib\typemaps\swigmacros.swg,192,%_formacro_1@*//*@SWIG:C:\Users\Lemonzap\Documents\Angel2D\Angel-3.2\Code\Tools\swigwin-2.0.6\Lib\lua\factory.i,7,%_factory_dispatch@*/ 
     if (!dcast) {
-      FullScreenActor *dobj = dynamic_cast<FullScreenActor *>(result);
+      MazeFinder *dobj = dynamic_cast<MazeFinder *>(result);
       if (dobj) {
         dcast = 1;
-        SWIG_NewPointerObj(L, dobj, SWIGTYPE_p_FullScreenActor, 0); SWIG_arg++;
+        SWIG_NewPointerObj(L, dobj, SWIGTYPE_p_MazeFinder, 0); SWIG_arg++;
       }   
     }/*@SWIG@*/
     
-    /*@SWIG:C:\Users\nathan is a fag\Documents\Visual Studio 2013\Projects\Angel2D\Angel-3.2\Code\Tools\swigwin-2.0.6\Lib\typemaps\swigmacros.swg,192,%_formacro_1@*//*@SWIG:C:\Users\nathan is a fag\Documents\Visual Studio 2013\Projects\Angel2D\Angel-3.2\Code\Tools\swigwin-2.0.6\Lib\lua\factory.i,7,%_factory_dispatch@*/ 
+    /*@SWIG:C:\Users\Lemonzap\Documents\Angel2D\Angel-3.2\Code\Tools\swigwin-2.0.6\Lib\typemaps\swigmacros.swg,192,%_formacro_1@*//*@SWIG:C:\Users\Lemonzap\Documents\Angel2D\Angel-3.2\Code\Tools\swigwin-2.0.6\Lib\lua\factory.i,7,%_factory_dispatch@*/ 
     if (!dcast) {
       Camera *dobj = dynamic_cast<Camera *>(result);
       if (dobj) {
@@ -5883,7 +5887,16 @@ static int _wrap_Message_GetSender(lua_State* L) {
       }   
     }/*@SWIG@*/
     
-    /*@SWIG:C:\Users\nathan is a fag\Documents\Visual Studio 2013\Projects\Angel2D\Angel-3.2\Code\Tools\swigwin-2.0.6\Lib\typemaps\swigmacros.swg,192,%_formacro_1@*//*@SWIG:C:\Users\nathan is a fag\Documents\Visual Studio 2013\Projects\Angel2D\Angel-3.2\Code\Tools\swigwin-2.0.6\Lib\lua\factory.i,7,%_factory_dispatch@*/ 
+    /*@SWIG:C:\Users\Lemonzap\Documents\Angel2D\Angel-3.2\Code\Tools\swigwin-2.0.6\Lib\typemaps\swigmacros.swg,192,%_formacro_1@*//*@SWIG:C:\Users\Lemonzap\Documents\Angel2D\Angel-3.2\Code\Tools\swigwin-2.0.6\Lib\lua\factory.i,7,%_factory_dispatch@*/ 
+    if (!dcast) {
+      FullScreenActor *dobj = dynamic_cast<FullScreenActor *>(result);
+      if (dobj) {
+        dcast = 1;
+        SWIG_NewPointerObj(L, dobj, SWIGTYPE_p_FullScreenActor, 0); SWIG_arg++;
+      }   
+    }/*@SWIG@*/
+    
+    /*@SWIG:C:\Users\Lemonzap\Documents\Angel2D\Angel-3.2\Code\Tools\swigwin-2.0.6\Lib\typemaps\swigmacros.swg,192,%_formacro_1@*//*@SWIG:C:\Users\Lemonzap\Documents\Angel2D\Angel-3.2\Code\Tools\swigwin-2.0.6\Lib\lua\factory.i,7,%_factory_dispatch@*/ 
     if (!dcast) {
       PhysicsActor *dobj = dynamic_cast<PhysicsActor *>(result);
       if (dobj) {
@@ -5892,7 +5905,7 @@ static int _wrap_Message_GetSender(lua_State* L) {
       }   
     }/*@SWIG@*/
     
-    /*@SWIG:C:\Users\nathan is a fag\Documents\Visual Studio 2013\Projects\Angel2D\Angel-3.2\Code\Tools\swigwin-2.0.6\Lib\typemaps\swigmacros.swg,192,%_formacro_1@*//*@SWIG:C:\Users\nathan is a fag\Documents\Visual Studio 2013\Projects\Angel2D\Angel-3.2\Code\Tools\swigwin-2.0.6\Lib\lua\factory.i,7,%_factory_dispatch@*/ 
+    /*@SWIG:C:\Users\Lemonzap\Documents\Angel2D\Angel-3.2\Code\Tools\swigwin-2.0.6\Lib\typemaps\swigmacros.swg,192,%_formacro_1@*//*@SWIG:C:\Users\Lemonzap\Documents\Angel2D\Angel-3.2\Code\Tools\swigwin-2.0.6\Lib\lua\factory.i,7,%_factory_dispatch@*/ 
     if (!dcast) {
       ParticleActor *dobj = dynamic_cast<ParticleActor *>(result);
       if (dobj) {
@@ -5901,7 +5914,7 @@ static int _wrap_Message_GetSender(lua_State* L) {
       }   
     }/*@SWIG@*/
     
-    /*@SWIG:C:\Users\nathan is a fag\Documents\Visual Studio 2013\Projects\Angel2D\Angel-3.2\Code\Tools\swigwin-2.0.6\Lib\typemaps\swigmacros.swg,192,%_formacro_1@*//*@SWIG:C:\Users\nathan is a fag\Documents\Visual Studio 2013\Projects\Angel2D\Angel-3.2\Code\Tools\swigwin-2.0.6\Lib\lua\factory.i,7,%_factory_dispatch@*/ 
+    /*@SWIG:C:\Users\Lemonzap\Documents\Angel2D\Angel-3.2\Code\Tools\swigwin-2.0.6\Lib\typemaps\swigmacros.swg,192,%_formacro_1@*//*@SWIG:C:\Users\Lemonzap\Documents\Angel2D\Angel-3.2\Code\Tools\swigwin-2.0.6\Lib\lua\factory.i,7,%_factory_dispatch@*/ 
     if (!dcast) {
       Actor *dobj = dynamic_cast<Actor *>(result);
       if (dobj) {
@@ -5911,6 +5924,8 @@ static int _wrap_Message_GetSender(lua_State* L) {
     }/*@SWIG@*/
     
     
+    
+    /*@SWIG@*/
     
     /*@SWIG@*/
     
@@ -15285,7 +15300,7 @@ static int _wrap_new_Actor(lua_State* L) {
   result = (Actor *)new Actor();
   {
     int dcast = 0;
-    /*@SWIG:C:\Users\nathan is a fag\Documents\Visual Studio 2013\Projects\Angel2D\Angel-3.2\Code\Tools\swigwin-2.0.6\Lib\typemaps\swigmacros.swg,200,%formacro@*//*@SWIG:C:\Users\nathan is a fag\Documents\Visual Studio 2013\Projects\Angel2D\Angel-3.2\Code\Tools\swigwin-2.0.6\Lib\typemaps\swigmacros.swg,192,%_formacro_1@*//*@SWIG:C:\Users\nathan is a fag\Documents\Visual Studio 2013\Projects\Angel2D\Angel-3.2\Code\Tools\swigwin-2.0.6\Lib\lua\factory.i,7,%_factory_dispatch@*/ 
+    /*@SWIG:C:\Users\Lemonzap\Documents\Angel2D\Angel-3.2\Code\Tools\swigwin-2.0.6\Lib\typemaps\swigmacros.swg,200,%formacro@*//*@SWIG:C:\Users\Lemonzap\Documents\Angel2D\Angel-3.2\Code\Tools\swigwin-2.0.6\Lib\typemaps\swigmacros.swg,192,%_formacro_1@*//*@SWIG:C:\Users\Lemonzap\Documents\Angel2D\Angel-3.2\Code\Tools\swigwin-2.0.6\Lib\lua\factory.i,7,%_factory_dispatch@*/ 
     if (!dcast) {
       TextActor *dobj = dynamic_cast<TextActor *>(result);
       if (dobj) {
@@ -15294,7 +15309,7 @@ static int _wrap_new_Actor(lua_State* L) {
       }   
     }/*@SWIG@*/
     
-    /*@SWIG:C:\Users\nathan is a fag\Documents\Visual Studio 2013\Projects\Angel2D\Angel-3.2\Code\Tools\swigwin-2.0.6\Lib\typemaps\swigmacros.swg,192,%_formacro_1@*//*@SWIG:C:\Users\nathan is a fag\Documents\Visual Studio 2013\Projects\Angel2D\Angel-3.2\Code\Tools\swigwin-2.0.6\Lib\lua\factory.i,7,%_factory_dispatch@*/ 
+    /*@SWIG:C:\Users\Lemonzap\Documents\Angel2D\Angel-3.2\Code\Tools\swigwin-2.0.6\Lib\typemaps\swigmacros.swg,192,%_formacro_1@*//*@SWIG:C:\Users\Lemonzap\Documents\Angel2D\Angel-3.2\Code\Tools\swigwin-2.0.6\Lib\lua\factory.i,7,%_factory_dispatch@*/ 
     if (!dcast) {
       FullScreenActor *dobj = dynamic_cast<FullScreenActor *>(result);
       if (dobj) {
@@ -15303,7 +15318,16 @@ static int _wrap_new_Actor(lua_State* L) {
       }   
     }/*@SWIG@*/
     
-    /*@SWIG:C:\Users\nathan is a fag\Documents\Visual Studio 2013\Projects\Angel2D\Angel-3.2\Code\Tools\swigwin-2.0.6\Lib\typemaps\swigmacros.swg,192,%_formacro_1@*//*@SWIG:C:\Users\nathan is a fag\Documents\Visual Studio 2013\Projects\Angel2D\Angel-3.2\Code\Tools\swigwin-2.0.6\Lib\lua\factory.i,7,%_factory_dispatch@*/ 
+    /*@SWIG:C:\Users\Lemonzap\Documents\Angel2D\Angel-3.2\Code\Tools\swigwin-2.0.6\Lib\typemaps\swigmacros.swg,192,%_formacro_1@*//*@SWIG:C:\Users\Lemonzap\Documents\Angel2D\Angel-3.2\Code\Tools\swigwin-2.0.6\Lib\lua\factory.i,7,%_factory_dispatch@*/ 
+    if (!dcast) {
+      MazeFinder *dobj = dynamic_cast<MazeFinder *>(result);
+      if (dobj) {
+        dcast = 1;
+        SWIG_NewPointerObj(L, dobj, SWIGTYPE_p_MazeFinder, 1); SWIG_arg++;
+      }   
+    }/*@SWIG@*/
+    
+    /*@SWIG:C:\Users\Lemonzap\Documents\Angel2D\Angel-3.2\Code\Tools\swigwin-2.0.6\Lib\typemaps\swigmacros.swg,192,%_formacro_1@*//*@SWIG:C:\Users\Lemonzap\Documents\Angel2D\Angel-3.2\Code\Tools\swigwin-2.0.6\Lib\lua\factory.i,7,%_factory_dispatch@*/ 
     if (!dcast) {
       Camera *dobj = dynamic_cast<Camera *>(result);
       if (dobj) {
@@ -15312,7 +15336,7 @@ static int _wrap_new_Actor(lua_State* L) {
       }   
     }/*@SWIG@*/
     
-    /*@SWIG:C:\Users\nathan is a fag\Documents\Visual Studio 2013\Projects\Angel2D\Angel-3.2\Code\Tools\swigwin-2.0.6\Lib\typemaps\swigmacros.swg,192,%_formacro_1@*//*@SWIG:C:\Users\nathan is a fag\Documents\Visual Studio 2013\Projects\Angel2D\Angel-3.2\Code\Tools\swigwin-2.0.6\Lib\lua\factory.i,7,%_factory_dispatch@*/ 
+    /*@SWIG:C:\Users\Lemonzap\Documents\Angel2D\Angel-3.2\Code\Tools\swigwin-2.0.6\Lib\typemaps\swigmacros.swg,192,%_formacro_1@*//*@SWIG:C:\Users\Lemonzap\Documents\Angel2D\Angel-3.2\Code\Tools\swigwin-2.0.6\Lib\lua\factory.i,7,%_factory_dispatch@*/ 
     if (!dcast) {
       PhysicsActor *dobj = dynamic_cast<PhysicsActor *>(result);
       if (dobj) {
@@ -15321,7 +15345,7 @@ static int _wrap_new_Actor(lua_State* L) {
       }   
     }/*@SWIG@*/
     
-    /*@SWIG:C:\Users\nathan is a fag\Documents\Visual Studio 2013\Projects\Angel2D\Angel-3.2\Code\Tools\swigwin-2.0.6\Lib\typemaps\swigmacros.swg,192,%_formacro_1@*//*@SWIG:C:\Users\nathan is a fag\Documents\Visual Studio 2013\Projects\Angel2D\Angel-3.2\Code\Tools\swigwin-2.0.6\Lib\lua\factory.i,7,%_factory_dispatch@*/ 
+    /*@SWIG:C:\Users\Lemonzap\Documents\Angel2D\Angel-3.2\Code\Tools\swigwin-2.0.6\Lib\typemaps\swigmacros.swg,192,%_formacro_1@*//*@SWIG:C:\Users\Lemonzap\Documents\Angel2D\Angel-3.2\Code\Tools\swigwin-2.0.6\Lib\lua\factory.i,7,%_factory_dispatch@*/ 
     if (!dcast) {
       ParticleActor *dobj = dynamic_cast<ParticleActor *>(result);
       if (dobj) {
@@ -15331,6 +15355,8 @@ static int _wrap_new_Actor(lua_State* L) {
     }/*@SWIG@*/
     
     
+    
+    /*@SWIG@*/
     
     /*@SWIG@*/
     
@@ -19134,7 +19160,7 @@ static int _wrap_Actor_GetNamed(lua_State* L) {
   result = (Actor *)Actor::GetNamed(arg1);
   {
     int dcast = 0;
-    /*@SWIG:C:\Users\nathan is a fag\Documents\Visual Studio 2013\Projects\Angel2D\Angel-3.2\Code\Tools\swigwin-2.0.6\Lib\typemaps\swigmacros.swg,200,%formacro@*//*@SWIG:C:\Users\nathan is a fag\Documents\Visual Studio 2013\Projects\Angel2D\Angel-3.2\Code\Tools\swigwin-2.0.6\Lib\typemaps\swigmacros.swg,192,%_formacro_1@*//*@SWIG:C:\Users\nathan is a fag\Documents\Visual Studio 2013\Projects\Angel2D\Angel-3.2\Code\Tools\swigwin-2.0.6\Lib\lua\factory.i,7,%_factory_dispatch@*/ 
+    /*@SWIG:C:\Users\Lemonzap\Documents\Angel2D\Angel-3.2\Code\Tools\swigwin-2.0.6\Lib\typemaps\swigmacros.swg,200,%formacro@*//*@SWIG:C:\Users\Lemonzap\Documents\Angel2D\Angel-3.2\Code\Tools\swigwin-2.0.6\Lib\typemaps\swigmacros.swg,192,%_formacro_1@*//*@SWIG:C:\Users\Lemonzap\Documents\Angel2D\Angel-3.2\Code\Tools\swigwin-2.0.6\Lib\lua\factory.i,7,%_factory_dispatch@*/ 
     if (!dcast) {
       TextActor *dobj = dynamic_cast<TextActor *>(result);
       if (dobj) {
@@ -19143,7 +19169,7 @@ static int _wrap_Actor_GetNamed(lua_State* L) {
       }   
     }/*@SWIG@*/
     
-    /*@SWIG:C:\Users\nathan is a fag\Documents\Visual Studio 2013\Projects\Angel2D\Angel-3.2\Code\Tools\swigwin-2.0.6\Lib\typemaps\swigmacros.swg,192,%_formacro_1@*//*@SWIG:C:\Users\nathan is a fag\Documents\Visual Studio 2013\Projects\Angel2D\Angel-3.2\Code\Tools\swigwin-2.0.6\Lib\lua\factory.i,7,%_factory_dispatch@*/ 
+    /*@SWIG:C:\Users\Lemonzap\Documents\Angel2D\Angel-3.2\Code\Tools\swigwin-2.0.6\Lib\typemaps\swigmacros.swg,192,%_formacro_1@*//*@SWIG:C:\Users\Lemonzap\Documents\Angel2D\Angel-3.2\Code\Tools\swigwin-2.0.6\Lib\lua\factory.i,7,%_factory_dispatch@*/ 
     if (!dcast) {
       FullScreenActor *dobj = dynamic_cast<FullScreenActor *>(result);
       if (dobj) {
@@ -19152,7 +19178,16 @@ static int _wrap_Actor_GetNamed(lua_State* L) {
       }   
     }/*@SWIG@*/
     
-    /*@SWIG:C:\Users\nathan is a fag\Documents\Visual Studio 2013\Projects\Angel2D\Angel-3.2\Code\Tools\swigwin-2.0.6\Lib\typemaps\swigmacros.swg,192,%_formacro_1@*//*@SWIG:C:\Users\nathan is a fag\Documents\Visual Studio 2013\Projects\Angel2D\Angel-3.2\Code\Tools\swigwin-2.0.6\Lib\lua\factory.i,7,%_factory_dispatch@*/ 
+    /*@SWIG:C:\Users\Lemonzap\Documents\Angel2D\Angel-3.2\Code\Tools\swigwin-2.0.6\Lib\typemaps\swigmacros.swg,192,%_formacro_1@*//*@SWIG:C:\Users\Lemonzap\Documents\Angel2D\Angel-3.2\Code\Tools\swigwin-2.0.6\Lib\lua\factory.i,7,%_factory_dispatch@*/ 
+    if (!dcast) {
+      MazeFinder *dobj = dynamic_cast<MazeFinder *>(result);
+      if (dobj) {
+        dcast = 1;
+        SWIG_NewPointerObj(L, dobj, SWIGTYPE_p_MazeFinder, 0); SWIG_arg++;
+      }   
+    }/*@SWIG@*/
+    
+    /*@SWIG:C:\Users\Lemonzap\Documents\Angel2D\Angel-3.2\Code\Tools\swigwin-2.0.6\Lib\typemaps\swigmacros.swg,192,%_formacro_1@*//*@SWIG:C:\Users\Lemonzap\Documents\Angel2D\Angel-3.2\Code\Tools\swigwin-2.0.6\Lib\lua\factory.i,7,%_factory_dispatch@*/ 
     if (!dcast) {
       Camera *dobj = dynamic_cast<Camera *>(result);
       if (dobj) {
@@ -19161,7 +19196,7 @@ static int _wrap_Actor_GetNamed(lua_State* L) {
       }   
     }/*@SWIG@*/
     
-    /*@SWIG:C:\Users\nathan is a fag\Documents\Visual Studio 2013\Projects\Angel2D\Angel-3.2\Code\Tools\swigwin-2.0.6\Lib\typemaps\swigmacros.swg,192,%_formacro_1@*//*@SWIG:C:\Users\nathan is a fag\Documents\Visual Studio 2013\Projects\Angel2D\Angel-3.2\Code\Tools\swigwin-2.0.6\Lib\lua\factory.i,7,%_factory_dispatch@*/ 
+    /*@SWIG:C:\Users\Lemonzap\Documents\Angel2D\Angel-3.2\Code\Tools\swigwin-2.0.6\Lib\typemaps\swigmacros.swg,192,%_formacro_1@*//*@SWIG:C:\Users\Lemonzap\Documents\Angel2D\Angel-3.2\Code\Tools\swigwin-2.0.6\Lib\lua\factory.i,7,%_factory_dispatch@*/ 
     if (!dcast) {
       PhysicsActor *dobj = dynamic_cast<PhysicsActor *>(result);
       if (dobj) {
@@ -19170,7 +19205,7 @@ static int _wrap_Actor_GetNamed(lua_State* L) {
       }   
     }/*@SWIG@*/
     
-    /*@SWIG:C:\Users\nathan is a fag\Documents\Visual Studio 2013\Projects\Angel2D\Angel-3.2\Code\Tools\swigwin-2.0.6\Lib\typemaps\swigmacros.swg,192,%_formacro_1@*//*@SWIG:C:\Users\nathan is a fag\Documents\Visual Studio 2013\Projects\Angel2D\Angel-3.2\Code\Tools\swigwin-2.0.6\Lib\lua\factory.i,7,%_factory_dispatch@*/ 
+    /*@SWIG:C:\Users\Lemonzap\Documents\Angel2D\Angel-3.2\Code\Tools\swigwin-2.0.6\Lib\typemaps\swigmacros.swg,192,%_formacro_1@*//*@SWIG:C:\Users\Lemonzap\Documents\Angel2D\Angel-3.2\Code\Tools\swigwin-2.0.6\Lib\lua\factory.i,7,%_factory_dispatch@*/ 
     if (!dcast) {
       ParticleActor *dobj = dynamic_cast<ParticleActor *>(result);
       if (dobj) {
@@ -19180,6 +19215,8 @@ static int _wrap_Actor_GetNamed(lua_State* L) {
     }/*@SWIG@*/
     
     
+    
+    /*@SWIG@*/
     
     /*@SWIG@*/
     
@@ -19381,7 +19418,7 @@ static int _wrap_Actor_GetSelf(lua_State* L) {
   result = (Actor *)(arg1)->GetSelf();
   {
     int dcast = 0;
-    /*@SWIG:C:\Users\nathan is a fag\Documents\Visual Studio 2013\Projects\Angel2D\Angel-3.2\Code\Tools\swigwin-2.0.6\Lib\typemaps\swigmacros.swg,200,%formacro@*//*@SWIG:C:\Users\nathan is a fag\Documents\Visual Studio 2013\Projects\Angel2D\Angel-3.2\Code\Tools\swigwin-2.0.6\Lib\typemaps\swigmacros.swg,192,%_formacro_1@*//*@SWIG:C:\Users\nathan is a fag\Documents\Visual Studio 2013\Projects\Angel2D\Angel-3.2\Code\Tools\swigwin-2.0.6\Lib\lua\factory.i,7,%_factory_dispatch@*/ 
+    /*@SWIG:C:\Users\Lemonzap\Documents\Angel2D\Angel-3.2\Code\Tools\swigwin-2.0.6\Lib\typemaps\swigmacros.swg,200,%formacro@*//*@SWIG:C:\Users\Lemonzap\Documents\Angel2D\Angel-3.2\Code\Tools\swigwin-2.0.6\Lib\typemaps\swigmacros.swg,192,%_formacro_1@*//*@SWIG:C:\Users\Lemonzap\Documents\Angel2D\Angel-3.2\Code\Tools\swigwin-2.0.6\Lib\lua\factory.i,7,%_factory_dispatch@*/ 
     if (!dcast) {
       TextActor *dobj = dynamic_cast<TextActor *>(result);
       if (dobj) {
@@ -19390,7 +19427,7 @@ static int _wrap_Actor_GetSelf(lua_State* L) {
       }   
     }/*@SWIG@*/
     
-    /*@SWIG:C:\Users\nathan is a fag\Documents\Visual Studio 2013\Projects\Angel2D\Angel-3.2\Code\Tools\swigwin-2.0.6\Lib\typemaps\swigmacros.swg,192,%_formacro_1@*//*@SWIG:C:\Users\nathan is a fag\Documents\Visual Studio 2013\Projects\Angel2D\Angel-3.2\Code\Tools\swigwin-2.0.6\Lib\lua\factory.i,7,%_factory_dispatch@*/ 
+    /*@SWIG:C:\Users\Lemonzap\Documents\Angel2D\Angel-3.2\Code\Tools\swigwin-2.0.6\Lib\typemaps\swigmacros.swg,192,%_formacro_1@*//*@SWIG:C:\Users\Lemonzap\Documents\Angel2D\Angel-3.2\Code\Tools\swigwin-2.0.6\Lib\lua\factory.i,7,%_factory_dispatch@*/ 
     if (!dcast) {
       FullScreenActor *dobj = dynamic_cast<FullScreenActor *>(result);
       if (dobj) {
@@ -19399,7 +19436,16 @@ static int _wrap_Actor_GetSelf(lua_State* L) {
       }   
     }/*@SWIG@*/
     
-    /*@SWIG:C:\Users\nathan is a fag\Documents\Visual Studio 2013\Projects\Angel2D\Angel-3.2\Code\Tools\swigwin-2.0.6\Lib\typemaps\swigmacros.swg,192,%_formacro_1@*//*@SWIG:C:\Users\nathan is a fag\Documents\Visual Studio 2013\Projects\Angel2D\Angel-3.2\Code\Tools\swigwin-2.0.6\Lib\lua\factory.i,7,%_factory_dispatch@*/ 
+    /*@SWIG:C:\Users\Lemonzap\Documents\Angel2D\Angel-3.2\Code\Tools\swigwin-2.0.6\Lib\typemaps\swigmacros.swg,192,%_formacro_1@*//*@SWIG:C:\Users\Lemonzap\Documents\Angel2D\Angel-3.2\Code\Tools\swigwin-2.0.6\Lib\lua\factory.i,7,%_factory_dispatch@*/ 
+    if (!dcast) {
+      MazeFinder *dobj = dynamic_cast<MazeFinder *>(result);
+      if (dobj) {
+        dcast = 1;
+        SWIG_NewPointerObj(L, dobj, SWIGTYPE_p_MazeFinder, 0); SWIG_arg++;
+      }   
+    }/*@SWIG@*/
+    
+    /*@SWIG:C:\Users\Lemonzap\Documents\Angel2D\Angel-3.2\Code\Tools\swigwin-2.0.6\Lib\typemaps\swigmacros.swg,192,%_formacro_1@*//*@SWIG:C:\Users\Lemonzap\Documents\Angel2D\Angel-3.2\Code\Tools\swigwin-2.0.6\Lib\lua\factory.i,7,%_factory_dispatch@*/ 
     if (!dcast) {
       Camera *dobj = dynamic_cast<Camera *>(result);
       if (dobj) {
@@ -19408,7 +19454,7 @@ static int _wrap_Actor_GetSelf(lua_State* L) {
       }   
     }/*@SWIG@*/
     
-    /*@SWIG:C:\Users\nathan is a fag\Documents\Visual Studio 2013\Projects\Angel2D\Angel-3.2\Code\Tools\swigwin-2.0.6\Lib\typemaps\swigmacros.swg,192,%_formacro_1@*//*@SWIG:C:\Users\nathan is a fag\Documents\Visual Studio 2013\Projects\Angel2D\Angel-3.2\Code\Tools\swigwin-2.0.6\Lib\lua\factory.i,7,%_factory_dispatch@*/ 
+    /*@SWIG:C:\Users\Lemonzap\Documents\Angel2D\Angel-3.2\Code\Tools\swigwin-2.0.6\Lib\typemaps\swigmacros.swg,192,%_formacro_1@*//*@SWIG:C:\Users\Lemonzap\Documents\Angel2D\Angel-3.2\Code\Tools\swigwin-2.0.6\Lib\lua\factory.i,7,%_factory_dispatch@*/ 
     if (!dcast) {
       PhysicsActor *dobj = dynamic_cast<PhysicsActor *>(result);
       if (dobj) {
@@ -19417,7 +19463,7 @@ static int _wrap_Actor_GetSelf(lua_State* L) {
       }   
     }/*@SWIG@*/
     
-    /*@SWIG:C:\Users\nathan is a fag\Documents\Visual Studio 2013\Projects\Angel2D\Angel-3.2\Code\Tools\swigwin-2.0.6\Lib\typemaps\swigmacros.swg,192,%_formacro_1@*//*@SWIG:C:\Users\nathan is a fag\Documents\Visual Studio 2013\Projects\Angel2D\Angel-3.2\Code\Tools\swigwin-2.0.6\Lib\lua\factory.i,7,%_factory_dispatch@*/ 
+    /*@SWIG:C:\Users\Lemonzap\Documents\Angel2D\Angel-3.2\Code\Tools\swigwin-2.0.6\Lib\typemaps\swigmacros.swg,192,%_formacro_1@*//*@SWIG:C:\Users\Lemonzap\Documents\Angel2D\Angel-3.2\Code\Tools\swigwin-2.0.6\Lib\lua\factory.i,7,%_factory_dispatch@*/ 
     if (!dcast) {
       ParticleActor *dobj = dynamic_cast<ParticleActor *>(result);
       if (dobj) {
@@ -19427,6 +19473,8 @@ static int _wrap_Actor_GetSelf(lua_State* L) {
     }/*@SWIG@*/
     
     
+    
+    /*@SWIG@*/
     
     /*@SWIG@*/
     
@@ -22969,6 +23017,37 @@ fail:
 }
 
 
+static int _wrap_new_MazeFinder(lua_State* L) {
+  int SWIG_arg = 0;
+  MazeFinder *result = 0 ;
+  
+  SWIG_check_num_args("MazeFinder::MazeFinder",0,0)
+  result = (MazeFinder *)new MazeFinder();
+  SWIG_NewPointerObj(L,result,SWIGTYPE_p_MazeFinder,1); SWIG_arg++; 
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static void swig_delete_MazeFinder(void *obj) {
+MazeFinder *arg1 = (MazeFinder *) obj;
+delete arg1;
+}
+static swig_lua_method swig_MazeFinder_methods[] = {
+    {0,0}
+};
+static swig_lua_attribute swig_MazeFinder_attributes[] = {
+    {0,0,0}
+};
+static swig_lua_class *swig_MazeFinder_bases[] = {0,0};
+static const char *swig_MazeFinder_base_names[] = {"Actor *",0};
+static swig_lua_class _wrap_class_MazeFinder = { "MazeFinder", &SWIGTYPE_p_MazeFinder,_wrap_new_MazeFinder, swig_delete_MazeFinder, swig_MazeFinder_methods, swig_MazeFinder_attributes, swig_MazeFinder_bases, swig_MazeFinder_base_names };
+
 #ifdef __cplusplus
 }
 #endif
@@ -23095,6 +23174,9 @@ static void *_p_ActorTo_p_Renderable(void *x, int *SWIGUNUSEDPARM(newmemory)) {
 static void *_p_FullScreenActorTo_p_Renderable(void *x, int *SWIGUNUSEDPARM(newmemory)) {
     return (void *)((Renderable *) (Actor *) ((FullScreenActor *) x));
 }
+static void *_p_MazeFinderTo_p_Renderable(void *x, int *SWIGUNUSEDPARM(newmemory)) {
+    return (void *)((Renderable *) (Actor *) ((MazeFinder *) x));
+}
 static void *_p_GridActorTo_p_Renderable(void *x, int *SWIGUNUSEDPARM(newmemory)) {
     return (void *)((Renderable *)  ((GridActor *) x));
 }
@@ -23124,6 +23206,9 @@ static void *_p_TextActorTo_p_Actor(void *x, int *SWIGUNUSEDPARM(newmemory)) {
 }
 static void *_p_FullScreenActorTo_p_Actor(void *x, int *SWIGUNUSEDPARM(newmemory)) {
     return (void *)((Actor *)  ((FullScreenActor *) x));
+}
+static void *_p_MazeFinderTo_p_Actor(void *x, int *SWIGUNUSEDPARM(newmemory)) {
+    return (void *)((Actor *)  ((MazeFinder *) x));
 }
 static void *_p_PhysicsActorTo_p_Actor(void *x, int *SWIGUNUSEDPARM(newmemory)) {
     return (void *)((Actor *)  ((PhysicsActor *) x));
@@ -23170,6 +23255,9 @@ static void *_p_ActorTo_p_MessageListener(void *x, int *SWIGUNUSEDPARM(newmemory
 static void *_p_FullScreenActorTo_p_MessageListener(void *x, int *SWIGUNUSEDPARM(newmemory)) {
     return (void *)((MessageListener *) (Actor *) ((FullScreenActor *) x));
 }
+static void *_p_MazeFinderTo_p_MessageListener(void *x, int *SWIGUNUSEDPARM(newmemory)) {
+    return (void *)((MessageListener *) (Actor *) ((MazeFinder *) x));
+}
 static void *_p_PhysicsActorTo_p_MessageListener(void *x, int *SWIGUNUSEDPARM(newmemory)) {
     return (void *)((MessageListener *) (Actor *) ((PhysicsActor *) x));
 }
@@ -23198,6 +23286,7 @@ static swig_type_info _swigt__p_GLint = {"_p_GLint", "GLint *", 0, 0, (void*)0, 
 static swig_type_info _swigt__p_GestureData = {"_p_GestureData", "GestureData *", 0, 0, (void*)&_wrap_class_GestureData, 0};
 static swig_type_info _swigt__p_GridActor = {"_p_GridActor", "GridActor *", 0, 0, (void*)&_wrap_class_GridActor, 0};
 static swig_type_info _swigt__p_MathUtil = {"_p_MathUtil", "MathUtil *", 0, 0, (void*)&_wrap_class_MathUtil, 0};
+static swig_type_info _swigt__p_MazeFinder = {"_p_MazeFinder", "MazeFinder *", 0, 0, (void*)&_wrap_class_MazeFinder, 0};
 static swig_type_info _swigt__p_Message = {"_p_Message", "Message *", 0, 0, (void*)&_wrap_class_Message, 0};
 static swig_type_info _swigt__p_MessageListener = {"_p_MessageListener", "MessageListener *", 0, 0, (void*)&_wrap_class_MessageListener, 0};
 static swig_type_info _swigt__p_MouseListener = {"_p_MouseListener", "MouseListener *", 0, 0, (void*)&_wrap_class_MouseListener, 0};
@@ -23260,6 +23349,7 @@ static swig_type_info *swig_type_initial[] = {
   &_swigt__p_GestureData,
   &_swigt__p_GridActor,
   &_swigt__p_MathUtil,
+  &_swigt__p_MazeFinder,
   &_swigt__p_Message,
   &_swigt__p_MessageListener,
   &_swigt__p_MouseListener,
@@ -23304,7 +23394,7 @@ static swig_type_info *swig_type_initial[] = {
 };
 
 static swig_cast_info _swigc__p_Accelerometer[] = {  {&_swigt__p_Accelerometer, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_Actor[] = {  {&_swigt__p_Actor, 0, 0, 0},  {&_swigt__p_TextActor, _p_TextActorTo_p_Actor, 0, 0},  {&_swigt__p_FullScreenActor, _p_FullScreenActorTo_p_Actor, 0, 0},  {&_swigt__p_PhysicsActor, _p_PhysicsActorTo_p_Actor, 0, 0},  {&_swigt__p_ParticleActor, _p_ParticleActorTo_p_Actor, 0, 0},  {&_swigt__p_Camera, _p_CameraTo_p_Actor, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_Actor[] = {  {&_swigt__p_Actor, 0, 0, 0},  {&_swigt__p_TextActor, _p_TextActorTo_p_Actor, 0, 0},  {&_swigt__p_FullScreenActor, _p_FullScreenActorTo_p_Actor, 0, 0},  {&_swigt__p_MazeFinder, _p_MazeFinderTo_p_Actor, 0, 0},  {&_swigt__p_PhysicsActor, _p_PhysicsActorTo_p_Actor, 0, 0},  {&_swigt__p_ParticleActor, _p_ParticleActorTo_p_Actor, 0, 0},  {&_swigt__p_Camera, _p_CameraTo_p_Actor, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_AngelSampleHandle[] = {  {&_swigt__p_AngelSampleHandle, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_AngelSoundHandle[] = {  {&_swigt__p_AngelSoundHandle, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_Camera[] = {  {&_swigt__p_Camera, 0, 0, 0},{0, 0, 0, 0}};
@@ -23322,13 +23412,14 @@ static swig_cast_info _swigc__p_GLint[] = {  {&_swigt__p_GLint, 0, 0, 0},{0, 0, 
 static swig_cast_info _swigc__p_GestureData[] = {  {&_swigt__p_GestureData, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_GridActor[] = {  {&_swigt__p_GridActor, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_MathUtil[] = {  {&_swigt__p_MathUtil, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_MazeFinder[] = {  {&_swigt__p_MazeFinder, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_Message[] = {  {&_swigt__p_TypedMessageT_Vec2ui_t, _p_TypedMessageT_Vec2ui_tTo_p_Message, 0, 0},  {&_swigt__p_TypedMessageT_Vec2i_t, _p_TypedMessageT_Vec2i_tTo_p_Message, 0, 0},  {&_swigt__p_TypedMessageT_std__string_t, _p_TypedMessageT_std__string_tTo_p_Message, 0, 0},  {&_swigt__p_TypedMessageT_Vec3i_t, _p_TypedMessageT_Vec3i_tTo_p_Message, 0, 0},  {&_swigt__p_Message, 0, 0, 0},  {&_swigt__p_TypedMessageT_Vector2_t, _p_TypedMessageT_Vector2_tTo_p_Message, 0, 0},  {&_swigt__p_TypedMessageT_Vec3ui_t, _p_TypedMessageT_Vec3ui_tTo_p_Message, 0, 0},  {&_swigt__p_TypedMessageT_int_t, _p_TypedMessageT_int_tTo_p_Message, 0, 0},  {&_swigt__p_TypedMessageT_float_t, _p_TypedMessageT_float_tTo_p_Message, 0, 0},  {&_swigt__p_TypedMessageT_Vector3_t, _p_TypedMessageT_Vector3_tTo_p_Message, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_MessageListener[] = {  {&_swigt__p_TextActor, _p_TextActorTo_p_MessageListener, 0, 0},  {&_swigt__p_Actor, _p_ActorTo_p_MessageListener, 0, 0},  {&_swigt__p_FullScreenActor, _p_FullScreenActorTo_p_MessageListener, 0, 0},  {&_swigt__p_MessageListener, 0, 0, 0},  {&_swigt__p_PhysicsActor, _p_PhysicsActorTo_p_MessageListener, 0, 0},  {&_swigt__p_ParticleActor, _p_ParticleActorTo_p_MessageListener, 0, 0},  {&_swigt__p_Camera, _p_CameraTo_p_MessageListener, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_MessageListener[] = {  {&_swigt__p_TextActor, _p_TextActorTo_p_MessageListener, 0, 0},  {&_swigt__p_Actor, _p_ActorTo_p_MessageListener, 0, 0},  {&_swigt__p_FullScreenActor, _p_FullScreenActorTo_p_MessageListener, 0, 0},  {&_swigt__p_MazeFinder, _p_MazeFinderTo_p_MessageListener, 0, 0},  {&_swigt__p_MessageListener, 0, 0, 0},  {&_swigt__p_PhysicsActor, _p_PhysicsActorTo_p_MessageListener, 0, 0},  {&_swigt__p_ParticleActor, _p_ParticleActorTo_p_MessageListener, 0, 0},  {&_swigt__p_Camera, _p_CameraTo_p_MessageListener, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_MouseListener[] = {  {&_swigt__p_MouseListener, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_ParticleActor[] = {  {&_swigt__p_ParticleActor, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_PhysicsActor[] = {  {&_swigt__p_PhysicsActor, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_Preferences[] = {  {&_swigt__p_Preferences, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_Renderable[] = {  {&_swigt__p_TextActor, _p_TextActorTo_p_Renderable, 0, 0},  {&_swigt__p_Actor, _p_ActorTo_p_Renderable, 0, 0},  {&_swigt__p_FullScreenActor, _p_FullScreenActorTo_p_Renderable, 0, 0},  {&_swigt__p_GridActor, _p_GridActorTo_p_Renderable, 0, 0},  {&_swigt__p_PhysicsActor, _p_PhysicsActorTo_p_Renderable, 0, 0},  {&_swigt__p_Renderable, 0, 0, 0},  {&_swigt__p_ParticleActor, _p_ParticleActorTo_p_Renderable, 0, 0},  {&_swigt__p_Camera, _p_CameraTo_p_Renderable, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_Renderable[] = {  {&_swigt__p_TextActor, _p_TextActorTo_p_Renderable, 0, 0},  {&_swigt__p_Actor, _p_ActorTo_p_Renderable, 0, 0},  {&_swigt__p_FullScreenActor, _p_FullScreenActorTo_p_Renderable, 0, 0},  {&_swigt__p_MazeFinder, _p_MazeFinderTo_p_Renderable, 0, 0},  {&_swigt__p_GridActor, _p_GridActorTo_p_Renderable, 0, 0},  {&_swigt__p_PhysicsActor, _p_PhysicsActorTo_p_Renderable, 0, 0},  {&_swigt__p_Renderable, 0, 0, 0},  {&_swigt__p_ParticleActor, _p_ParticleActorTo_p_Renderable, 0, 0},  {&_swigt__p_Camera, _p_CameraTo_p_Renderable, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_SoundDevice[] = {  {&_swigt__p_SoundDevice, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_Switchboard[] = {  {&_swigt__p_Switchboard, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_SystemLog[] = {  {&_swigt__p_SystemLog, 0, 0, 0},{0, 0, 0, 0}};
@@ -23384,6 +23475,7 @@ static swig_cast_info *swig_cast_initial[] = {
   _swigc__p_GestureData,
   _swigc__p_GridActor,
   _swigc__p_MathUtil,
+  _swigc__p_MazeFinder,
   _swigc__p_Message,
   _swigc__p_MessageListener,
   _swigc__p_MouseListener,
@@ -23617,147 +23709,6 @@ SWIG_InitializeModule(void *clientdata) {
 
 #ifdef SWIGRUNTIME_DEBUG
   printf("**** SWIG_InitializeModule: Cast List ******\n");
-  for (i = 0; i < swig_module.size; ++i) {
-    int j = 0;
-    swig_cast_info *cast = swig_module.cast_initial[i];
-    printf("SWIG_InitializeModule: type %d %s\n", i, swig_module.type_initial[i]->name);
-    while (cast->type) {
-      printf("SWIG_InitializeModule: cast type %s\n", cast->type->name);
-      cast++;
-      ++j;
-    }
-  printf("---- Total casts: %d\n",j);
-  }
-  printf("**** SWIG_InitializeModule: Cast List ******\n");
-#endif
-}
-
-/* This function will propagate the clientdata field of type to
-* any new swig_type_info structures that have been added into the list
-* of equivalent types.  It is like calling
-* SWIG_TypeClientData(type, clientdata) a second time.
-*/
-SWIGRUNTIME void
-SWIG_PropagateClientData(void) {
-  size_t i;
-  swig_cast_info *equiv;
-  static int init_run = 0;
-
-  if (init_run) return;
-  init_run = 1;
-
-  for (i = 0; i < swig_module.size; i++) {
-    if (swig_module.types[i]->clientdata) {
-      equiv = swig_module.types[i]->cast;
-      while (equiv) {
-        if (!equiv->converter) {
-          if (equiv->type && !equiv->type->clientdata)
-            SWIG_TypeClientData(equiv->type, swig_module.types[i]->clientdata);
-        }
-        equiv = equiv->next;
-      }
-    }
-  }
-}
-
-#ifdef __cplusplus
-#if 0
-{ /* c-mode */
-#endif
-}
-#endif
-
-
-
-/* Forward declaration of where the user's %init{} gets inserted */
-void SWIG_init_user(lua_State* L );
-    
-#ifdef __cplusplus
-extern "C" {
-#endif
-/* this is the initialization function
-  added at the very end of the code
-  the function is always called SWIG_init, but an eariler #define will rename it
-*/
-#if ((SWIG_LUA_TARGET == SWIG_LUA_FLAVOR_ELUA) || (SWIG_LUA_TARGET == SWIG_LUA_FLAVOR_ELUAC))
-LUALIB_API int SWIG_init(lua_State* L)
-#else
-SWIGEXPORT int SWIG_init(lua_State* L) /* default Lua action */
-#endif
-{
-#if (SWIG_LUA_TARGET != SWIG_LUA_FLAVOR_ELUAC) /* valid for both Lua and eLua */
-  int i;
-  /* start with global table */
-  lua_pushglobaltable (L);
-  /* SWIG's internal initalisation */
-  SWIG_InitializeModule((void*)L);
-  SWIG_PropagateClientData();
-#endif
-
-#if ((SWIG_LUA_TARGET != SWIG_LUA_FLAVOR_ELUA) && (SWIG_LUA_TARGET != SWIG_LUA_FLAVOR_ELUAC))
-  /* add a global fn */
-  SWIG_Lua_add_function(L,"swig_type",SWIG_Lua_type);
-  SWIG_Lua_add_function(L,"swig_equals",SWIG_Lua_equal);
-  /* begin the module (its a table with the same name as the module) */
-  SWIG_Lua_module_begin(L,SWIG_name);
-  /* add commands/functions */
-  for (i = 0; swig_commands[i].name; i++){
-    SWIG_Lua_module_add_function(L,swig_commands[i].name,swig_commands[i].func);
-  }
-  /* add variables */
-  for (i = 0; swig_variables[i].name; i++){
-    SWIG_Lua_module_add_variable(L,swig_variables[i].name,swig_variables[i].get,swig_variables[i].set);
-  }
-#endif
-
-#if (SWIG_LUA_TARGET != SWIG_LUA_FLAVOR_ELUAC)
-  /* set up base class pointers (the hierachy) */
-  for (i = 0; swig_types[i]; i++){
-    if (swig_types[i]->clientdata){
-      SWIG_Lua_init_base_class(L,(swig_lua_class*)(swig_types[i]->clientdata));
-    }
-  }
-  /* additional registration structs & classes in lua */
-  for (i = 0; swig_types[i]; i++){
-    if (swig_types[i]->clientdata){
-      SWIG_Lua_class_register(L,(swig_lua_class*)(swig_types[i]->clientdata));
-    }
-  }
-#endif
-
-#if ((SWIG_LUA_TARGET != SWIG_LUA_FLAVOR_ELUA) && (SWIG_LUA_TARGET != SWIG_LUA_FLAVOR_ELUAC))
-  /* constants */
-  SWIG_Lua_InstallConstants(L,swig_constants);
-#endif
-
-#if (SWIG_LUA_TARGET != SWIG_LUA_FLAVOR_ELUAC)
-  /* invoke user-specific initialization */
-  SWIG_init_user(L);
-  /* end module */
-  /* Note: We do not clean up the stack here (Lua will do this for us). At this
-     point, we have the globals table and out module table on the stack. Returning
-     one value makes the module table the result of the require command. */
-  return 1;
-#else
-  return 0;
-#endif
-}
-
-#ifdef __cplusplus
-}
-#endif
-
-
-const char* SWIG_LUACODE=
-  "";
-
-void SWIG_init_user(lua_State* L)
-{
-  /* exec Lua code if applicable */
-  SWIG_Lua_dostring(L,SWIG_LUACODE);
-}
-
-* SWIG_InitializeModule: Cast List ******\n");
   for (i = 0; i < swig_module.size; ++i) {
     int j = 0;
     swig_cast_info *cast = swig_module.cast_initial[i];
