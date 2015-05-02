@@ -140,6 +140,61 @@ void Player::Update(float dt){
 			this->GetBody()->SetLinearVelocity(b2Vec2(this->GetBody()->GetLinearVelocity().x, 0));
 		}
 
+		switch (powerLevel){
+		case 1:
+			score += 0;
+			break;
+		case 2:
+			currentUpgradeFrame++;
+			if (currentUpgradeFrame >= 30){
+				currentUpgradeFrame = 0;
+				score += 1;
+			}
+			break;
+		case 3:
+			currentUpgradeFrame++;
+			if (currentUpgradeFrame >= 30){
+				currentUpgradeFrame = 0;
+				score += 1;
+			}
+			break;
+		case 4:
+			currentUpgradeFrame++;
+			if (currentUpgradeFrame >= 30){
+				currentUpgradeFrame = 0;
+				score += 2;
+			}
+			break;
+		case 5:
+			currentUpgradeFrame++;
+			if (currentUpgradeFrame >= 30){
+				currentUpgradeFrame = 0;
+				score += 1;
+			}
+			break;
+		case 6:
+			currentUpgradeFrame++;
+			if (currentUpgradeFrame >= 30){
+				currentUpgradeFrame = 0;
+				score += 2;
+			}
+			break;
+		case 7:
+			currentUpgradeFrame++;
+			if (currentUpgradeFrame >= 30){
+				currentUpgradeFrame = 0;
+				score += 2;
+			}
+			break;
+		case 8:
+			currentUpgradeFrame++;
+			if (currentUpgradeFrame >= 30){
+				currentUpgradeFrame = 0;
+				score += 3;
+			}
+			break;
+		}
+
 		animateHit();
 	}
 	if (health <= 0 && !dying){ //player blows up if they die
